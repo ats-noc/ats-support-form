@@ -1748,84 +1748,118 @@ html {
         
         // Función para formatear los datos como texto
         function formatTicketData() {
-            const serviceType = serviceTypeSelect.value;
-            let formattedData = '';
-            let subject = '';
-            
-            // Helper para obtener datos comunes
-            const getCommonData = (prefix) => {
-                const solicitante = document.querySelector(`[name="solicitante_${prefix}"]`)?.value || '';
-                const telefono = document.querySelector(`[name="numero_contacto_${prefix}"]`)?.value || '';
-                const pais = document.querySelector(`[name="pais_${prefix}"]`)?.value || '';
-                const caseSubject = document.querySelector(`[name="case_subject_${prefix}"]`)?.value || document.querySelector(`[name="subject_${prefix}"]`)?.value || '';
-                const description = document.querySelector(`[name="description_${prefix}"]`)?.value || document.querySelector(`[name="case_description_${prefix}"]`)?.value || '';
-                const prioridad = document.querySelector(`[name="prioridad_${prefix}"]`)?.value || '';
-                
-                return {
-                    solicitante,
-                    telefono,
-                    pais,
-                    caseSubject,
-                    description,
-                    prioridad
-                };
-            };
-            
-            // Según el servicio
-            if (serviceType === 'progress') {
-                const data = getCommonData('progress');
-                const serial = document.querySelector('[name="numero_serie_progress"]')?.value || '';
-                const subject_field = document.querySelector('[name="subject_progress"]')?.value || '';
-                
-                console.log('🔍 DEBUG Progress:', {
-                    serial: serial,
-                    subject_field: subject_field,
-                    solicitante: data.solicitante,
-                    description: data.description
-                });
-                
-                subject = '[Progress] ' + data.caseSubject;
-                formattedData = `
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📄 SOLICITUD DE SOPORTE PROGRESS
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-👤 INFORMACIÓN DEL SOLICITANTE
-──────────────────────────────────────────
-📧 Email:      ${data.solicitante}
-📱 Teléfono:   ${data.telefono}
-🌎 País:       ${data.pais}
-
-
-🔧 INFORMACIÓN TÉCNICA
-──────────────────────────────────────────
-🔢 Serial Number:      ${serial}
-📋 Subject:            ${subject_field}
-
-
-⚡ PRIORIDAD
-──────────────────────────────────────────
-${data.prioridad}
-
-
-📝 DESCRIPCIÓN DEL CASO
-──────────────────────────────────────────
-${data.description}
-
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🎯 Ticket generado desde el Portal de Soporte de Adistec
+    const serviceType = serviceTypeSelect.value;
+    let formattedData = '';
+    let subject = '';
+    
+    // Helper para obtener datos comunes
+    const getCommonData = (prefix) => {
+        const solicitante = document.querySelector(`[name="solicitante_${prefix}"]`)?.value || '';
+        const telefono = document.querySelector(`[name="numero_contacto_${prefix}"]`)?.value || '';
+        const pais = document.querySelector(`[name="pais_${prefix}"]`)?.value || '';
+        const caseSubject = document.querySelector(`[name="case_subject_${prefix}"]`)?.value || document.querySelector(`[name="subject_${prefix}"]`)?.value || '';
+        const description = document.querySelector(`[name="description_${prefix}"]`)?.value || document.querySelector(`[name="case_description_${prefix}"]`)?.value || '';
+        const prioridad = document.querySelector(`[name="prioridad_${prefix}"]`)?.value || '';
+        
+        return {
+            solicitante,
+            telefono,
+            pais,
+            caseSubject,
+            description,
+            prioridad
+        };
+    };
+    
+    // Helper para determinar color de prioridad
+    const getPriorityColor = (prioridad) => {
+        const p = prioridad.toLowerCase();
+        if (p === 'crítica' || p === 'critical') return '#E74C3C';
+        if (p === 'alta' || p === 'high') return '#E67E22';
+        if (p === 'media' || p === 'medium') return '#F39C12';
+        return '#27AE60';
+    };
+    
+    // ═══════════════════════════════════════════════════════════════
+    // PROGRESS
+    // ═══════════════════════════════════════════════════════════════
+    if (serviceType === 'progress') {
+        const data = getCommonData('progress');
+        const serial = document.querySelector('[name="numero_serie_progress"]')?.value || '';
+        const subject_field = document.querySelector('[name="subject_progress"]')?.value || '';
+        
+        subject = '[Progress] ' + subject_field;
+        formattedData = `
+<div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 800px; margin: 0 auto;">
+    <div style="background: linear-gradient(135deg, #1E6FCC 0%, #144A8C 100%); color: white; padding: 20px; border-radius: 8px 8px 0 0;">
+        <h2 style="margin: 0; font-size: 22px; font-weight: 600;">📄 SOLICITUD DE SOPORTE PROGRESS</h2>
+    </div>
+    
+    <div style="background: #f8f9fa; padding: 20px; border-radius: 0 0 8px 8px;">
+        <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 16px; border-left: 4px solid #1E6FCC; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <h3 style="margin: 0 0 16px 0; color: #1E6FCC; font-size: 16px; font-weight: 600;">👤 INFORMACIÓN DEL SOLICITANTE</h3>
+            <table style="width: 100%; border-collapse: collapse;">
+                <tr>
+                    <td style="padding: 8px 0; font-weight: 600; color: #555; width: 140px;">📧 Email:</td>
+                    <td style="padding: 8px 0; color: #333;">${data.solicitante}</td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px 0; font-weight: 600; color: #555;">📱 Teléfono:</td>
+                    <td style="padding: 8px 0; color: #333;">${data.telefono}</td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px 0; font-weight: 600; color: #555;">🌎 País:</td>
+                    <td style="padding: 8px 0; color: #333;">${data.pais}</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 16px; border-left: 4px solid #4A90E2; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <h3 style="margin: 0 0 16px 0; color: #4A90E2; font-size: 16px; font-weight: 600;">🔧 INFORMACIÓN TÉCNICA</h3>
+            <table style="width: 100%; border-collapse: collapse;">
+                <tr>
+                    <td style="padding: 8px 0; font-weight: 600; color: #555; width: 140px;">🔢 Serial Number:</td>
+                    <td style="padding: 8px 0; color: #333;">${serial}</td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px 0; font-weight: 600; color: #555;">📋 Subject:</td>
+                    <td style="padding: 8px 0; color: #333;">${subject_field}</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 16px; border-left: 4px solid ${getPriorityColor(data.prioridad)}; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <h3 style="margin: 0 0 16px 0; color: ${getPriorityColor(data.prioridad)}; font-size: 16px; font-weight: 600;">⚡ PRIORIDAD</h3>
+            <div style="display: inline-block; padding: 8px 16px; background: ${getPriorityColor(data.prioridad)}; color: white; border-radius: 20px; font-weight: 600; font-size: 14px;">
+                ${data.prioridad}
+            </div>
+        </div>
+        
+        <div style="background: white; padding: 20px; border-radius: 8px; border-left: 4px solid #9B59B6; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <h3 style="margin: 0 0 16px 0; color: #9B59B6; font-size: 16px; font-weight: 600;">📝 DESCRIPCIÓN DEL CASO</h3>
+            <div style="padding: 16px; background: #f8f9fa; border-radius: 6px; line-height: 1.6; color: #333; white-space: pre-wrap;">${data.description}</div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 24px; padding-top: 20px; border-top: 2px solid #dee2e6; color: #6c757d; font-size: 13px;">
+            🎯 Ticket generado desde el Portal de Soporte de Adistec
+        </div>
+    </div>
+</div>
 `;
-                
-            } else if (serviceType === 'ais') {
-                const subType = aisSubTypeSelect.value;
-                const data = getCommonData(subType);
-                const serial = document.querySelector(`[name="serial_number_${subType}"]`)?.value || '';
-                const fakChecked = document.querySelector(`[name="fak_checkbox_${subType}"]`)?.checked;
-                const fakNumber = fakChecked ? document.querySelector(`[name="fak_number_${subType}"]`)?.value : '';
-                
-                subject = `[AIS - ${subType.toUpperCase()}] ` + data.caseSubject;
-                formattedData = `
+    }
+    
+    // ═══════════════════════════════════════════════════════════════
+    // LOS DEMÁS SERVICIOS (AIS, AEC, AWLC, LABS, EDUCATION)
+    // Mantén el formato que tenías antes (texto plano) o actualízalos después
+    // ═══════════════════════════════════════════════════════════════
+    else if (serviceType === 'ais') {
+        const subType = aisSubTypeSelect.value;
+        const data = getCommonData(subType);
+        const serial = document.querySelector(`[name="numero_serie_${subType}"]`)?.value || '';
+        const fakChecked = document.querySelector(`[name="fak_${subType}"]`)?.checked;
+        
+        subject = `[AIS - ${subType.toUpperCase()}] ` + data.caseSubject;
+        formattedData = `
 === SOLICITUD DE SOPORTE AIS - ${subType.toUpperCase()} ===
 
 INFORMACIÓN DEL SOLICITANTE:
@@ -1836,7 +1870,7 @@ INFORMACIÓN DEL SOLICITANTE:
 INFORMACIÓN TÉCNICA:
 - Fabricante: ${subType}
 - Serial Number: ${serial}
-${fakNumber ? '- FAK Number: ' + fakNumber : ''}
+${fakChecked ? '- FAK: Incluido' : ''}
 
 PRIORIDAD: ${data.prioridad}
 
@@ -1846,12 +1880,13 @@ ${data.description}
 ---
 Ticket generado desde el Portal de Soporte de Adistec
 `;
-                
-            } else if (serviceType === 'aec') {
-                const data = getCommonData('aec');
-                
-                subject = '[AEC] ' + data.caseSubject;
-                formattedData = `
+    }
+    
+    else if (serviceType === 'aec') {
+        const data = getCommonData('aec');
+        
+        subject = '[AEC] ' + data.caseSubject;
+        formattedData = `
 === SOLICITUD DE SOPORTE AEC (ADISTEC ENTERPRISE CLOUD) ===
 
 INFORMACIÓN DEL SOLICITANTE:
@@ -1867,13 +1902,14 @@ ${data.description}
 ---
 Ticket generado desde el Portal de Soporte de Adistec
 `;
-                
-            } else if (serviceType === 'awlc') {
-                const subType = awlcSubTypeSelect.value;
-                const data = getCommonData(subType);
-                
-                subject = `[AWLC - ${subType.toUpperCase()}] ` + data.caseSubject;
-                formattedData = `
+    }
+    
+    else if (serviceType === 'awlc') {
+        const subType = awlcSubTypeSelect.value;
+        const data = getCommonData(subType);
+        
+        subject = `[AWLC - ${subType.toUpperCase()}] ` + data.caseSubject;
+        formattedData = `
 === SOLICITUD DE SOPORTE AWLC - ${subType.toUpperCase()} ===
 
 INFORMACIÓN DEL SOLICITANTE:
@@ -1889,21 +1925,22 @@ ${data.description}
 ---
 Ticket generado desde el Portal de Soporte de Adistec
 `;
-                
-            } else if (serviceType === 'labs') {
-                const data = getCommonData('labs');
-                const vpodScope = document.getElementById('vpodScope')?.value;
-                const vpodDetail = document.getElementById('vpodDetailInput')?.value;
-                let vpodInfo = '';
-                
-                if (vpodScope === 'all') {
-                    vpodInfo = 'Todos los vPods';
-                } else if (vpodScope && vpodDetail) {
-                    vpodInfo = vpodDetail;
-                }
-                
-                subject = '[Labs] ' + data.caseSubject;
-                formattedData = `
+    }
+    
+    else if (serviceType === 'labs') {
+        const data = getCommonData('labs');
+        const vpodScope = document.getElementById('vpodScope')?.value;
+        const vpodDetail = document.getElementById('vpodDetailInput')?.value;
+        let vpodInfo = '';
+        
+        if (vpodScope === 'all') {
+            vpodInfo = 'Todos los vPods';
+        } else if (vpodScope && vpodDetail) {
+            vpodInfo = vpodDetail;
+        }
+        
+        subject = '[Labs] ' + data.caseSubject;
+        formattedData = `
 === SOLICITUD DE SOPORTE LABS ===
 
 INFORMACIÓN DEL SOLICITANTE:
@@ -1922,13 +1959,14 @@ ${data.description}
 ---
 Ticket generado desde el Portal de Soporte de Adistec
 `;
-                
-            } else if (serviceType === 'education') {
-                const data = getCommonData('education');
-                const vendor = document.querySelector('[name="vendor_education"]')?.value || '';
-                
-                subject = '[Education] ' + data.caseSubject;
-                formattedData = `
+    }
+    
+    else if (serviceType === 'education') {
+        const data = getCommonData('education');
+        const vendor = document.querySelector('[name="vendor_education"]')?.value || '';
+        
+        subject = '[Education] ' + data.caseSubject;
+        formattedData = `
 === SOLICITUD DE SOPORTE EDUCATION ===
 
 INFORMACIÓN DEL SOLICITANTE:
@@ -1947,16 +1985,16 @@ ${data.description}
 ---
 Ticket generado desde el Portal de Soporte de Adistec
 `;
-            }
-            
-            return {
-                subject: subject,
-                description: formattedData,
-                email: getCommonData(serviceType === 'ais' ? aisSubTypeSelect.value : 
-                                    serviceType === 'awlc' ? awlcSubTypeSelect.value : 
-                                    serviceType).solicitante
-            };
-        }
+    }
+    
+    return {
+        subject: subject,
+        description: formattedData,
+        email: getCommonData(serviceType === 'ais' ? aisSubTypeSelect.value : 
+                            serviceType === 'awlc' ? awlcSubTypeSelect.value : 
+                            serviceType).solicitante
+    };
+}
         
         // Función para enviar mediante el formulario nativo
         function submitToFreshserviceNative(ticketData) {
