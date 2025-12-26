@@ -1511,7 +1511,7 @@
                 const telefono = document.querySelector(`[name="numero_contacto_${prefix}"]`)?.value || '';
                 const pais = document.querySelector(`[name="pais_${prefix}"]`)?.value || '';
                 const caseSubject = document.querySelector(`[name="case_subject_${prefix}"]`)?.value || document.querySelector(`[name="subject_${prefix}"]`)?.value || '';
-                const description = document.querySelector(`[name="case_description_${prefix}"]`)?.value || '';
+                const description = document.querySelector(`[name="description_${prefix}"]`)?.value || document.querySelector(`[name="case_description_${prefix}"]`)?.value || '';
                 const prioridad = document.querySelector(`[name="prioridad_${prefix}"]`)?.value || '';
                 
                 return {
