@@ -1742,14 +1742,12 @@ html {
         
         
 
-       // ═══════════════════════════════════════════════════════════════════
-// REEMPLAZA LA FUNCIÓN formatTicketData() COMPLETA CON ESTO
-// Busca: function formatTicketData() {
-// Borra toda la función hasta el cierre }
-// Pega esto:
-// ═══════════════════════════════════════════════════════════════════
-
-function formatTicketData() {
+        // ========================================
+        // INTEGRACIÓN CON FORMULARIO NATIVO DE FRESHSERVICE
+        // ========================================
+        
+        // Función para formatear los datos como texto
+        function formatTicketData() {
     const serviceType = serviceTypeSelect.value;
     let formattedData = '';
     let subject = '';
@@ -1997,8 +1995,6 @@ Ticket generado desde el Portal de Soporte de Adistec
                             serviceType).solicitante
     };
 }
-
-//aqui termina
         
         // Función para enviar mediante el formulario nativo
         function submitToFreshserviceNative(ticketData) {
