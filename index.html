@@ -1747,7 +1747,8 @@ html {
         // ========================================
         
         // Función para formatear los datos como texto
-        function formatTicketData() {
+
+    function formatTicketData() {
     const serviceType = serviceTypeSelect.value;
     let formattedData = '';
     let subject = '';
@@ -1771,7 +1772,7 @@ html {
         };
     };
     
-    // Helper para determinar color de prioridad
+    // Helper para color de prioridad
     const getPriorityColor = (prioridad) => {
         const p = prioridad.toLowerCase();
         if (p === 'crítica' || p === 'critical') return '#E74C3C';
@@ -1780,65 +1781,16 @@ html {
         return '#27AE60';
     };
     
-    // ═══════════════════════════════════════════════════════════════
-    // PROGRESS
-    // ═══════════════════════════════════════════════════════════════
-    if (serviceType === 'progress') {
-        const data = getCommonData('progress');
-        const serial = document.querySelector('[name="numero_serie_progress"]')?.value || '';
-        const subject_field = document.querySelector('[name="subject_progress"]')?.value || '';
-        
-        subject = '[Progress] ' + subject_field;
-        formattedData = `
+    // Template HTML base
+    const createHTMLTemplate = (title, emoji, sections) => {
+        return `
 <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 800px; margin: 0 auto;">
     <div style="background: linear-gradient(135deg, #1E6FCC 0%, #144A8C 100%); color: white; padding: 20px; border-radius: 8px 8px 0 0;">
-        <h2 style="margin: 0; font-size: 22px; font-weight: 600;">📄 SOLICITUD DE SOPORTE PROGRESS</h2>
+        <h2 style="margin: 0; font-size: 22px; font-weight: 600;">${emoji} ${title}</h2>
     </div>
     
     <div style="background: #f8f9fa; padding: 20px; border-radius: 0 0 8px 8px;">
-        <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 16px; border-left: 4px solid #1E6FCC; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-            <h3 style="margin: 0 0 16px 0; color: #1E6FCC; font-size: 16px; font-weight: 600;">👤 INFORMACIÓN DEL SOLICITANTE</h3>
-            <table style="width: 100%; border-collapse: collapse;">
-                <tr>
-                    <td style="padding: 8px 0; font-weight: 600; color: #555; width: 140px;">📧 Email:</td>
-                    <td style="padding: 8px 0; color: #333;">${data.solicitante}</td>
-                </tr>
-                <tr>
-                    <td style="padding: 8px 0; font-weight: 600; color: #555;">📱 Teléfono:</td>
-                    <td style="padding: 8px 0; color: #333;">${data.telefono}</td>
-                </tr>
-                <tr>
-                    <td style="padding: 8px 0; font-weight: 600; color: #555;">🌎 País:</td>
-                    <td style="padding: 8px 0; color: #333;">${data.pais}</td>
-                </tr>
-            </table>
-        </div>
-        
-        <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 16px; border-left: 4px solid #4A90E2; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-            <h3 style="margin: 0 0 16px 0; color: #4A90E2; font-size: 16px; font-weight: 600;">🔧 INFORMACIÓN TÉCNICA</h3>
-            <table style="width: 100%; border-collapse: collapse;">
-                <tr>
-                    <td style="padding: 8px 0; font-weight: 600; color: #555; width: 140px;">🔢 Serial Number:</td>
-                    <td style="padding: 8px 0; color: #333;">${serial}</td>
-                </tr>
-                <tr>
-                    <td style="padding: 8px 0; font-weight: 600; color: #555;">📋 Subject:</td>
-                    <td style="padding: 8px 0; color: #333;">${subject_field}</td>
-                </tr>
-            </table>
-        </div>
-        
-        <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 16px; border-left: 4px solid ${getPriorityColor(data.prioridad)}; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-            <h3 style="margin: 0 0 16px 0; color: ${getPriorityColor(data.prioridad)}; font-size: 16px; font-weight: 600;">⚡ PRIORIDAD</h3>
-            <div style="display: inline-block; padding: 8px 16px; background: ${getPriorityColor(data.prioridad)}; color: white; border-radius: 20px; font-weight: 600; font-size: 14px;">
-                ${data.prioridad}
-            </div>
-        </div>
-        
-        <div style="background: white; padding: 20px; border-radius: 8px; border-left: 4px solid #9B59B6; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-            <h3 style="margin: 0 0 16px 0; color: #9B59B6; font-size: 16px; font-weight: 600;">📝 DESCRIPCIÓN DEL CASO</h3>
-            <div style="padding: 16px; background: #f8f9fa; border-radius: 6px; line-height: 1.6; color: #333; white-space: pre-wrap;">${data.description}</div>
-        </div>
+        ${sections.join('')}
         
         <div style="text-align: center; margin-top: 24px; padding-top: 20px; border-top: 2px solid #dee2e6; color: #6c757d; font-size: 13px;">
             🎯 Ticket generado desde el Portal de Soporte de Adistec
@@ -1846,145 +1798,232 @@ html {
     </div>
 </div>
 `;
+    };
+    
+    const createSection = (title, color, rows) => {
+        return `
+<div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 16px; border-left: 4px solid ${color}; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+    <h3 style="margin: 0 0 16px 0; color: ${color}; font-size: 16px; font-weight: 600;">${title}</h3>
+    <table style="width: 100%; border-collapse: collapse;">
+        ${rows.map(row => `
+        <tr>
+            <td style="padding: 8px 0; font-weight: 600; color: #555; width: 160px;">${row.label}</td>
+            <td style="padding: 8px 0; color: #333;">${row.value}</td>
+        </tr>
+        `).join('')}
+    </table>
+</div>
+`;
+    };
+    
+    const createPrioritySection = (prioridad) => {
+        const color = getPriorityColor(prioridad);
+        return `
+<div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 16px; border-left: 4px solid ${color}; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+    <h3 style="margin: 0 0 16px 0; color: ${color}; font-size: 16px; font-weight: 600;">⚡ PRIORIDAD</h3>
+    <div style="display: inline-block; padding: 8px 16px; background: ${color}; color: white; border-radius: 20px; font-weight: 600; font-size: 14px;">
+        ${prioridad}
+    </div>
+</div>
+`;
+    };
+    
+    const createDescriptionSection = (description) => {
+        return `
+<div style="background: white; padding: 20px; border-radius: 8px; border-left: 4px solid #9B59B6; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+    <h3 style="margin: 0 0 16px 0; color: #9B59B6; font-size: 16px; font-weight: 600;">📝 DESCRIPCIÓN DEL CASO</h3>
+    <div style="padding: 16px; background: #f8f9fa; border-radius: 6px; line-height: 1.6; color: #333; white-space: pre-wrap;">${description}</div>
+</div>
+`;
+    };
+    
+    // ═══════════════════════════════════════════════════════════════
+    // 1. PROGRESS
+    // ═══════════════════════════════════════════════════════════════
+    if (serviceType === 'progress') {
+        const data = getCommonData('progress');
+        const serial = document.querySelector('[name="numero_serie_progress"]')?.value || '';
+        const subject_field = document.querySelector('[name="subject_progress"]')?.value || '';
+        
+        subject = '[Progress] ' + subject_field;
+        
+        const sections = [
+            createSection('👤 INFORMACIÓN DEL SOLICITANTE', '#1E6FCC', [
+                { label: '📧 Email:', value: data.solicitante },
+                { label: '📱 Teléfono:', value: data.telefono },
+                { label: '🌎 País:', value: data.pais }
+            ]),
+            createSection('🔧 INFORMACIÓN TÉCNICA', '#4A90E2', [
+                { label: '🔢 Serial Number:', value: serial },
+                { label: '📋 Subject:', value: subject_field }
+            ]),
+            createPrioritySection(data.prioridad),
+            createDescriptionSection(data.description)
+        ];
+        
+        formattedData = createHTMLTemplate('SOLICITUD DE SOPORTE PROGRESS', '📄', sections);
     }
     
     // ═══════════════════════════════════════════════════════════════
-    // LOS DEMÁS SERVICIOS (AIS, AEC, AWLC, LABS, EDUCATION)
-    // Mantén el formato que tenías antes (texto plano) o actualízalos después
+    // 2. AIS (INTEL / SUPERMICRO)
     // ═══════════════════════════════════════════════════════════════
     else if (serviceType === 'ais') {
         const subType = aisSubTypeSelect.value;
         const data = getCommonData(subType);
         const serial = document.querySelector(`[name="numero_serie_${subType}"]`)?.value || '';
+        const motherboard = document.querySelector(`[name="motherboard_${subType}"]`)?.value || '';
         const fakChecked = document.querySelector(`[name="fak_${subType}"]`)?.checked;
         
         subject = `[AIS - ${subType.toUpperCase()}] ` + data.caseSubject;
-        formattedData = `
-=== SOLICITUD DE SOPORTE AIS - ${subType.toUpperCase()} ===
-
-INFORMACIÓN DEL SOLICITANTE:
-- Nombre: ${data.solicitante}
-- Teléfono: ${data.telefono}
-- País: ${data.pais}
-
-INFORMACIÓN TÉCNICA:
-- Fabricante: ${subType}
-- Serial Number: ${serial}
-${fakChecked ? '- FAK: Incluido' : ''}
-
-PRIORIDAD: ${data.prioridad}
-
-DESCRIPCIÓN DEL CASO:
-${data.description}
-
----
-Ticket generado desde el Portal de Soporte de Adistec
-`;
+        
+        const techRows = [
+            { label: '🏭 Fabricante:', value: subType.toUpperCase() },
+            { label: '🔢 Serial Number:', value: serial }
+        ];
+        
+        if (motherboard) {
+            techRows.push({ label: '💾 MotherBoard:', value: motherboard });
+        }
+        
+        if (fakChecked) {
+            techRows.push({ label: '🔧 FAK:', value: '✅ Incluido' });
+        }
+        
+        const sections = [
+            createSection('👤 INFORMACIÓN DEL SOLICITANTE', '#1E6FCC', [
+                { label: '📧 Email:', value: data.solicitante },
+                { label: '📱 Teléfono:', value: data.telefono },
+                { label: '🌎 País:', value: data.pais }
+            ]),
+            createSection('🔧 INFORMACIÓN TÉCNICA', '#4A90E2', techRows),
+            createPrioritySection(data.prioridad),
+            createDescriptionSection(data.description)
+        ];
+        
+        formattedData = createHTMLTemplate(`SOLICITUD DE SOPORTE AIS - ${subType.toUpperCase()}`, '💻', sections);
     }
     
+    // ═══════════════════════════════════════════════════════════════
+    // 3. AEC (ADISTEC ENTERPRISE CLOUD)
+    // ═══════════════════════════════════════════════════════════════
     else if (serviceType === 'aec') {
         const data = getCommonData('aec');
+        const partner = document.querySelector('[name="partner_integrador_aec"]')?.value || '';
+        const serviceId = document.querySelector('[name="service_id_aec"]')?.value || '';
+        const aecService = document.querySelector('[name="aec_service_adquirido"]')?.value || '';
         
         subject = '[AEC] ' + data.caseSubject;
-        formattedData = `
-=== SOLICITUD DE SOPORTE AEC (ADISTEC ENTERPRISE CLOUD) ===
-
-INFORMACIÓN DEL SOLICITANTE:
-- Nombre: ${data.solicitante}
-- Teléfono: ${data.telefono}
-- País: ${data.pais}
-
-PRIORIDAD: ${data.prioridad}
-
-DESCRIPCIÓN DEL CASO:
-${data.description}
-
----
-Ticket generado desde el Portal de Soporte de Adistec
-`;
+        
+        const sections = [
+            createSection('👤 INFORMACIÓN DEL SOLICITANTE', '#1E6FCC', [
+                { label: '📧 Email:', value: data.solicitante },
+                { label: '📱 Teléfono:', value: data.telefono },
+                { label: '🌎 País:', value: data.pais }
+            ]),
+            createSection('☁️ INFORMACIÓN DEL SERVICIO', '#4A90E2', [
+                { label: '🤝 Partner (Integrador):', value: partner },
+                { label: '🆔 Service ID:', value: serviceId },
+                { label: '📦 Servicio Adquirido:', value: aecService }
+            ]),
+            createPrioritySection(data.prioridad),
+            createDescriptionSection(data.description)
+        ];
+        
+        formattedData = createHTMLTemplate('SOLICITUD DE SOPORTE AEC', '☁️', sections);
     }
     
+    // ═══════════════════════════════════════════════════════════════
+    // 4. AWLC (WHITE LABEL CLOUD - VMWARE / VEEAM)
+    // ═══════════════════════════════════════════════════════════════
     else if (serviceType === 'awlc') {
         const subType = awlcSubTypeSelect.value;
         const data = getCommonData(subType);
+        const supportId = document.querySelector(`[name="soporte_id_${subType}"]`)?.value || '';
         
         subject = `[AWLC - ${subType.toUpperCase()}] ` + data.caseSubject;
-        formattedData = `
-=== SOLICITUD DE SOPORTE AWLC - ${subType.toUpperCase()} ===
-
-INFORMACIÓN DEL SOLICITANTE:
-- Nombre: ${data.solicitante}
-- Teléfono: ${data.telefono}
-- País: ${data.pais}
-
-PRIORIDAD: ${data.prioridad}
-
-DESCRIPCIÓN DEL CASO:
-${data.description}
-
----
-Ticket generado desde el Portal de Soporte de Adistec
-`;
+        
+        const techRows = [
+            { label: '🖥️ Plataforma:', value: subType.toUpperCase() }
+        ];
+        
+        if (supportId) {
+            techRows.push({ label: '🆔 Support ID:', value: supportId });
+        }
+        
+        const sections = [
+            createSection('👤 INFORMACIÓN DEL SOLICITANTE', '#1E6FCC', [
+                { label: '📧 Email:', value: data.solicitante },
+                { label: '📱 Teléfono:', value: data.telefono },
+                { label: '🌎 País:', value: data.pais }
+            ]),
+            createSection('🔧 INFORMACIÓN TÉCNICA', '#4A90E2', techRows),
+            createPrioritySection(data.prioridad),
+            createDescriptionSection(data.description)
+        ];
+        
+        formattedData = createHTMLTemplate(`SOLICITUD DE SOPORTE AWLC - ${subType.toUpperCase()}`, '🔄', sections);
     }
     
+    // ═══════════════════════════════════════════════════════════════
+    // 5. LABS
+    // ═══════════════════════════════════════════════════════════════
     else if (serviceType === 'labs') {
         const data = getCommonData('labs');
-        const vpodScope = document.getElementById('vpodScope')?.value;
-        const vpodDetail = document.getElementById('vpodDetailInput')?.value;
-        let vpodInfo = '';
+        const vpodScope = document.getElementById('vpodScope')?.value || '';
+        const vpodDetail = document.getElementById('vpodDetailInput')?.value || '';
+        const tipoproblema = document.querySelector('[name="tipo_problema_labs"]:checked')?.value || '';
         
+        let vpodInfo = 'No especificado';
         if (vpodScope === 'all') {
-            vpodInfo = 'Todos los vPods';
-        } else if (vpodScope && vpodDetail) {
-            vpodInfo = vpodDetail;
+            vpodInfo = '🌐 Todos los vPods';
+        } else if (vpodScope === 'one' && vpodDetail) {
+            vpodInfo = `📍 ${vpodDetail}`;
+        } else if (vpodScope === 'multiple' && vpodDetail) {
+            vpodInfo = `📍 Múltiples: ${vpodDetail}`;
         }
         
         subject = '[Labs] ' + data.caseSubject;
-        formattedData = `
-=== SOLICITUD DE SOPORTE LABS ===
-
-INFORMACIÓN DEL SOLICITANTE:
-- Nombre: ${data.solicitante}
-- Teléfono: ${data.telefono}
-- País: ${data.pais}
-
-INFORMACIÓN DEL vPOD:
-${vpodInfo ? '- vPOD Afectado: ' + vpodInfo : '- No aplica'}
-
-PRIORIDAD: ${data.prioridad}
-
-DESCRIPCIÓN DEL CASO:
-${data.description}
-
----
-Ticket generado desde el Portal de Soporte de Adistec
-`;
+        
+        const sections = [
+            createSection('👤 INFORMACIÓN DEL SOLICITANTE', '#1E6FCC', [
+                { label: '📧 Email:', value: data.solicitante },
+                { label: '📱 Teléfono:', value: data.telefono },
+                { label: '🌎 País:', value: data.pais }
+            ]),
+            createSection('🧪 INFORMACIÓN DEL LABORATORIO', '#4A90E2', [
+                { label: '🔍 Tipo de Problema:', value: tipoproblema === 'individual' ? 'Individual' : 'General' },
+                { label: '🖥️ vPod Afectado:', value: vpodInfo }
+            ]),
+            createPrioritySection(data.prioridad),
+            createDescriptionSection(data.description)
+        ];
+        
+        formattedData = createHTMLTemplate('SOLICITUD DE SOPORTE LABS', '🧪', sections);
     }
     
+    // ═══════════════════════════════════════════════════════════════
+    // 6. EDUCATION
+    // ═══════════════════════════════════════════════════════════════
     else if (serviceType === 'education') {
         const data = getCommonData('education');
         const vendor = document.querySelector('[name="vendor_education"]')?.value || '';
         
         subject = '[Education] ' + data.caseSubject;
-        formattedData = `
-=== SOLICITUD DE SOPORTE EDUCATION ===
-
-INFORMACIÓN DEL SOLICITANTE:
-- Nombre: ${data.solicitante}
-- Teléfono: ${data.telefono}
-- País: ${data.pais}
-
-INFORMACIÓN DEL CURSO:
-- Vendor: ${vendor}
-
-PRIORIDAD: ${data.prioridad}
-
-DESCRIPCIÓN DEL CASO:
-${data.description}
-
----
-Ticket generado desde el Portal de Soporte de Adistec
-`;
+        
+        const sections = [
+            createSection('👤 INFORMACIÓN DEL SOLICITANTE', '#1E6FCC', [
+                { label: '📧 Email:', value: data.solicitante },
+                { label: '📱 Teléfono:', value: data.telefono },
+                { label: '🌎 País:', value: data.pais }
+            ]),
+            createSection('🎓 INFORMACIÓN DEL CURSO', '#4A90E2', [
+                { label: '🏢 Vendor:', value: vendor }
+            ]),
+            createPrioritySection(data.prioridad),
+            createDescriptionSection(data.description)
+        ];
+        
+        formattedData = createHTMLTemplate('SOLICITUD DE SOPORTE EDUCATION', '🎓', sections);
     }
     
     return {
@@ -1995,6 +2034,7 @@ Ticket generado desde el Portal de Soporte de Adistec
                             serviceType).solicitante
     };
 }
+
         
         // Función para enviar mediante el formulario nativo
         function submitToFreshserviceNative(ticketData) {
