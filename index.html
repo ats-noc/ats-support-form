@@ -1655,7 +1655,7 @@ html {
                 console.log('🔎 Looking for element:', `form-${formId}`, 'Found:', formToShow);
                 if (formToShow) {
                     formToShow.classList.remove('hidden');
-                    const inputs = formToShow.querySelectorAll('input:not([type="file"]):not([name*="vpod"]):not([name*="credenciales"]):not([name*="attachments"]), textarea:not([name*="credenciales"]), select');
+                    const inputs = formToShow.querySelectorAll('input:not([type="file"]):not([type="checkbox"]):not([name*="vpod"]):not([name*="credenciales"]):not([name*="attachments"]), textarea:not([name*="credenciales"]), select');
                     inputs.forEach(input => {
                         if (input.hasAttribute('name')) {
                             input.required = true;
@@ -1869,18 +1869,28 @@ html {
     // 2. AIS (INTEL / SUPERMICRO)
     // ═══════════════════════════════════════════════════════════════
     else if (serviceType === 'ais') {
-        const subType = aisSubTypeSelect.value;
-        const data = getCommonData(subType);
-        const serial = document.querySelector(`[name="numero_serie_${subType}"]`)?.value || '';
-        const motherboard = document.querySelector(`[name="motherboard_${subType}"]`)?.value || '';
-        const fakChecked = document.querySelector(`[name="fak_${subType}"]`)?.checked;
-        
-        subject = `[AIS - ${subType.toUpperCase()}] ` + data.caseSubject;
-        
-        const techRows = [
-            { label: ' Fabricante:', value: subType.toUpperCase() },
-            { label: ' Serial Number:', value: serial }
-        ];
+    const subType = aisSubTypeSelect.value;
+    const aisProgram = aisProgramSelect.value; // ⬅️ NUEVO: Capturar programa
+    const data = getCommonData(subType);
+    const serial = document.querySelector(`[name="numero_serie_${subType}"]`)?.value || '';
+    const motherboard = document.querySelector(`[name="motherboard_${subType}"]`)?.value || '';
+    const fakChecked = document.querySelector(`[name="fak_${subType}"]`)?.checked;
+    
+    subject = `[AIS - ${subType.toUpperCase()}] ` + data.caseSubject;
+    
+    // ⬅️ NUEVO: Mapear nombres de programas
+    const programNames = {
+        'vrn': 'vSAN Ready Node (VRN)',
+        'dpa': 'Data Protection Appliance (DPA)',
+        'bto': 'Build To Order',
+        'nutanix': 'Nutanix Support Program'
+    };
+    
+    const techRows = [
+        { label: '📋 Programa:', value: programNames[aisProgram] || aisProgram.toUpperCase() }, // ⬅️ NUEVO
+        { label: '🏭 Fabricante:', value: subType.toUpperCase() },
+        { label: '🔢 Serial Number:', value: serial }
+    ];
         
         if (motherboard) {
             techRows.push({ label: ' MotherBoard:', value: motherboard });
