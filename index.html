@@ -922,7 +922,7 @@ html {
                                 Requester Name
                                 <span class="required">*</span>
                             </label>
-                            <input type="text" class="form-input" name="nombre_solicitante_supermicro" placeholder="Full name" required>
+                            <input type="email" class="form-input" name="solicitante_supermicro" placeholder="email@ejemplo.com" required>
                         </div>
 
                         <div class="form-section">
@@ -1010,15 +1010,16 @@ html {
                             <input type="file" class="form-file" name="attachments_supermicro" multiple>
                             <div class="field-hint">You can attach screenshots, logs, or relevant documents</div>
                         </div>
-                        <div class="form-section">
-                            <label class="form-label">
-                                First Aid Kit (FAK)
-                            </label>
-                            <div style="display: flex; align-items: center; gap: 10px; padding: 12px; background: #f8f9fa; border-radius: 8px; border: 2px solid #ddd;">
-                                <input type="checkbox" id="fak_supermicro" name="fak_supermicro" style="width: 20px; height: 20px; cursor: pointer; accent-color: #1E6FCC;">
-                                <label for="fak_supermicro" style="cursor: pointer; margin: 0; font-weight: 500;">Include First Aid Kit (FAK) service</label>
-                            </div>
-                        </div>
+                       <div class="form-section">
+    <label class="form-label">
+        First Aid Kit (FAK)
+        <span class="optional">(Optional)</span>
+    </label>
+    <div style="display: flex; align-items: center; gap: 10px; padding: 12px; background: #f8f9fa; border-radius: 8px; border: 2px solid #ddd;">
+        <input type="checkbox" id="fak_supermicro" name="fak_supermicro" style="width: 20px; height: 20px; cursor: pointer; accent-color: #1E6FCC;">
+        <label for="fak_supermicro" style="cursor: pointer; margin: 0; font-weight: 500;">Include First Aid Kit (FAK) service</label>
+    </div>
+</div>
 
 
                     </div>
@@ -1782,11 +1783,11 @@ html {
     };
     
     // Template HTML base
-    const createHTMLTemplate = (title, emoji, sections) => {
+    const createHTMLTemplate = (title, sections) => {
         return `
 <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 800px; margin: 0 auto;">
     <div style="background: linear-gradient(135deg, #1E6FCC 0%, #144A8C 100%); color: white; padding: 20px; border-radius: 8px 8px 0 0;">
-        <h2 style="margin: 0; font-size: 22px; font-weight: 600; color: white;">${emoji} ${title}</h2>
+        <h2 style="margin: 0; font-size: 22px; font-weight: 600; color: white;">${title}</h2>
     </div>
     
     <div style="background: #f8f9fa; padding: 20px; border-radius: 0 0 8px 8px;">
@@ -1848,20 +1849,20 @@ html {
         subject = '[Progress] ' + subject_field;
         
         const sections = [
-            createSection('👤 INFORMACIÓN DEL SOLICITANTE', '#1E6FCC', [
-                { label: '📧 Email:', value: data.solicitante },
-                { label: '📱 Teléfono:', value: data.telefono },
-                { label: '🌎 País:', value: data.pais }
+            createSection(' INFORMACIÓN DEL SOLICITANTE', '#1E6FCC', [
+                { label: ' Email:', value: data.solicitante },
+                { label: ' Teléfono:', value: data.telefono },
+                { label: ' País:', value: data.pais }
             ]),
-            createSection('🔧 INFORMACIÓN TÉCNICA', '#4A90E2', [
-                { label: '🔢 Serial Number:', value: serial },
-                { label: '📋 Subject:', value: subject_field }
+            createSection(' INFORMACIÓN TÉCNICA', '#4A90E2', [
+                { label: ' Serial Number:', value: serial },
+                { label: ' Subject:', value: subject_field }
             ]),
             createPrioritySection(data.prioridad),
             createDescriptionSection(data.description)
         ];
         
-        formattedData = createHTMLTemplate('SOLICITUD DE SOPORTE PROGRESS', '📄', sections);
+        formattedData = createHTMLTemplate('SOLICITUD DE SOPORTE PROGRESS', '', sections);
     }
     
     // ═══════════════════════════════════════════════════════════════
@@ -1877,30 +1878,30 @@ html {
         subject = `[AIS - ${subType.toUpperCase()}] ` + data.caseSubject;
         
         const techRows = [
-            { label: '🏭 Fabricante:', value: subType.toUpperCase() },
-            { label: '🔢 Serial Number:', value: serial }
+            { label: ' Fabricante:', value: subType.toUpperCase() },
+            { label: ' Serial Number:', value: serial }
         ];
         
         if (motherboard) {
-            techRows.push({ label: '💾 MotherBoard:', value: motherboard });
+            techRows.push({ label: ' MotherBoard:', value: motherboard });
         }
         
         if (fakChecked) {
-            techRows.push({ label: '🔧 FAK:', value: '✅ Incluido' });
+            techRows.push({ label: ' FAK:', value: '✅ Incluido' });
         }
         
         const sections = [
-            createSection('👤 INFORMACIÓN DEL SOLICITANTE', '#1E6FCC', [
-                { label: '📧 Email:', value: data.solicitante },
-                { label: '📱 Teléfono:', value: data.telefono },
-                { label: '🌎 País:', value: data.pais }
+            createSection(' INFORMACIÓN DEL SOLICITANTE', '#1E6FCC', [
+                { label: ' Email:', value: data.solicitante },
+                { label: ' Teléfono:', value: data.telefono },
+                { label: ' País:', value: data.pais }
             ]),
-            createSection('🔧 INFORMACIÓN TÉCNICA', '#4A90E2', techRows),
+            createSection(' INFORMACIÓN TÉCNICA', '#4A90E2', techRows),
             createPrioritySection(data.prioridad),
             createDescriptionSection(data.description)
         ];
         
-        formattedData = createHTMLTemplate(`SOLICITUD DE SOPORTE AIS - ${subType.toUpperCase()}`, '💻', sections);
+        formattedData = createHTMLTemplate(`SOLICITUD DE SOPORTE AIS - ${subType.toUpperCase()}`, '', sections);
     }
     
     // ═══════════════════════════════════════════════════════════════
@@ -1915,15 +1916,15 @@ html {
         subject = '[AEC] ' + data.caseSubject;
         
         const sections = [
-            createSection('👤 INFORMACIÓN DEL SOLICITANTE', '#1E6FCC', [
-                { label: '📧 Email:', value: data.solicitante },
-                { label: '📱 Teléfono:', value: data.telefono },
-                { label: '🌎 País:', value: data.pais }
+            createSection(' INFORMACIÓN DEL SOLICITANTE', '#1E6FCC', [
+                { label: ' Email:', value: data.solicitante },
+                { label: ' Teléfono:', value: data.telefono },
+                { label: ' País:', value: data.pais }
             ]),
-            createSection('☁️ INFORMACIÓN DEL SERVICIO', '#4A90E2', [
-                { label: '🤝 Partner (Integrador):', value: partner },
-                { label: '🆔 Service ID:', value: serviceId },
-                { label: '📦 Servicio Adquirido:', value: aecService }
+            createSection(' INFORMACIÓN DEL SERVICIO', '#4A90E2', [
+                { label: ' Partner (Integrador):', value: partner },
+                { label: ' Service ID:', value: serviceId },
+                { label: ' Servicio Adquirido:', value: aecService }
             ]),
             createPrioritySection(data.prioridad),
             createDescriptionSection(data.description)
@@ -1951,10 +1952,10 @@ html {
         }
         
         const sections = [
-            createSection('👤 INFORMACIÓN DEL SOLICITANTE', '#1E6FCC', [
-                { label: '📧 Email:', value: data.solicitante },
-                { label: '📱 Teléfono:', value: data.telefono },
-                { label: '🌎 País:', value: data.pais }
+            createSection(' INFORMACIÓN DEL SOLICITANTE', '#1E6FCC', [
+                { label: ' Email:', value: data.solicitante },
+                { label: ' Teléfono:', value: data.telefono },
+                { label: ' País:', value: data.pais }
             ]),
             createSection('🔧 INFORMACIÓN TÉCNICA', '#4A90E2', techRows),
             createPrioritySection(data.prioridad),
@@ -1975,24 +1976,24 @@ html {
         
         let vpodInfo = 'No especificado';
         if (vpodScope === 'all') {
-            vpodInfo = '🌐 Todos los vPods';
+            vpodInfo = ' Todos los vPods';
         } else if (vpodScope === 'one' && vpodDetail) {
-            vpodInfo = `📍 ${vpodDetail}`;
+            vpodInfo = ` ${vpodDetail}`;
         } else if (vpodScope === 'multiple' && vpodDetail) {
-            vpodInfo = `📍 Múltiples: ${vpodDetail}`;
+            vpodInfo = ` Múltiples: ${vpodDetail}`;
         }
         
         subject = '[Labs] ' + data.caseSubject;
         
         const sections = [
-            createSection('👤 INFORMACIÓN DEL SOLICITANTE', '#1E6FCC', [
-                { label: '📧 Email:', value: data.solicitante },
-                { label: '📱 Teléfono:', value: data.telefono },
-                { label: '🌎 País:', value: data.pais }
+            createSection(' INFORMACIÓN DEL SOLICITANTE', '#1E6FCC', [
+                { label: ' Email:', value: data.solicitante },
+                { label: ' Teléfono:', value: data.telefono },
+                { label: ' País:', value: data.pais }
             ]),
-            createSection('🧪 INFORMACIÓN DEL LABORATORIO', '#4A90E2', [
-                { label: '🔍 Tipo de Problema:', value: tipoproblema === 'individual' ? 'Individual' : 'General' },
-                { label: '🖥️ vPod Afectado:', value: vpodInfo }
+            createSection(' INFORMACIÓN DEL LABORATORIO', '#4A90E2', [
+                { label: ' Tipo de Problema:', value: tipoproblema === 'individual' ? 'Individual' : 'General' },
+                { label: ' vPod Afectado:', value: vpodInfo }
             ]),
             createPrioritySection(data.prioridad),
             createDescriptionSection(data.description)
@@ -2011,19 +2012,19 @@ html {
         subject = '[Education] ' + data.caseSubject;
         
         const sections = [
-            createSection('👤 INFORMACIÓN DEL SOLICITANTE', '#1E6FCC', [
-                { label: '📧 Email:', value: data.solicitante },
-                { label: '📱 Teléfono:', value: data.telefono },
-                { label: '🌎 País:', value: data.pais }
+            createSection(' INFORMACIÓN DEL SOLICITANTE', '#1E6FCC', [
+                { label: ' Email:', value: data.solicitante },
+                { label: ' Teléfono:', value: data.telefono },
+                { label: ' País:', value: data.pais }
             ]),
-            createSection('🎓 INFORMACIÓN DEL CURSO', '#4A90E2', [
-                { label: '🏢 Vendor:', value: vendor }
+            createSection(' INFORMACIÓN DEL CURSO', '#4A90E2', [
+                { label: ' Vendor:', value: vendor }
             ]),
             createPrioritySection(data.prioridad),
             createDescriptionSection(data.description)
         ];
         
-        formattedData = createHTMLTemplate('SOLICITUD DE SOPORTE EDUCATION', '🎓', sections);
+        formattedData = createHTMLTemplate('SOLICITUD DE SOPORTE EDUCATION', '', sections);
     }
     
     return {
@@ -2095,10 +2096,12 @@ html {
                 // Formatear datos
                 const ticketData = formatTicketData();
                 
-                if (!ticketData.email || !ticketData.email.includes('@')) {
-                    alert('⚠️ El campo "Solicitante" debe contener un email válido');
-                    return;
-                }
+               // Validación de email mejorada
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!ticketData.email || !emailRegex.test(ticketData.email)) {
+        alert('El campo "Solicitante" debe contener un email válido (ejemplo: usuario@empresa.com)');
+        return;
+    }
                 
                 // Mostrar loading
                 submitBtn.disabled = true;
