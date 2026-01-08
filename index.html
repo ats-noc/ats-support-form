@@ -790,7 +790,8 @@
                                 <span class="optional">(Optional)</span>
                             </label>
                             <input type="file" class="form-file" name="attachments_progress" multiple>
-                            <div class="field-hint">You can attach screenshots, logs, or relevant documents (max 40MB)</div>
+                            <div class="field-hint">You can attach screenshots, logs, or relevant documents (max 40MB)
+                            </div>
 
                             <!-- FTP para archivos grandes -->
                             <div class="ftp-section"
@@ -2211,24 +2212,29 @@
             // ═══════════════════════════════════════════════════════════════
             // DETECTAR SI NECESITA FTP (funciona para todos los forms)
             // ═══════════════════════════════════════════════════════════════
-            
+
             const activeForm = document.querySelector('.form-section:not(.hidden)');
             if (activeForm) {
                 const ftpCheckbox = activeForm.querySelector('.ftp-checkbox');
                 const ftpTextarea = activeForm.querySelector('.ftp-description');
-                
-                if (ftpCheckbox && ftpCheckbox.checked && ftpTextarea && ftpTextarea.value.trim()) {
+
+                // Si el checkbox está marcado, mostrar sección FTP
+                if (ftpCheckbox && ftpCheckbox.checked) {
+                    const ftpDescription = ftpTextarea && ftpTextarea.value.trim()
+                        ? ftpTextarea.value
+                        : 'Cliente marcó la opción pero no especificó archivos';
+
                     const ftpSection = createSection('📤 ARCHIVOS GRANDES - FTP REQUERIDO', '#FF9800', [
-                        { label: '⚠️ Estado:', value: '🔴 REQUIERE CREDENCIALES FTP' },
-                        { label: '📝 Archivos a subir:', value: ftpTextarea.value }
+                        { label: '🔴 ACCIÓN REQUERIDA:', value: 'Enviar credenciales FTP al cliente' },
+                        { label: '📧 Email del cliente:', value: ticketData.email || 'Ver en datos del solicitante' },
+                        { label: '📝 Descripción de archivos:', value: ftpDescription }
                     ]);
-                    
+
                     // Buscar el cierre del div principal y agregar antes
                     const lastDivIndex = formattedData.lastIndexOf('</div>');
                     formattedData = formattedData.substring(0, lastDivIndex) + ftpSection + formattedData.substring(lastDivIndex);
                 }
             }
-
             return {
                 subject: subject,
                 description: formattedData,
@@ -2238,7 +2244,7 @@
             };
         }
 
-           
+
 
         // Función para enviar mediante el formulario nativo
         function submitToFreshserviceNative(ticketData) {
