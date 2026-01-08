@@ -1,584 +1,590 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adistec Technical Support</title>
     <style>
-/* ═══════════════════════════════════════════════════════════
+        /* ═══════════════════════════════════════════════════════════
    ADISTEC TECHNICAL SUPPORT - PREMIUM PROFESSIONAL DESIGN
    ═══════════════════════════════════════════════════════════ */
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-:root {
-    --adistec-primary: #1E6FCC;
-    --adistec-dark: #144A8C;
-    --adistec-light: #4A90E2;
-    --text-primary: #2C3E50;
-    --text-secondary: #7F8C8D;
-    --background: #F8F9FA;
-    --white: #FFFFFF;
-    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
-    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
-    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.16);
-    --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.20);
-    --radius-sm: 8px;
-    --radius-md: 12px;
-    --radius-lg: 16px;
-    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
+        :root {
+            --adistec-primary: #1E6FCC;
+            --adistec-dark: #144A8C;
+            --adistec-light: #4A90E2;
+            --text-primary: #2C3E50;
+            --text-secondary: #7F8C8D;
+            --background: #F8F9FA;
+            --white: #FFFFFF;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.16);
+            --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.20);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
-    background: linear-gradient(135deg, #0F3460 0%, #16213E 50%, #1A1A2E 100%);
-    min-height: 100vh;
-    padding: 20px 20px 40px;
-    position: relative;
-    overflow-x: hidden;
-}
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            background: linear-gradient(135deg, #0F3460 0%, #16213E 50%, #1A1A2E 100%);
+            min-height: 100vh;
+            padding: 20px 20px 40px;
+            position: relative;
+            overflow-x: hidden;
+        }
 
-/* Efecto de partículas sutiles en el fondo */
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: radial-gradient(circle at 20% 50%, rgba(30, 111, 204, 0.1) 0%, transparent 50%),
-                      radial-gradient(circle at 80% 80%, rgba(74, 144, 226, 0.08) 0%, transparent 50%);
-    pointer-events: none;
-    z-index: 0;
-}
+        /* Efecto de partículas sutiles en el fondo */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle at 20% 50%, rgba(30, 111, 204, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(74, 144, 226, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
 
-.container {
-    max-width: 960px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 1;
-}
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
 
-/* ═══════════════════════════════════════════════════════════
+        /* ═══════════════════════════════════════════════════════════
    HEADER - PREMIUM DESIGN
    ═══════════════════════════════════════════════════════════ */
 
-.header {
-    background: linear-gradient(135deg, var(--adistec-primary) 0%, var(--adistec-dark) 100%);
-    padding: 32px 48px;
-    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-    box-shadow: var(--shadow-lg);
-    display: flex;
-    align-items: center;
-    gap: 24px;
-    position: relative;
-    overflow: hidden;
-}
+        .header {
+            background: linear-gradient(135deg, var(--adistec-primary) 0%, var(--adistec-dark) 100%);
+            padding: 32px 48px;
+            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            position: relative;
+            overflow: hidden;
+        }
 
-/* Efecto de brillo sutil en el header */
-.header::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-    pointer-events: none;
-}
+        /* Efecto de brillo sutil en el header */
+        .header::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
 
-.logo {
-    height: 56px;
-    width: auto;
-    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
-    transition: var(--transition);
-    position: relative;
-    z-index: 1;
-}
+        .logo {
+            height: 56px;
+            width: auto;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+            transition: var(--transition);
+            position: relative;
+            z-index: 1;
+        }
 
-.logo:hover {
-    transform: scale(1.05);
-    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.3));
-}
+        .logo:hover {
+            transform: scale(1.05);
+            filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.3));
+        }
 
-.header-content {
-    flex: 1;
-    position: relative;
-    z-index: 1;
-}
+        .header-content {
+            flex: 1;
+            position: relative;
+            z-index: 1;
+        }
 
-.header-title {
-    font-size: 32px;
-    color: var(--white);
-    font-weight: 700;
-    margin-bottom: 6px;
-    letter-spacing: -0.5px;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+        .header-title {
+            font-size: 32px;
+            color: var(--white);
+            font-weight: 700;
+            margin-bottom: 6px;
+            letter-spacing: -0.5px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
 
-.header-subtitle {
-    font-size: 16px;
-    color: rgba(255, 255, 255, 0.9);
-    font-weight: 400;
-    letter-spacing: 0.3px;
-}
+        .header-subtitle {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 400;
+            letter-spacing: 0.3px;
+        }
 
-/* ═══════════════════════════════════════════════════════════
+        /* ═══════════════════════════════════════════════════════════
    FORM CARD - GLASSMORPHISM DESIGN
    ═══════════════════════════════════════════════════════════ */
 
-.form-card {
-    background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(20px);
-    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
-    padding: 48px;
-    box-shadow: var(--shadow-xl);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
+        .form-card {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+            padding: 48px;
+            box-shadow: var(--shadow-xl);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
 
-.form-section {
-    margin-bottom: 32px;
-    animation: fadeInUp 0.5s ease;
-}
+        .form-section {
+            margin-bottom: 32px;
+            animation: fadeInUp 0.5s ease;
+        }
 
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
 
-.form-section.hidden {
-    display: none;
-}
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-/* ═══════════════════════════════════════════════════════════
+        .form-section.hidden {
+            display: none;
+        }
+
+        /* ═══════════════════════════════════════════════════════════
    LABELS - MODERN TYPOGRAPHY
    ═══════════════════════════════════════════════════════════ */
 
-.form-label {
-    display: block;
-    color: var(--text-primary);
-    font-weight: 600;
-    margin-bottom: 12px;
-    font-size: 15px;
-    letter-spacing: 0.3px;
-    transition: var(--transition);
-}
+        .form-label {
+            display: block;
+            color: var(--text-primary);
+            font-weight: 600;
+            margin-bottom: 12px;
+            font-size: 15px;
+            letter-spacing: 0.3px;
+            transition: var(--transition);
+        }
 
-.required {
-    color: #E74C3C;
-    margin-left: 4px;
-    font-size: 16px;
-}
+        .required {
+            color: #E74C3C;
+            margin-left: 4px;
+            font-size: 16px;
+        }
 
-.optional {
-    color: var(--text-secondary);
-    font-size: 13px;
-    font-weight: 400;
-    margin-left: 6px;
-}
+        .optional {
+            color: var(--text-secondary);
+            font-size: 13px;
+            font-weight: 400;
+            margin-left: 6px;
+        }
 
-/* ═══════════════════════════════════════════════════════════
+        /* ═══════════════════════════════════════════════════════════
    INPUTS - PREMIUM DESIGN WITH GLOW EFFECT
    ═══════════════════════════════════════════════════════════ */
 
-.form-select,
-.form-input,
-.form-textarea,
-.form-file {
-    width: 100%;
-    padding: 16px 20px;
-    border: 2px solid #E8E8E8;
-    border-radius: var(--radius-md);
-    font-size: 15px;
-    font-family: inherit;
-    color: var(--text-primary);
-    background: var(--white);
-    transition: var(--transition);
-    box-shadow: var(--shadow-sm);
-}
+        .form-select,
+        .form-input,
+        .form-textarea,
+        .form-file {
+            width: 100%;
+            padding: 16px 20px;
+            border: 2px solid #E8E8E8;
+            border-radius: var(--radius-md);
+            font-size: 15px;
+            font-family: inherit;
+            color: var(--text-primary);
+            background: var(--white);
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
 
-.form-select:hover,
-.form-input:hover,
-.form-textarea:hover {
-    border-color: var(--adistec-light);
-    box-shadow: 0 4px 12px rgba(30, 111, 204, 0.1);
-}
+        .form-select:hover,
+        .form-input:hover,
+        .form-textarea:hover {
+            border-color: var(--adistec-light);
+            box-shadow: 0 4px 12px rgba(30, 111, 204, 0.1);
+        }
 
-.form-select:focus,
-.form-input:focus,
-.form-textarea:focus,
-.form-file:focus {
-    outline: none;
-    border-color: var(--adistec-primary);
-    box-shadow: 0 0 0 4px rgba(30, 111, 204, 0.12),
+        .form-select:focus,
+        .form-input:focus,
+        .form-textarea:focus,
+        .form-file:focus {
+            outline: none;
+            border-color: var(--adistec-primary);
+            box-shadow: 0 0 0 4px rgba(30, 111, 204, 0.12),
                 0 4px 16px rgba(30, 111, 204, 0.16);
-    transform: translateY(-1px);
-}
+            transform: translateY(-1px);
+        }
 
-.form-textarea {
-    min-height: 140px;
-    resize: vertical;
-    line-height: 1.6;
-}
+        .form-textarea {
+            min-height: 140px;
+            resize: vertical;
+            line-height: 1.6;
+        }
 
-.form-file {
-    padding: 14px 18px;
-    cursor: pointer;
-    background: #F8F9FA;
-    border-style: dashed;
-}
+        .form-file {
+            padding: 14px 18px;
+            cursor: pointer;
+            background: #F8F9FA;
+            border-style: dashed;
+        }
 
-.form-file:hover {
-    background: #E9ECEF;
-    border-color: var(--adistec-primary);
-}
+        .form-file:hover {
+            background: #E9ECEF;
+            border-color: var(--adistec-primary);
+        }
 
-/* Select personalizado */
-.form-select {
-    cursor: pointer;
-    appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%231E6FCC' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 16px center;
-    padding-right: 48px;
-}
+        /* Select personalizado */
+        .form-select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%231E6FCC' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            padding-right: 48px;
+        }
 
-/* ═══════════════════════════════════════════════════════════
+        /* ═══════════════════════════════════════════════════════════
    RADIO BUTTONS - MODERN CARDS
    ═══════════════════════════════════════════════════════════ */
 
-.radio-group {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
 
-.radio-item {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding: 16px 20px;
-    background: #F8F9FA;
-    border: 2px solid #E8E8E8;
-    border-radius: var(--radius-md);
-    cursor: pointer;
-    transition: var(--transition);
-}
+        .radio-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 16px 20px;
+            background: #F8F9FA;
+            border: 2px solid #E8E8E8;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: var(--transition);
+        }
 
-.radio-item:hover {
-    background: var(--white);
-    border-color: var(--adistec-light);
-    box-shadow: var(--shadow-sm);
-    transform: translateX(4px);
-}
+        .radio-item:hover {
+            background: var(--white);
+            border-color: var(--adistec-light);
+            box-shadow: var(--shadow-sm);
+            transform: translateX(4px);
+        }
 
-.radio-item input[type="radio"] {
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-    accent-color: var(--adistec-primary);
-}
+        .radio-item input[type="radio"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: var(--adistec-primary);
+        }
 
-.radio-item input[type="radio"]:checked + label {
-    color: var(--adistec-primary);
-    font-weight: 600;
-}
+        .radio-item input[type="radio"]:checked+label {
+            color: var(--adistec-primary);
+            font-weight: 600;
+        }
 
-.radio-item label {
-    font-size: 15px;
-    color: var(--text-primary);
-    cursor: pointer;
-    font-weight: 500;
-    flex: 1;
-    margin: 0;
-}
+        .radio-item label {
+            font-size: 15px;
+            color: var(--text-primary);
+            cursor: pointer;
+            font-weight: 500;
+            flex: 1;
+            margin: 0;
+        }
 
-/* ═══════════════════════════════════════════════════════════
+        /* ═══════════════════════════════════════════════════════════
    SERVICE ICONS - ELEGANT DESIGN
    ═══════════════════════════════════════════════════════════ */
 
-.service-icon-img.progress-logo {
-    border-radius: 0 !important;
-    box-shadow: none !important;
-    width: auto !important;
-    height: 70px !important;
-    object-fit: contain;
-    background: transparent !important;
-    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
-}
+        .service-icon-img.progress-logo {
+            border-radius: 0 !important;
+            box-shadow: none !important;
+            width: auto !important;
+            height: 70px !important;
+            object-fit: contain;
+            background: transparent !important;
+            filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+        }
 
-.service-icon-img {
-    width: 90px;
-    height: 90px;
-    margin-bottom: 24px;
-    border-radius: 50%;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-    transition: var(--transition);
-}
+        .service-icon-img {
+            width: 90px;
+            height: 90px;
+            margin-bottom: 24px;
+            border-radius: 50%;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            transition: var(--transition);
+        }
 
-.service-icon-img:hover {
-    transform: scale(1.05) translateY(-4px);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.16);
-}
+        .service-icon-img:hover {
+            transform: scale(1.05) translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.16);
+        }
 
-.service-title {
-    color: var(--adistec-primary);
-    font-size: 28px;
-    font-weight: 700;
-    margin-bottom: 12px;
-    letter-spacing: -0.5px;
-}
+        .service-title {
+            color: var(--adistec-primary);
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
 
-.service-description {
-    color: var(--text-secondary);
-    font-size: 15px;
-    margin-bottom: 32px;
-    line-height: 1.7;
-}
+        .service-description {
+            color: var(--text-secondary);
+            font-size: 15px;
+            margin-bottom: 32px;
+            line-height: 1.7;
+        }
 
-/* ═══════════════════════════════════════════════════════════
+        /* ═══════════════════════════════════════════════════════════
    SUBMIT BUTTON - PREMIUM WITH EFFECTS
    ═══════════════════════════════════════════════════════════ */
 
-.submit-btn {
-    width: 100%;
-    padding: 18px 32px;
-    background: linear-gradient(135deg, var(--adistec-primary), var(--adistec-dark));
-    color: var(--white);
-    border: none;
-    border-radius: var(--radius-md);
-    font-size: 17px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: var(--transition);
-    margin-top: 32px;
-    box-shadow: 0 8px 24px rgba(30, 111, 204, 0.3);
-    position: relative;
-    overflow: hidden;
-    letter-spacing: 0.5px;
-}
+        .submit-btn {
+            width: 100%;
+            padding: 18px 32px;
+            background: linear-gradient(135deg, var(--adistec-primary), var(--adistec-dark));
+            color: var(--white);
+            border: none;
+            border-radius: var(--radius-md);
+            font-size: 17px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 32px;
+            box-shadow: 0 8px 24px rgba(30, 111, 204, 0.3);
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 0.5px;
+        }
 
-.submit-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.5s;
-}
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
 
-.submit-btn:hover::before {
-    left: 100%;
-}
+        .submit-btn:hover::before {
+            left: 100%;
+        }
 
-.submit-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 32px rgba(30, 111, 204, 0.4);
-}
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(30, 111, 204, 0.4);
+        }
 
-.submit-btn:active {
-    transform: translateY(-1px);
-}
+        .submit-btn:active {
+            transform: translateY(-1px);
+        }
 
-.submit-btn:disabled {
-    background: #BDC3C7;
-    cursor: not-allowed;
-    box-shadow: none;
-    transform: none;
-}
+        .submit-btn:disabled {
+            background: #BDC3C7;
+            cursor: not-allowed;
+            box-shadow: none;
+            transform: none;
+        }
 
-/* ═══════════════════════════════════════════════════════════
+        /* ═══════════════════════════════════════════════════════════
    BADGES & HELPERS
    ═══════════════════════════════════════════════════════════ */
 
-.badge {
-    display: inline-block;
-    background: linear-gradient(135deg, #E8F2FF, #D0E7FF);
-    color: var(--adistec-primary);
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 13px;
-    font-weight: 600;
-    margin-bottom: 20px;
-    box-shadow: var(--shadow-sm);
-}
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #E8F2FF, #D0E7FF);
+            color: var(--adistec-primary);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-sm);
+        }
 
-.field-hint {
-    font-size: 13px;
-    color: var(--text-secondary);
-    margin-top: 8px;
-    font-style: italic;
-    line-height: 1.5;
-}
+        .field-hint {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-top: 8px;
+            font-style: italic;
+            line-height: 1.5;
+        }
 
-.divider {
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--adistec-primary), transparent);
-    margin: 40px 0;
-    opacity: 0.3;
-}
+        .divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--adistec-primary), transparent);
+            margin: 40px 0;
+            opacity: 0.3;
+        }
 
-.info-box {
-    background: linear-gradient(135deg, #E8F2FF, #F0F7FF);
-    border-left: 4px solid var(--adistec-primary);
-    padding: 20px 24px;
-    border-radius: var(--radius-md);
-    margin-bottom: 32px;
-    font-size: 14px;
-    color: var(--adistec-dark);
-    box-shadow: var(--shadow-sm);
-}
+        .info-box {
+            background: linear-gradient(135deg, #E8F2FF, #F0F7FF);
+            border-left: 4px solid var(--adistec-primary);
+            padding: 20px 24px;
+            border-radius: var(--radius-md);
+            margin-bottom: 32px;
+            font-size: 14px;
+            color: var(--adistec-dark);
+            box-shadow: var(--shadow-sm);
+        }
 
-.info-box strong {
-    display: block;
-    margin-bottom: 8px;
-    font-size: 15px;
-}
+        .info-box strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
 
-.sub-select-section {
-    background: linear-gradient(135deg, #F8F9FA, #FFFFFF);
-    padding: 24px;
-    border-radius: var(--radius-md);
-    margin-bottom: 32px;
-    border: 2px dashed var(--adistec-light);
-    animation: fadeIn 0.3s ease;
-    box-shadow: var(--shadow-sm);
-}
+        .sub-select-section {
+            background: linear-gradient(135deg, #F8F9FA, #FFFFFF);
+            padding: 24px;
+            border-radius: var(--radius-md);
+            margin-bottom: 32px;
+            border: 2px dashed var(--adistec-light);
+            animation: fadeIn 0.3s ease;
+            box-shadow: var(--shadow-sm);
+        }
 
-.file-upload-section {
-    background: linear-gradient(135deg, #FFF9E6, #FFFAF0);
-    border: 2px dashed #F4AF1A;
-    border-radius: var(--radius-md);
-    padding: 24px;
-    margin-top: 32px;
-    transition: var(--transition);
-}
+        .file-upload-section {
+            background: linear-gradient(135deg, #FFF9E6, #FFFAF0);
+            border: 2px dashed #F4AF1A;
+            border-radius: var(--radius-md);
+            padding: 24px;
+            margin-top: 32px;
+            transition: var(--transition);
+        }
 
-.file-upload-section:hover {
-    border-color: #E89E0A;
-    box-shadow: var(--shadow-sm);
-}
+        .file-upload-section:hover {
+            border-color: #E89E0A;
+            box-shadow: var(--shadow-sm);
+        }
 
-.file-upload-section .form-label {
-    color: #856404;
-}
+        .file-upload-section .form-label {
+            color: #856404;
+        }
 
-/* ═══════════════════════════════════════════════════════════
+        /* ═══════════════════════════════════════════════════════════
    LANGUAGE SELECTOR - FLOATING PREMIUM
    ═══════════════════════════════════════════════════════════ */
 
-#languageSelector {
-    padding: 10px 16px;
-    border-radius: var(--radius-sm);
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    font-weight: 600;
-    cursor: pointer;
-    font-size: 14px;
-    box-shadow: var(--shadow-md);
-    transition: var(--transition);
-}
+        #languageSelector {
+            padding: 10px 16px;
+            border-radius: var(--radius-sm);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 14px;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+        }
 
-#languageSelector:hover {
-    border-color: var(--adistec-primary);
-    box-shadow: var(--shadow-lg);
-}
+        #languageSelector:hover {
+            border-color: var(--adistec-primary);
+            box-shadow: var(--shadow-lg);
+        }
 
-/* ═══════════════════════════════════════════════════════════
+        /* ═══════════════════════════════════════════════════════════
    RESPONSIVE DESIGN - MOBILE OPTIMIZED
    ═══════════════════════════════════════════════════════════ */
 
-@media (max-width: 768px) {
-    body {
-        padding: 10px 10px 30px;
-    }
-    
-    .form-card {
-        padding: 24px;
-        border-radius: 0 0 var(--radius-md) var(--radius-md);
-    }
-    
-    .header {
-        flex-direction: column;
-        text-align: center;
-        padding: 24px;
-        border-radius: var(--radius-md) var(--radius-md) 0 0;
-    }
-    
-    .logo {
-        height: 48px;
-    }
-    
-    .header-title {
-        font-size: 24px;
-    }
-    
-    .header-subtitle {
-        font-size: 14px;
-    }
-    
-    .service-title {
-        font-size: 24px;
-    }
-    
-    .submit-btn {
-        padding: 16px 24px;
-        font-size: 16px;
-    }
-}
+        @media (max-width: 768px) {
+            body {
+                padding: 10px 10px 30px;
+            }
 
-/* ═══════════════════════════════════════════════════════════
+            .form-card {
+                padding: 24px;
+                border-radius: 0 0 var(--radius-md) var(--radius-md);
+            }
+
+            .header {
+                flex-direction: column;
+                text-align: center;
+                padding: 24px;
+                border-radius: var(--radius-md) var(--radius-md) 0 0;
+            }
+
+            .logo {
+                height: 48px;
+            }
+
+            .header-title {
+                font-size: 24px;
+            }
+
+            .header-subtitle {
+                font-size: 14px;
+            }
+
+            .service-title {
+                font-size: 24px;
+            }
+
+            .submit-btn {
+                padding: 16px 24px;
+                font-size: 16px;
+            }
+        }
+
+        /* ═══════════════════════════════════════════════════════════
    ANIMATIONS & MICRO-INTERACTIONS
    ═══════════════════════════════════════════════════════════ */
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
 
-.form-fields {
-    animation: fadeInUp 0.5s ease;
-}
+            to {
+                opacity: 1;
+            }
+        }
 
-/* Smooth scroll */
-html {
-    scroll-behavior: smooth;
-}
+        .form-fields {
+            animation: fadeInUp 0.5s ease;
+        }
 
-/* Selection color */
-::selection {
-    background: var(--adistec-primary);
-    color: var(--white);
-}
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
 
-/* Focus visible para accesibilidad */
-:focus-visible {
-    outline: 2px solid var(--adistec-primary);
-    outline-offset: 2px;
-}
+        /* Selection color */
+        ::selection {
+            background: var(--adistec-primary);
+            color: var(--white);
+        }
+
+        /* Focus visible para accesibilidad */
+        :focus-visible {
+            outline: 2px solid var(--adistec-primary);
+            outline-offset: 2px;
+        }
     </style>
 </head>
+
 <body>
     <!-- LANGUAGE SELECTOR -->
-    <div style="position: fixed; top: 20px; right: 20px; z-index: 1000; background: white; padding: 10px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
-        <select id="languageSelector" onchange="changeLanguage(this.value)" style="padding: 8px 12px; border-radius: 8px; border: 2px solid #1E6FCC; background: white; font-weight: 600; cursor: pointer; font-size: 14px;">
+    <div
+        style="position: fixed; top: 20px; right: 20px; z-index: 1000; background: white; padding: 10px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+        <select id="languageSelector" onchange="changeLanguage(this.value)"
+            style="padding: 8px 12px; border-radius: 8px; border: 2px solid #1E6FCC; background: white; font-weight: 600; cursor: pointer; font-size: 14px;">
             <option value="es">🇪🇸 Español</option>
             <option value="en">🇺🇸 English</option>
             <option value="pt">🇧🇷 Português</option>
@@ -591,14 +597,15 @@ html {
             <img src="images/logo_ats_total_blanco.svg" alt="Adistec Logo" class="logo" id="adistecLogo">
             <div class="header-content">
                 <div class="header-title" data-i18n="header.title">Technical Support</div>
-                <div class="header-subtitle" data-i18n="header.subtitle">Select the type of service and complete the specialized form</div>
+                <div class="header-subtitle" data-i18n="header.subtitle">Select the type of service and complete the
+                    specialized form</div>
             </div>
         </div>
 
         <!-- FORM -->
         <div class="form-card">
             <form id="supportForm" enctype="multipart/form-data">
-                
+
                 <!-- SERVICE SELECTION -->
                 <div class="form-section">
                     <label class="form-label">
@@ -620,8 +627,10 @@ html {
                 <div id="ais-sub-select" class="form-section hidden">
                     <img src="images/AIS.png" alt="AIS" class="service-icon-img">
                     <h2 class="service-title">Adistec Integrated Solutions (AIS)</h2>
-                    <p class="service-description">Adistec Integrated Solutions® is the support program oriented to provide assistance and technical support to customers who purchase solutions as Adistec vSAN Ready Node, Adistec Data Protection Appliance or AEC POD.</p>
-                    
+                    <p class="service-description">Adistec Integrated Solutions® is the support program oriented to
+                        provide assistance and technical support to customers who purchase solutions as Adistec vSAN
+                        Ready Node, Adistec Data Protection Appliance or AEC POD.</p>
+
                     <div class="sub-select-section">
                         <label class="form-label">
                             Select program
@@ -656,8 +665,9 @@ html {
                 <div id="awlc-sub-select" class="form-section hidden">
                     <img src="images/WhiteLabel.png" alt="AWLC" class="service-icon-img">
                     <h2 class="service-title">Adistec White Label Cloud (AWLC)</h2>
-                    <p class="service-description">Adistec White Label Cloud® is the support program aimed at providing assistance and technical support to clients who acquire Service Provider licensing.</p>
-                    
+                    <p class="service-description">Adistec White Label Cloud® is the support program aimed at providing
+                        assistance and technical support to clients who acquire Service Provider licensing.</p>
+
                     <div class="sub-select-section">
                         <label class="form-label">
                             Select platform
@@ -678,15 +688,18 @@ html {
                     <img src="images/Progress.png" alt="Progress" class="service-icon-img progress-logo">
                     <h2 class="service-title">Progress</h2>
                     <span class="badge">3 required fields</span>
-                    <p class="service-description">Adistec, as a regional Progress® distributor, provides direct support for the OpenEdge solution through its dedicated team for its customers. In case you require support, please complete the form with your details.</p>
-                    
+                    <p class="service-description">Adistec, as a regional Progress® distributor, provides direct support
+                        for the OpenEdge solution through its dedicated team for its customers. In case you require
+                        support, please complete the form with your details.</p>
+
                     <div class="form-fields">
                         <div class="form-section">
                             <label class="form-label">
                                 Solicitante
                                 <span class="required">*</span>
                             </label>
-                            <input type="text" class="form-input" name="solicitante_progress" placeholder="Nombre completo" required>
+                            <input type="text" class="form-input" name="solicitante_progress"
+                                placeholder="Nombre completo" required>
                         </div>
 
                         <div class="form-section">
@@ -694,7 +707,8 @@ html {
                                 Número Contacto
                                 <span class="required">*</span>
                             </label>
-                            <input type="tel" class="form-input" name="numero_contacto_progress" placeholder="+56 9 1234 5678" required>
+                            <input type="tel" class="form-input" name="numero_contacto_progress"
+                                placeholder="+56 9 1234 5678" required>
                         </div>
 
                         <div class="form-section">
@@ -733,7 +747,8 @@ html {
                                 Serial Number
                                 <span class="required">*</span>
                             </label>
-                            <input type="text" class="form-input" name="numero_serie_progress" placeholder="e.g., PROG-2024-12345">
+                            <input type="text" class="form-input" name="numero_serie_progress"
+                                placeholder="e.g., PROG-2024-12345">
                             <div class="field-hint">Progress product serial number</div>
                         </div>
 
@@ -742,7 +757,8 @@ html {
                                 Subject
                                 <span class="required">*</span>
                             </label>
-                            <input type="text" class="form-input" name="subject_progress" placeholder="Brief summary of the issue">
+                            <input type="text" class="form-input" name="subject_progress"
+                                placeholder="Brief summary of the issue">
                         </div>
 
                         <div class="form-section">
@@ -750,7 +766,8 @@ html {
                                 Description
                                 <span class="required">*</span>
                             </label>
-                            <textarea class="form-textarea" name="description_progress" placeholder="Describe the problem in detail, steps to reproduce, and expected behavior..."></textarea>
+                            <textarea class="form-textarea" name="description_progress"
+                                placeholder="Describe the problem in detail, steps to reproduce, and expected behavior..."></textarea>
                         </div>
 
                         <div class="form-section">
@@ -773,7 +790,27 @@ html {
                                 <span class="optional">(Optional)</span>
                             </label>
                             <input type="file" class="form-file" name="attachments_progress" multiple>
-                            <div class="field-hint">You can attach screenshots, logs, or relevant documents (max 10MB per file)</div>
+                            <div class="field-hint">You can attach screenshots, logs, or relevant documents (max 40MB)</div>
+
+                            <!-- FTP para archivos grandes -->
+                            <div class="ftp-section"
+                                style="margin-top: 20px; padding: 16px; background: linear-gradient(135deg, #FFF3E0, #FFE0B2); border-radius: 8px; border-left: 4px solid #FF9800;">
+                                <label
+                                    style="display: flex; align-items: center; gap: 10px; cursor: pointer; margin: 0;">
+                                    <input type="checkbox" class="ftp-checkbox"
+                                        style="width: 20px; height: 20px; cursor: pointer; accent-color: #FF9800;">
+                                    <span style="font-weight: 600; color: #E65100;">📤 Need to upload files larger than
+                                        40MB?</span>
+                                </label>
+                                <div class="ftp-details" style="display: none; margin-top: 12px;">
+                                    <textarea class="form-textarea ftp-description"
+                                        placeholder="Describe the files (e.g., Server logs 500MB, Database backup 2GB)..."
+                                        style="min-height: 80px; border-color: #FF9800;"></textarea>
+                                    <div style="margin-top: 8px; color: #E65100; font-size: 13px;">
+                                        ℹ️ We'll send you FTP credentials via email
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -781,14 +818,15 @@ html {
                 <!-- AIS INTEL FORM -->
                 <div id="form-ais-intel" class="form-section hidden">
                     <span class="badge">5 required fields</span>
-                    
+
                     <div class="form-fields">
                         <div class="form-section">
                             <label class="form-label">
                                 Solicitante
                                 <span class="required">*</span>
                             </label>
-                            <input type="text" class="form-input" name="solicitante_intel" placeholder="Nombre completo" required>
+                            <input type="text" class="form-input" name="solicitante_intel" placeholder="Nombre completo"
+                                required>
                         </div>
 
                         <div class="form-section">
@@ -796,7 +834,8 @@ html {
                                 Número Contacto
                                 <span class="required">*</span>
                             </label>
-                            <input type="tel" class="form-input" name="numero_contacto_intel" placeholder="+56 9 1234 5678" required>
+                            <input type="tel" class="form-input" name="numero_contacto_intel"
+                                placeholder="+56 9 1234 5678" required>
                         </div>
 
                         <div class="form-section">
@@ -835,7 +874,8 @@ html {
                                 Requester Name
                                 <span class="required">*</span>
                             </label>
-                            <input type="text" class="form-input" name="nombre_solicitante_intel" placeholder="Full name">
+                            <input type="text" class="form-input" name="nombre_solicitante_intel"
+                                placeholder="Full name">
                         </div>
 
                         <div class="form-section">
@@ -843,16 +883,20 @@ html {
                                 Serial Number
                                 <span class="required">*</span>
                             </label>
-                            <input type="text" class="form-input" name="numero_serie_intel" placeholder="e.g., INTEL-ABC123456">
+                            <input type="text" class="form-input" name="numero_serie_intel"
+                                placeholder="e.g., INTEL-ABC123456">
                             <div class="field-hint">Intel equipment serial number</div>
                         </div>
                         <div class="form-section">
                             <label class="form-label">
                                 First Aid Kit (FAK)
                             </label>
-                            <div style="display: flex; align-items: center; gap: 10px; padding: 12px; background: #f8f9fa; border-radius: 8px; border: 2px solid #ddd;">
-                                <input type="checkbox" id="fak_intel" name="fak_intel" style="width: 20px; height: 20px; cursor: pointer; accent-color: #1E6FCC;">
-                                <label for="fak_intel" style="cursor: pointer; margin: 0; font-weight: 500;">Include First Aid Kit (FAK) service</label>
+                            <div
+                                style="display: flex; align-items: center; gap: 10px; padding: 12px; background: #f8f9fa; border-radius: 8px; border: 2px solid #ddd;">
+                                <input type="checkbox" id="fak_intel" name="fak_intel"
+                                    style="width: 20px; height: 20px; cursor: pointer; accent-color: #1E6FCC;">
+                                <label for="fak_intel" style="cursor: pointer; margin: 0; font-weight: 500;">Include
+                                    First Aid Kit (FAK) service</label>
                             </div>
                         </div>
 
@@ -863,7 +907,8 @@ html {
                                 MotherBoard
                                 <span class="required">*</span>
                             </label>
-                            <input type="text" class="form-input" name="motherboard_intel" placeholder="Motherboard model">
+                            <input type="text" class="form-input" name="motherboard_intel"
+                                placeholder="Motherboard model">
                         </div>
 
                         <div class="form-section">
@@ -879,7 +924,8 @@ html {
                                 Case Description
                                 <span class="required">*</span>
                             </label>
-                            <textarea class="form-textarea" name="case_description_intel" placeholder="Detailed description of the problem..."></textarea>
+                            <textarea class="form-textarea" name="case_description_intel"
+                                placeholder="Detailed description of the problem..."></textarea>
                         </div>
 
                         <div class="form-section">
@@ -902,711 +948,837 @@ html {
                                 <span class="optional">(Optional)</span>
                             </label>
                             <input type="file" class="form-file" name="attachments_intel" multiple>
-                            <div class="field-hint">You can attach screenshots, logs, or relevant documents</div>
-                        </div>
-                    </div>
-                </div>
+                            <div class="field-hint">You can attach screenshots, logs, or relevant documents (max 40MB)
+                            </div>
 
-                <!-- AIS SUPERMICRO FORM -->
-                <div id="form-ais-supermicro" class="form-section hidden">
-                    <span class="badge">4 required fields</span>
-                    
-                    <div class="info-box">
-                        <strong>ℹ️ Note:</strong>
-                        This form does NOT require MotherBoard information (difference with Intel)
-                    </div>
-                    
-                    <div class="form-fields">
-                        <div class="form-section">
-                            <label class="form-label">
-                                Requester Name
-                                <span class="required">*</span>
-                            </label>
-                            <input type="email" class="form-input" name="solicitante_supermicro" placeholder="email@ejemplo.com" required>
-                        </div>
-
-                        <div class="form-section">
-                            <label class="form-label">
-                                Número Contacto
-                                <span class="required">*</span>
-                            </label>
-                            <input type="tel" class="form-input" name="numero_contacto_supermicro" placeholder="+56 9 1234 5678" required>
-                        </div>
-
-                        <div class="form-section">
-                            <label class="form-label">
-                                País
-                                <span class="required">*</span>
-                            </label>
-                            <select class="form-select" name="pais_supermicro" required>
-                                <option value="">-- Seleccione un país --</option>
-                                <option value="Argentina">Argentina</option>
-                                <option value="Bolivia">Bolivia</option>
-                                <option value="Brasil">Brasil</option>
-                                <option value="Chile">Chile</option>
-                                <option value="Colombia">Colombia</option>
-                                <option value="Costa Rica">Costa Rica</option>
-                                <option value="Ecuador">Ecuador</option>
-                                <option value="El Salvador">El Salvador</option>
-                                <option value="Guatemala">Guatemala</option>
-                                <option value="Honduras">Honduras</option>
-                                <option value="México">México</option>
-                                <option value="Nicaragua">Nicaragua</option>
-                                <option value="Panamá">Panamá</option>
-                                <option value="Paraguay">Paraguay</option>
-                                <option value="Perú">Perú</option>
-                                <option value="República Dominicana">República Dominicana</option>
-                                <option value="Uruguay">Uruguay</option>
-                                <option value="Venezuela">Venezuela</option>
-                                <option value="Estados Unidos">Estados Unidos</option>
-                                <option value="España">España</option>
-                                <option value="Otro">Otro</option>
-                            </select>
-                        </div>
-
-                        <div class="form-section">
-                            <label class="form-label">
-                                Serial Number
-                                <span class="required">*</span>
-                            </label>
-                            <input type="text" class="form-input" name="numero_serie_supermicro" placeholder="e.g., SM-XYZ789012">
-                        </div>
-
-                        <div class="form-section">
-                            <label class="form-label">
-                                Case Subject
-                                <span class="required">*</span>
-                            </label>
-                            <input type="text" class="form-input" name="case_subject_supermicro" placeholder="Case subject">
-                        </div>
-
-                        <div class="form-section">
-                            <label class="form-label">
-                                Case Description
-                                <span class="required">*</span>
-                            </label>
-                            <textarea class="form-textarea" name="case_description_supermicro" placeholder="Detailed description of the problem..."></textarea>
-                        </div>
-
-                        <div class="form-section">
-                            <label class="form-label">
-                                Prioridad
-                                <span class="required">*</span>
-                            </label>
-                            <select class="form-select" name="prioridad_supermicro" required>
-                                <option value="">-- Seleccione prioridad --</option>
-                                <option value="Baja">Baja</option>
-                                <option value="Media">Media</option>
-                                <option value="Alta">Alta</option>
-                                <option value="Crítica">Crítica</option>
-                            </select>
-                        </div>
-
-                        <div class="file-upload-section">
-                            <label class="form-label">
-                                📎 Attach Files
-                                <span class="optional">(Optional)</span>
-                            </label>
-                            <input type="file" class="form-file" name="attachments_supermicro" multiple>
-                            <div class="field-hint">You can attach screenshots, logs, or relevant documents</div>
-                        </div>
-                       <div class="form-section">
-    <label class="form-label">
-        First Aid Kit (FAK)
-        <span class="optional">(Optional)</span>
-    </label>
-    <div style="display: flex; align-items: center; gap: 10px; padding: 12px; background: #f8f9fa; border-radius: 8px; border: 2px solid #ddd;">
-        <input type="checkbox" id="fak_supermicro" name="fak_supermicro" style="width: 20px; height: 20px; cursor: pointer; accent-color: #1E6FCC;">
-        <label for="fak_supermicro" style="cursor: pointer; margin: 0; font-weight: 500;">Include First Aid Kit (FAK) service</label>
-    </div>
-</div>
-
-
-                    </div>
-                </div>
-
-                <!-- AEC FORM -->
-                <div id="form-aec" class="form-section hidden">
-                    <img src="images/AEC.png" alt="AEC" class="service-icon-img">
-                    <h2 class="service-title">Adistec Enterprise Cloud (AEC)</h2>
-                    <span class="badge">5 required fields</span>
-                    <p class="service-description">Adistec Enterprise Cloud® is the support program oriented to provide assistance and technical support to customers who purchase solutions as Adistec vSAN Ready Node, Adistec Data POD.</p>
-                    
-                    <div class="form-fields">
-                        <div class="form-section">
-                            <label class="form-label">
-                                Solicitante
-                                <span class="required">*</span>
-                            </label>
-                            <input type="text" class="form-input" name="solicitante_aec" placeholder="Nombre completo" required>
-                        </div>
-
-                        <div class="form-section">
-                            <label class="form-label">
-                                Número Contacto
-                                <span class="required">*</span>
-                            </label>
-                            <input type="tel" class="form-input" name="numero_contacto_aec" placeholder="+56 9 1234 5678" required>
-                        </div>
-
-                        <div class="form-section">
-                            <label class="form-label">
-                                País
-                                <span class="required">*</span>
-                            </label>
-                            <select class="form-select" name="pais_aec" required>
-                                <option value="-- Seleccione un país --</option>
-                                <option value="Argentina">Argentina</option>
-                                <option value="Bolivia">Bolivia</option>
-                                <option value="Brasil">Brasil</option>
-                                <option value="Chile">Chile</option>
-                                <option value="Colombia">Colombia</option>
-                                <option value="Costa Rica">Costa Rica</option>
-                                <option value="Ecuador">Ecuador</option>
-                                <option value="El Salvador">El Salvador</option>
-                                <option value="Guatemala">Guatemala</option>
-                                <option value="Honduras">Honduras</option>
-                                <option value="México">México</option>
-                                <option value="Nicaragua">Nicaragua</option>
-                                <option value="Panamá">Panamá</option>
-                                <option value="Paraguay">Paraguay</option>
-                                <option value="Perú">Perú</option>
-                                <option value="República Dominicana">República Dominicana</option>
-                                <option value="Uruguay">Uruguay</option>
-                                <option value="Venezuela">Venezuela</option>
-                                <option value="Estados Unidos">Estados Unidos</option>
-                                <option value="España">España</option>
-                                <option value="Otro">Otro</option>
-                            </select>
-                        </div>
-
-                        <div class="form-section">
-                            <label class="form-label">
-                                Subject Case
-                                <span class="required">*</span>
-                            </label>
-                            <input type="text" class="form-input" name="subject_aec" placeholder="Case subject">
-                        </div>
-
-                        <div class="form-section">
-                            <label class="form-label">
-                                Partner (Integrator)
-                                <span class="required">*</span>
-                            </label>
-                            <input type="text" class="form-input" name="partner_integrador_aec" placeholder="Partner integrator name">
-                        </div>
-
-                        <div class="form-section">
-                            <label class="form-label">
-                                Service ID Number
-                                <span class="required">*</span>
-                            </label>
-                            <input type="text" class="form-input" name="service_id_aec" placeholder="e.g., AEC-2024-001">
-                            <div class="field-hint">Contracted service ID</div>
-                        </div>
-
-                        <div class="form-section">
-                            <label class="form-label">
-                                AEC Service Acquired
-                                <span class="required">*</span>
-                            </label>
-                            <input type="text" class="form-input" name="aec_service_adquirido">
-                        </div>
-
-                        <div class="form-section">
-                            <label class="form-label">
-                                Case Description
-                                <span class="required">*</span>
-                            </label>
-                            <textarea class="form-textarea" name="case_description_aec" placeholder="Detailed description of the problem..."></textarea>
-                        </div>
-
-                        <div class="form-section">
-                            <label class="form-label">
-                                Prioridad
-                                <span class="required">*</span>
-                            </label>
-                            <select class="form-select" name="prioridad_aec" required>
-                                <option value="">-- Seleccione prioridad --</option>
-                                <option value="Baja">Baja</option>
-                                <option value="Media">Media</option>
-                                <option value="Alta">Alta</option>
-                                <option value="Crítica">Crítica</option>
-                            </select>
-                        </div>
-
-                        <div class="file-upload-section">
-                            <label class="form-label">
-                                📎 Attach Files
-                                <span class="optional">(Optional)</span>
-                            </label>
-                            <input type="file" class="form-file" name="attachments_aec" multiple>
-                            <div class="field-hint">You can attach screenshots, logs, or relevant documents</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- AWLC VEEAM FORM -->
-                <div id="form-awlc-veeam" class="form-section hidden">
-                    <span class="badge">3 required fields</span>
-                    
-                    <div class="form-fields">
-                        <div class="form-section">
-                            <label class="form-label">
-                                Solicitante
-                                <span class="required">*</span>
-                            </label>
-                            <input type="text" class="form-input" name="solicitante_veeam" placeholder="Nombre completo" required>
-                        </div>
-
-                        <div class="form-section">
-                            <label class="form-label">
-                                Número Contacto
-                                <span class="required">*</span>
-                            </label>
-                            <input type="tel" class="form-input" name="numero_contacto_veeam" placeholder="+56 9 1234 5678" required>
-                        </div>
-
-                        <div class="form-section">
-                            <label class="form-label">
-                                País
-                                <span class="required">*</span>
-                            </label>
-                            <select class="form-select" name="pais_veeam" required>
-                                <option value="">-- Seleccione un país --</option>
-                                <option value="Argentina">Argentina</option>
-                                <option value="Bolivia">Bolivia</option>
-                                <option value="Brasil">Brasil</option>
-                                <option value="Chile">Chile</option>
-                                <option value="Colombia">Colombia</option>
-                                <option value="Costa Rica">Costa Rica</option>
-                                <option value="Ecuador">Ecuador</option>
-                                <option value="El Salvador">El Salvador</option>
-                                <option value="Guatemala">Guatemala</option>
-                                <option value="Honduras">Honduras</option>
-                                <option value="México">México</option>
-                                <option value="Nicaragua">Nicaragua</option>
-                                <option value="Panamá">Panamá</option>
-                                <option value="Paraguay">Paraguay</option>
-                                <option value="Perú">Perú</option>
-                                <option value="República Dominicana">República Dominicana</option>
-                                <option value="Uruguay">Uruguay</option>
-                                <option value="Venezuela">Venezuela</option>
-                                <option value="Estados Unidos">Estados Unidos</option>
-                                <option value="España">España</option>
-                                <option value="Otro">Otro</option>
-                            </select>
-                        </div>
-
-                        <div class="form-section">
-                            <label class="form-label">
-                                Support ID
-                                <span class="required">*</span>
-                            </label>
-                            <input type="text" class="form-input" name="soporte_id_veeam" placeholder="e.g., VEEAM-2024-456">
-                            <div class="field-hint">Support case reference ID</div>
-                        </div>
-
-                        <div class="form-section">
-                            <label class="form-label">
-                                Case Subject
-                                <span class="required">*</span>
-                            </label>
-                            <input type="text" class="form-input" name="case_subject_veeam" placeholder="Case subject">
-                        </div>
-
-                        <div class="form-section">
-                            <label class="form-label">
-                                Case Description
-                                <span class="required">*</span>
-                            </label>
-                            <textarea class="form-textarea" name="case_description_veeam" placeholder="Detailed description of the problem..."></textarea>
-                        </div>
-
-                        <div class="form-section">
-                            <label class="form-label">
-                                Prioridad
-                                <span class="required">*</span>
-                            </label>
-                            <select class="form-select" name="prioridad_veeam" required>
-                                <option value="">-- Seleccione prioridad --</option>
-                                <option value="Baja">Baja</option>
-                                <option value="Media">Media</option>
-                                <option value="Alta">Alta</option>
-                                <option value="Crítica">Crítica</option>
-                            </select>
-                        </div>
-
-                        <div class="file-upload-section">
-                            <label class="form-label">
-                                📎 Attach Files
-                                <span class="optional">(Optional)</span>
-                            </label>
-                            <input type="file" class="form-file" name="attachments_veeam" multiple>
-                            <div class="field-hint">You can attach screenshots, logs, or relevant documents</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- AWLC VMWARE FORM -->
-                <div id="form-awlc-vmware" class="form-section hidden">
-                    <span class="badge">2 required fields</span>
-                    
-                    <div class="form-fields">
-                        <div class="form-section">
-                            <label class="form-label">
-                                Solicitante
-                                <span class="required">*</span>
-                            </label>
-                            <input type="text" class="form-input" name="solicitante_vmware" placeholder="Nombre completo" required>
-                        </div>
-
-                        <div class="form-section">
-                            <label class="form-label">
-                                Número Contacto
-                                <span class="required">*</span>
-                            </label>
-                            <input type="tel" class="form-input" name="numero_contacto_vmware" placeholder="+56 9 1234 5678" required>
-                        </div>
-
-                        <div class="form-section">
-                            <label class="form-label">
-                                País
-                                <span class="required">*</span>
-                            </label>
-                            <select class="form-select" name="pais_vmware" required>
-                                <option value="">-- Seleccione un país --</option>
-                                <option value="Argentina">Argentina</option>
-                                <option value="Bolivia">Bolivia</option>
-                                <option value="Brasil">Brasil</option>
-                                <option value="Chile">Chile</option>
-                                <option value="Colombia">Colombia</option>
-                                <option value="Costa Rica">Costa Rica</option>
-                                <option value="Ecuador">Ecuador</option>
-                                <option value="El Salvador">El Salvador</option>
-                                <option value="Guatemala">Guatemala</option>
-                                <option value="Honduras">Honduras</option>
-                                <option value="México">México</option>
-                                <option value="Nicaragua">Nicaragua</option>
-                                <option value="Panamá">Panamá</option>
-                                <option value="Paraguay">Paraguay</option>
-                                <option value="Perú">Perú</option>
-                                <option value="República Dominicana">República Dominicana</option>
-                                <option value="Uruguay">Uruguay</option>
-                                <option value="Venezuela">Venezuela</option>
-                                <option value="Estados Unidos">Estados Unidos</option>
-                                <option value="España">España</option>
-                                <option value="Otro">Otro</option>
-                            </select>
-                        </div>
-
-                        <div class="form-section">
-                            <label class="form-label">
-                                Case Subject
-                                <span class="required">*</span>
-                            </label>
-                            <input type="text" class="form-input" name="case_subject_vmware" placeholder="Case subject">
-                        </div>
-
-                        <div class="form-section">
-                            <label class="form-label">
-                                Case Description
-                                <span class="required">*</span>
-                            </label>
-                            <textarea class="form-textarea" name="case_description_vmware" placeholder="Detailed description of the problem..."></textarea>
-                        </div>
-
-                        <div class="form-section">
-                            <label class="form-label">
-                                Prioridad
-                                <span class="required">*</span>
-                            </label>
-                            <select class="form-select" name="prioridad_vmware" required>
-                                <option value="">-- Seleccione prioridad --</option>
-                                <option value="Baja">Baja</option>
-                                <option value="Media">Media</option>
-                                <option value="Alta">Alta</option>
-                                <option value="Crítica">Crítica</option>
-                            </select>
-                        </div>
-
-                        <div class="file-upload-section">
-                            <label class="form-label">
-                                📎 Attach Files
-                                <span class="optional">(Optional)</span>
-                            </label>
-                            <input type="file" class="form-file" name="attachments_vmware" multiple>
-                            <div class="field-hint">You can attach screenshots, logs, or relevant documents</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- LABS FORM -->
-                <div id="form-labs" class="form-section hidden">
-                    <img src="images/Labs.png" alt="Labs" class="service-icon-img">
-                    <h2 class="service-title">Adistec Labs</h2>
-                    <span class="badge">4 required fields</span>
-                    <p class="service-description">Adistec Labs® is the support program oriented to provide assistance and technical support to customers who purchase solutions as Adistec vSAN Ready Node, Adistec Data Protection Appliance or AEC POD.</p>
-                    
-                    <div class="form-fields">
-                        <div class="form-section">
-                            <label class="form-label">
-                                Solicitante
-                                <span class="required">*</span>
-                            </label>
-                            <input type="text" class="form-input" name="solicitante_labs" placeholder="Nombre completo" required>
-                        </div>
-
-                        <div class="form-section">
-                            <label class="form-label">
-                                Número Contacto
-                                <span class="required">*</span>
-                            </label>
-                            <input type="tel" class="form-input" name="numero_contacto_labs" placeholder="+56 9 1234 5678" required>
-                        </div>
-
-                        <div class="form-section">
-                            <label class="form-label">
-                                País
-                                <span class="required">*</span>
-                            </label>
-                            <select class="form-select" name="pais_labs" required>
-                                <option value="">-- Seleccione un país --</option>
-                                <option value="Argentina">Argentina</option>
-                                <option value="Bolivia">Bolivia</option>
-                                <option value="Brasil">Brasil</option>
-                                <option value="Chile">Chile</option>
-                                <option value="Colombia">Colombia</option>
-                                <option value="Costa Rica">Costa Rica</option>
-                                <option value="Ecuador">Ecuador</option>
-                                <option value="El Salvador">El Salvador</option>
-                                <option value="Guatemala">Guatemala</option>
-                                <option value="Honduras">Honduras</option>
-                                <option value="México">México</option>
-                                <option value="Nicaragua">Nicaragua</option>
-                                <option value="Panamá">Panamá</option>
-                                <option value="Paraguay">Paraguay</option>
-                                <option value="Perú">Perú</option>
-                                <option value="República Dominicana">República Dominicana</option>
-                                <option value="Uruguay">Uruguay</option>
-                                <option value="Venezuela">Venezuela</option>
-                                <option value="Estados Unidos">Estados Unidos</option>
-                                <option value="España">España</option>
-                                <option value="Otro">Otro</option>
-                            </select>
-                        </div>
-
-                        <div class="form-section">
-                            <label class="form-label">
-                                Problem Type
-                                <span class="required">*</span>
-                            </label>
-                            <div class="radio-group">
-                                <div class="radio-item">
-                                    <input type="radio" id="problema-individual" name="tipo_problema_labs" value="individual" required>
-                                    <label for="problema-individual">Individual Problem (affects a specific user)</label>
-                                </div>
-                                <div class="radio-item">
-                                    <input type="radio" id="problema-general" name="tipo_problema_labs" value="general" required>
-                                    <label for="problema-general">General Problem (affects multiple users or the complete service)</label>
+                            <!-- FTP para archivos grandes -->
+                            <div class="ftp-section"
+                                style="margin-top: 20px; padding: 16px; background: linear-gradient(135deg, #FFF3E0, #FFE0B2); border-radius: 8px; border-left: 4px solid #FF9800;">
+                                <label
+                                    style="display: flex; align-items: center; gap: 10px; cursor: pointer; margin: 0;">
+                                    <input type="checkbox" class="ftp-checkbox"
+                                        style="width: 20px; height: 20px; cursor: pointer; accent-color: #FF9800;">
+                                    <span style="font-weight: 600; color: #E65100;">📤 Need to upload files larger than
+                                        40MB?</span>
+                                </label>
+                                <div class="ftp-details" style="display: none; margin-top: 12px;">
+                                    <textarea class="form-textarea ftp-description"
+                                        placeholder="Describe the files (e.g., Server logs 500MB, Database backup 2GB)..."
+                                        style="min-height: 80px; border-color: #FF9800;"></textarea>
+                                    <div style="margin-top: 8px; color: #E65100; font-size: 13px;">
+                                        ℹ️ We'll send you FTP credentials via email
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
-                        <!-- vPOD SECTION WITH CASCADE -->
-                        <div class="form-section">
-                            <label class="form-label">
-                                vPod Affected
-                                <span class="optional">(Optional)</span>
-                            </label>
-                            <select class="form-select" id="vpodScope" name="vpod_scope_labs">
-                                <option value="">-- No aplica --</option>
-                                <option value="one">Un vPod</option>
-                                <option value="multiple">Varios vPods</option>
-                                <option value="all">Todos los vPods</option>
-                            </select>
-                        </div>
-
-                        <!-- Campo de texto condicional para vPOD -->
-                        <div class="form-section hidden" id="vpodDetailSection">
-                            <label class="form-label">
-                                <span id="vpodDetailLabel">Nombre del vPod</span>
-                                <span class="required">*</span>
-                            </label>
-                            <input type="text" class="form-input" id="vpodDetailInput" name="vpod_detail_labs" placeholder="Ingrese el/los vPod(s) afectado(s)">
-                            <div class="field-hint" id="vpodHint">Ejemplo: vPod-12345</div>
-                        </div>
-
-                        <div class="form-section">
-                            <label class="form-label">
-                                Credentials
-                                <span class="optional">(Optional)</span>
-                            </label>
-                            <textarea class="form-textarea" name="credenciales_labs" placeholder="Username and access credentials needed to replicate the problem..."></textarea>
-                        </div>
-
-                        <div class="form-section">
-                            <label class="form-label">
-                                Case Subject
-                                <span class="required">*</span>
-                            </label>
-                            <input type="text" class="form-input" name="case_subject_labs" placeholder="Case subject">
-                        </div>
-
-                        <div class="form-section">
-                            <label class="form-label">
-                                Case Description
-                                <span class="required">*</span>
-                            </label>
-                            <textarea class="form-textarea" name="case_description_labs" placeholder="Detailed description of the problem..."></textarea>
-                        </div>
-
-                        <div class="form-section">
-                            <label class="form-label">
-                                Prioridad
-                                <span class="required">*</span>
-                            </label>
-                            <select class="form-select" name="prioridad_labs" required>
-                                <option value="">-- Seleccione prioridad --</option>
-                                <option value="Baja">Baja</option>
-                                <option value="Media">Media</option>
-                                <option value="Alta">Alta</option>
-                                <option value="Crítica">Crítica</option>
-                            </select>
-                        </div>
-
-                        <div class="file-upload-section">
-                            <label class="form-label">
-                                📎 Attach Files
-                                <span class="optional">(Optional)</span>
-                            </label>
-                            <input type="file" class="form-file" name="attachments_labs" multiple>
-                            <div class="field-hint">Screenshots, logs, configurations, or other relevant documents</div>
-                        </div>
                     </div>
                 </div>
-
-                <!-- EDUCATION FORM -->
-                <div id="form-education" class="form-section hidden">
-                    <img src="images/Education.png" alt="Education" class="service-icon-img">
-                    <h2 class="service-title">Adistec Education</h2>
-                    <span class="badge">2 required fields</span>
-                    <p class="service-description">Adistec Education® is the support program oriented to provide assistance and technical support to customers who purchase solutions as Adistec vSAN Ready Node, Adistec Data Protection Appliance or AEC POD.</p>
-                    
-                    <div class="form-fields">
-                        <div class="form-section">
-                            <label class="form-label">
-                                Solicitante
-                                <span class="required">*</span>
-                            </label>
-                            <input type="text" class="form-input" name="solicitante_education" placeholder="Nombre completo" required>
-                        </div>
-
-                        <div class="form-section">
-                            <label class="form-label">
-                                Número Contacto
-                                <span class="required">*</span>
-                            </label>
-                            <input type="tel" class="form-input" name="numero_contacto_education" placeholder="+56 9 1234 5678" required>
-                        </div>
-
-                        <div class="form-section">
-                            <label class="form-label">
-                                País
-                                <span class="required">*</span>
-                            </label>
-                            <select class="form-select" name="pais_education" required>
-                                <option value="">-- Seleccione un país --</option>
-                                <option value="Argentina">Argentina</option>
-                                <option value="Bolivia">Bolivia</option>
-                                <option value="Brasil">Brasil</option>
-                                <option value="Chile">Chile</option>
-                                <option value="Colombia">Colombia</option>
-                                <option value="Costa Rica">Costa Rica</option>
-                                <option value="Ecuador">Ecuador</option>
-                                <option value="El Salvador">El Salvador</option>
-                                <option value="Guatemala">Guatemala</option>
-                                <option value="Honduras">Honduras</option>
-                                <option value="México">México</option>
-                                <option value="Nicaragua">Nicaragua</option>
-                                <option value="Panamá">Panamá</option>
-                                <option value="Paraguay">Paraguay</option>
-                                <option value="Perú">Perú</option>
-                                <option value="República Dominicana">República Dominicana</option>
-                                <option value="Uruguay">Uruguay</option>
-                                <option value="Venezuela">Venezuela</option>
-                                <option value="Estados Unidos">Estados Unidos</option>
-                                <option value="España">España</option>
-                                <option value="Otro">Otro</option>
-                            </select>
-                        </div>
-
-                        <div class="form-section">
-                            <label class="form-label">
-                                Vendor
-                                <span class="required">*</span>
-                            </label>
-                            <select class="form-select" name="vendor_education" required>
-                                <option value="">-- Seleccione un vendor --</option>
-                                <option value="Nutanix">Nutanix</option>
-                                <option value="Veeam">Veeam</option>
-                                <option value="VMware">VMware</option>
-                                <option value="Fortinet">Fortinet</option>
-                                <option value="AWS">AWS</option>
-                                <option value="Veritas">Veritas</option>
-                                <option value="Forcepoint">Forcepoint</option>
-                                <option value="Omnissa">Omnissa</option>
-                            </select>
-                        </div>
-
-                        <div class="form-section">
-                            <label class="form-label">
-                                Case Subject
-                                <span class="required">*</span>
-                            </label>
-                            <input type="text" class="form-input" name="case_subject_education" placeholder="Case subject">
-                        </div>
-
-                        <div class="form-section">
-                            <label class="form-label">
-                                Case Description
-                                <span class="required">*</span>
-                            </label>
-                            <textarea class="form-textarea" name="case_description_education" placeholder="Detailed description of the problem..."></textarea>
-                        </div>
-
-                        <div class="form-section">
-                            <label class="form-label">
-                                Prioridad
-                                <span class="required">*</span>
-                            </label>
-                            <select class="form-select" name="prioridad_education" required>
-                                <option value="">-- Seleccione prioridad --</option>
-                                <option value="Baja">Baja</option>
-                                <option value="Media">Media</option>
-                                <option value="Alta">Alta</option>
-                                <option value="Crítica">Crítica</option>
-                            </select>
-                        </div>
-
-                        <div class="file-upload-section">
-                            <label class="form-label">
-                                📎 Attach Files
-                                <span class="optional">(Optional)</span>
-                            </label>
-                            <input type="file" class="form-file" name="attachments_education" multiple>
-                            <div class="field-hint">You can attach course materials, screenshots, or relevant documents</div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <!-- SUBMIT BUTTON -->
-                <button type="submit" class="submit-btn" id="submitBtn" disabled>
-                    <span data-i18n="form.submit">Submit Support Request</span>
-                </button>
-            </form>
         </div>
+
+        <!-- AIS SUPERMICRO FORM -->
+        <div id="form-ais-supermicro" class="form-section hidden">
+            <span class="badge">4 required fields</span>
+
+            <div class="info-box">
+                <strong>ℹ️ Note:</strong>
+                This form does NOT require MotherBoard information (difference with Intel)
+            </div>
+
+            <div class="form-fields">
+                <div class="form-section">
+                    <label class="form-label">
+                        Requester Name
+                        <span class="required">*</span>
+                    </label>
+                    <input type="email" class="form-input" name="solicitante_supermicro" placeholder="email@ejemplo.com"
+                        required>
+                </div>
+
+                <div class="form-section">
+                    <label class="form-label">
+                        Número Contacto
+                        <span class="required">*</span>
+                    </label>
+                    <input type="tel" class="form-input" name="numero_contacto_supermicro" placeholder="+56 9 1234 5678"
+                        required>
+                </div>
+
+                <div class="form-section">
+                    <label class="form-label">
+                        País
+                        <span class="required">*</span>
+                    </label>
+                    <select class="form-select" name="pais_supermicro" required>
+                        <option value="">-- Seleccione un país --</option>
+                        <option value="Argentina">Argentina</option>
+                        <option value="Bolivia">Bolivia</option>
+                        <option value="Brasil">Brasil</option>
+                        <option value="Chile">Chile</option>
+                        <option value="Colombia">Colombia</option>
+                        <option value="Costa Rica">Costa Rica</option>
+                        <option value="Ecuador">Ecuador</option>
+                        <option value="El Salvador">El Salvador</option>
+                        <option value="Guatemala">Guatemala</option>
+                        <option value="Honduras">Honduras</option>
+                        <option value="México">México</option>
+                        <option value="Nicaragua">Nicaragua</option>
+                        <option value="Panamá">Panamá</option>
+                        <option value="Paraguay">Paraguay</option>
+                        <option value="Perú">Perú</option>
+                        <option value="República Dominicana">República Dominicana</option>
+                        <option value="Uruguay">Uruguay</option>
+                        <option value="Venezuela">Venezuela</option>
+                        <option value="Estados Unidos">Estados Unidos</option>
+                        <option value="España">España</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                </div>
+
+                <div class="form-section">
+                    <label class="form-label">
+                        Serial Number
+                        <span class="required">*</span>
+                    </label>
+                    <input type="text" class="form-input" name="numero_serie_supermicro"
+                        placeholder="e.g., SM-XYZ789012">
+                </div>
+
+                <div class="form-section">
+                    <label class="form-label">
+                        Case Subject
+                        <span class="required">*</span>
+                    </label>
+                    <input type="text" class="form-input" name="case_subject_supermicro" placeholder="Case subject">
+                </div>
+
+                <div class="form-section">
+                    <label class="form-label">
+                        Case Description
+                        <span class="required">*</span>
+                    </label>
+                    <textarea class="form-textarea" name="case_description_supermicro"
+                        placeholder="Detailed description of the problem..."></textarea>
+                </div>
+
+                <div class="form-section">
+                    <label class="form-label">
+                        Prioridad
+                        <span class="required">*</span>
+                    </label>
+                    <select class="form-select" name="prioridad_supermicro" required>
+                        <option value="">-- Seleccione prioridad --</option>
+                        <option value="Baja">Baja</option>
+                        <option value="Media">Media</option>
+                        <option value="Alta">Alta</option>
+                        <option value="Crítica">Crítica</option>
+                    </select>
+                </div>
+
+                <div class="file-upload-section">
+                    <label class="form-label">
+                        📎 Attach Files
+                        <span class="optional">(Optional)</span>
+                    </label>
+                    <input type="file" class="form-file" name="attachments_supermicro" multiple>
+                    <div class="field-hint">You can attach screenshots, logs, or relevant documents (max 40MB)</div>
+
+                    <!-- FTP para archivos grandes -->
+                    <div class="ftp-section"
+                        style="margin-top: 20px; padding: 16px; background: linear-gradient(135deg, #FFF3E0, #FFE0B2); border-radius: 8px; border-left: 4px solid #FF9800;">
+                        <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; margin: 0;">
+                            <input type="checkbox" class="ftp-checkbox"
+                                style="width: 20px; height: 20px; cursor: pointer; accent-color: #FF9800;">
+                            <span style="font-weight: 600; color: #E65100;">📤 Need to upload files larger than
+                                40MB?</span>
+                        </label>
+                        <div class="ftp-details" style="display: none; margin-top: 12px;">
+                            <textarea class="form-textarea ftp-description"
+                                placeholder="Describe the files (e.g., Server logs 500MB, Database backup 2GB)..."
+                                style="min-height: 80px; border-color: #FF9800;"></textarea>
+                            <div style="margin-top: 8px; color: #E65100; font-size: 13px;">
+                                ℹ️ We'll send you FTP credentials via email
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-section">
+                <label class="form-label">
+                    First Aid Kit (FAK)
+                    <span class="optional">(Optional)</span>
+                </label>
+                <div
+                    style="display: flex; align-items: center; gap: 10px; padding: 12px; background: #f8f9fa; border-radius: 8px; border: 2px solid #ddd;">
+                    <input type="checkbox" id="fak_supermicro" name="fak_supermicro"
+                        style="width: 20px; height: 20px; cursor: pointer; accent-color: #1E6FCC;">
+                    <label for="fak_supermicro" style="cursor: pointer; margin: 0; font-weight: 500;">Include First
+                        Aid Kit (FAK) service</label>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <!-- AEC FORM -->
+    <div id="form-aec" class="form-section hidden">
+        <img src="images/AEC.png" alt="AEC" class="service-icon-img">
+        <h2 class="service-title">Adistec Enterprise Cloud (AEC)</h2>
+        <span class="badge">5 required fields</span>
+        <p class="service-description">Adistec Enterprise Cloud® is the support program oriented to provide
+            assistance and technical support to customers who purchase solutions as Adistec vSAN Ready Node, Adistec
+            Data POD.</p>
+
+        <div class="form-fields">
+            <div class="form-section">
+                <label class="form-label">
+                    Solicitante
+                    <span class="required">*</span>
+                </label>
+                <input type="text" class="form-input" name="solicitante_aec" placeholder="Nombre completo" required>
+            </div>
+
+            <div class="form-section">
+                <label class="form-label">
+                    Número Contacto
+                    <span class="required">*</span>
+                </label>
+                <input type="tel" class="form-input" name="numero_contacto_aec" placeholder="+56 9 1234 5678" required>
+            </div>
+
+            <div class="form-section">
+                <label class="form-label">
+                    País
+                    <span class="required">*</span>
+                </label>
+                <select class="form-select" name="pais_aec" required>
+                    <option value="-- Seleccione un país --</option>
+                                <option value=" Argentina">Argentina</option>
+                    <option value="Bolivia">Bolivia</option>
+                    <option value="Brasil">Brasil</option>
+                    <option value="Chile">Chile</option>
+                    <option value="Colombia">Colombia</option>
+                    <option value="Costa Rica">Costa Rica</option>
+                    <option value="Ecuador">Ecuador</option>
+                    <option value="El Salvador">El Salvador</option>
+                    <option value="Guatemala">Guatemala</option>
+                    <option value="Honduras">Honduras</option>
+                    <option value="México">México</option>
+                    <option value="Nicaragua">Nicaragua</option>
+                    <option value="Panamá">Panamá</option>
+                    <option value="Paraguay">Paraguay</option>
+                    <option value="Perú">Perú</option>
+                    <option value="República Dominicana">República Dominicana</option>
+                    <option value="Uruguay">Uruguay</option>
+                    <option value="Venezuela">Venezuela</option>
+                    <option value="Estados Unidos">Estados Unidos</option>
+                    <option value="España">España</option>
+                    <option value="Otro">Otro</option>
+                </select>
+            </div>
+
+            <div class="form-section">
+                <label class="form-label">
+                    Subject Case
+                    <span class="required">*</span>
+                </label>
+                <input type="text" class="form-input" name="subject_aec" placeholder="Case subject">
+            </div>
+
+            <div class="form-section">
+                <label class="form-label">
+                    Partner (Integrator)
+                    <span class="required">*</span>
+                </label>
+                <input type="text" class="form-input" name="partner_integrador_aec"
+                    placeholder="Partner integrator name">
+            </div>
+
+            <div class="form-section">
+                <label class="form-label">
+                    Service ID Number
+                    <span class="required">*</span>
+                </label>
+                <input type="text" class="form-input" name="service_id_aec" placeholder="e.g., AEC-2024-001">
+                <div class="field-hint">Contracted service ID</div>
+            </div>
+
+            <div class="form-section">
+                <label class="form-label">
+                    AEC Service Acquired
+                    <span class="required">*</span>
+                </label>
+                <input type="text" class="form-input" name="aec_service_adquirido">
+            </div>
+
+            <div class="form-section">
+                <label class="form-label">
+                    Case Description
+                    <span class="required">*</span>
+                </label>
+                <textarea class="form-textarea" name="case_description_aec"
+                    placeholder="Detailed description of the problem..."></textarea>
+            </div>
+
+            <div class="form-section">
+                <label class="form-label">
+                    Prioridad
+                    <span class="required">*</span>
+                </label>
+                <select class="form-select" name="prioridad_aec" required>
+                    <option value="">-- Seleccione prioridad --</option>
+                    <option value="Baja">Baja</option>
+                    <option value="Media">Media</option>
+                    <option value="Alta">Alta</option>
+                    <option value="Crítica">Crítica</option>
+                </select>
+            </div>
+
+            <div class="file-upload-section">
+                <label class="form-label">
+                    📎 Attach Files
+                    <span class="optional">(Optional)</span>
+                </label>
+                <input type="file" class="form-file" name="attachments_aec" multiple>
+                <div class="field-hint">You can attach screenshots, logs, or relevant documents (max 40MB)</div>
+
+                <!-- FTP para archivos grandes -->
+                <div class="ftp-section"
+                    style="margin-top: 20px; padding: 16px; background: linear-gradient(135deg, #FFF3E0, #FFE0B2); border-radius: 8px; border-left: 4px solid #FF9800;">
+                    <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; margin: 0;">
+                        <input type="checkbox" class="ftp-checkbox"
+                            style="width: 20px; height: 20px; cursor: pointer; accent-color: #FF9800;">
+                        <span style="font-weight: 600; color: #E65100;">📤 Need to upload files larger than 40MB?</span>
+                    </label>
+                    <div class="ftp-details" style="display: none; margin-top: 12px;">
+                        <textarea class="form-textarea ftp-description"
+                            placeholder="Describe the files (e.g., Server logs 500MB, Database backup 2GB)..."
+                            style="min-height: 80px; border-color: #FF9800;"></textarea>
+                        <div style="margin-top: 8px; color: #E65100; font-size: 13px;">
+                            ℹ️ We'll send you FTP credentials via email
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- AWLC VEEAM FORM -->
+    <div id="form-awlc-veeam" class="form-section hidden">
+        <span class="badge">3 required fields</span>
+
+        <div class="form-fields">
+            <div class="form-section">
+                <label class="form-label">
+                    Solicitante
+                    <span class="required">*</span>
+                </label>
+                <input type="text" class="form-input" name="solicitante_veeam" placeholder="Nombre completo" required>
+            </div>
+
+            <div class="form-section">
+                <label class="form-label">
+                    Número Contacto
+                    <span class="required">*</span>
+                </label>
+                <input type="tel" class="form-input" name="numero_contacto_veeam" placeholder="+56 9 1234 5678"
+                    required>
+            </div>
+
+            <div class="form-section">
+                <label class="form-label">
+                    País
+                    <span class="required">*</span>
+                </label>
+                <select class="form-select" name="pais_veeam" required>
+                    <option value="">-- Seleccione un país --</option>
+                    <option value="Argentina">Argentina</option>
+                    <option value="Bolivia">Bolivia</option>
+                    <option value="Brasil">Brasil</option>
+                    <option value="Chile">Chile</option>
+                    <option value="Colombia">Colombia</option>
+                    <option value="Costa Rica">Costa Rica</option>
+                    <option value="Ecuador">Ecuador</option>
+                    <option value="El Salvador">El Salvador</option>
+                    <option value="Guatemala">Guatemala</option>
+                    <option value="Honduras">Honduras</option>
+                    <option value="México">México</option>
+                    <option value="Nicaragua">Nicaragua</option>
+                    <option value="Panamá">Panamá</option>
+                    <option value="Paraguay">Paraguay</option>
+                    <option value="Perú">Perú</option>
+                    <option value="República Dominicana">República Dominicana</option>
+                    <option value="Uruguay">Uruguay</option>
+                    <option value="Venezuela">Venezuela</option>
+                    <option value="Estados Unidos">Estados Unidos</option>
+                    <option value="España">España</option>
+                    <option value="Otro">Otro</option>
+                </select>
+            </div>
+
+            <div class="form-section">
+                <label class="form-label">
+                    Support ID
+                    <span class="required">*</span>
+                </label>
+                <input type="text" class="form-input" name="soporte_id_veeam" placeholder="e.g., VEEAM-2024-456">
+                <div class="field-hint">Support case reference ID</div>
+            </div>
+
+            <div class="form-section">
+                <label class="form-label">
+                    Case Subject
+                    <span class="required">*</span>
+                </label>
+                <input type="text" class="form-input" name="case_subject_veeam" placeholder="Case subject">
+            </div>
+
+            <div class="form-section">
+                <label class="form-label">
+                    Case Description
+                    <span class="required">*</span>
+                </label>
+                <textarea class="form-textarea" name="case_description_veeam"
+                    placeholder="Detailed description of the problem..."></textarea>
+            </div>
+
+            <div class="form-section">
+                <label class="form-label">
+                    Prioridad
+                    <span class="required">*</span>
+                </label>
+                <select class="form-select" name="prioridad_veeam" required>
+                    <option value="">-- Seleccione prioridad --</option>
+                    <option value="Baja">Baja</option>
+                    <option value="Media">Media</option>
+                    <option value="Alta">Alta</option>
+                    <option value="Crítica">Crítica</option>
+                </select>
+            </div>
+
+            <div class="file-upload-section">
+                <label class="form-label">
+                    📎 Attach Files
+                    <span class="optional">(Optional)</span>
+                </label>
+                <input type="file" class="form-file" name="attachments_veeam" multiple>
+                <div class="field-hint">You can attach screenshots, logs, or relevant documents (max 40MB)</div>
+
+                <!-- FTP para archivos grandes -->
+                <div class="ftp-section"
+                    style="margin-top: 20px; padding: 16px; background: linear-gradient(135deg, #FFF3E0, #FFE0B2); border-radius: 8px; border-left: 4px solid #FF9800;">
+                    <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; margin: 0;">
+                        <input type="checkbox" class="ftp-checkbox"
+                            style="width: 20px; height: 20px; cursor: pointer; accent-color: #FF9800;">
+                        <span style="font-weight: 600; color: #E65100;">📤 Need to upload files larger than 40MB?</span>
+                    </label>
+                    <div class="ftp-details" style="display: none; margin-top: 12px;">
+                        <textarea class="form-textarea ftp-description"
+                            placeholder="Describe the files (e.g., Server logs 500MB, Database backup 2GB)..."
+                            style="min-height: 80px; border-color: #FF9800;"></textarea>
+                        <div style="margin-top: 8px; color: #E65100; font-size: 13px;">
+                            ℹ️ We'll send you FTP credentials via email
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- AWLC VMWARE FORM -->
+    <div id="form-awlc-vmware" class="form-section hidden">
+        <span class="badge">2 required fields</span>
+
+        <div class="form-fields">
+            <div class="form-section">
+                <label class="form-label">
+                    Solicitante
+                    <span class="required">*</span>
+                </label>
+                <input type="text" class="form-input" name="solicitante_vmware" placeholder="Nombre completo" required>
+            </div>
+
+            <div class="form-section">
+                <label class="form-label">
+                    Número Contacto
+                    <span class="required">*</span>
+                </label>
+                <input type="tel" class="form-input" name="numero_contacto_vmware" placeholder="+56 9 1234 5678"
+                    required>
+            </div>
+
+            <div class="form-section">
+                <label class="form-label">
+                    País
+                    <span class="required">*</span>
+                </label>
+                <select class="form-select" name="pais_vmware" required>
+                    <option value="">-- Seleccione un país --</option>
+                    <option value="Argentina">Argentina</option>
+                    <option value="Bolivia">Bolivia</option>
+                    <option value="Brasil">Brasil</option>
+                    <option value="Chile">Chile</option>
+                    <option value="Colombia">Colombia</option>
+                    <option value="Costa Rica">Costa Rica</option>
+                    <option value="Ecuador">Ecuador</option>
+                    <option value="El Salvador">El Salvador</option>
+                    <option value="Guatemala">Guatemala</option>
+                    <option value="Honduras">Honduras</option>
+                    <option value="México">México</option>
+                    <option value="Nicaragua">Nicaragua</option>
+                    <option value="Panamá">Panamá</option>
+                    <option value="Paraguay">Paraguay</option>
+                    <option value="Perú">Perú</option>
+                    <option value="República Dominicana">República Dominicana</option>
+                    <option value="Uruguay">Uruguay</option>
+                    <option value="Venezuela">Venezuela</option>
+                    <option value="Estados Unidos">Estados Unidos</option>
+                    <option value="España">España</option>
+                    <option value="Otro">Otro</option>
+                </select>
+            </div>
+
+            <div class="form-section">
+                <label class="form-label">
+                    Case Subject
+                    <span class="required">*</span>
+                </label>
+                <input type="text" class="form-input" name="case_subject_vmware" placeholder="Case subject">
+            </div>
+
+            <div class="form-section">
+                <label class="form-label">
+                    Case Description
+                    <span class="required">*</span>
+                </label>
+                <textarea class="form-textarea" name="case_description_vmware"
+                    placeholder="Detailed description of the problem..."></textarea>
+            </div>
+
+            <div class="form-section">
+                <label class="form-label">
+                    Prioridad
+                    <span class="required">*</span>
+                </label>
+                <select class="form-select" name="prioridad_vmware" required>
+                    <option value="">-- Seleccione prioridad --</option>
+                    <option value="Baja">Baja</option>
+                    <option value="Media">Media</option>
+                    <option value="Alta">Alta</option>
+                    <option value="Crítica">Crítica</option>
+                </select>
+            </div>
+
+            <div class="file-upload-section">
+                <label class="form-label">
+                    📎 Attach Files
+                    <span class="optional">(Optional)</span>
+                </label>
+                <input type="file" class="form-file" name="attachments_vmware" multiple>
+                <div class="field-hint">You can attach screenshots, logs, or relevant documents (max 40MB)</div>
+
+                <!-- FTP para archivos grandes -->
+                <div class="ftp-section"
+                    style="margin-top: 20px; padding: 16px; background: linear-gradient(135deg, #FFF3E0, #FFE0B2); border-radius: 8px; border-left: 4px solid #FF9800;">
+                    <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; margin: 0;">
+                        <input type="checkbox" class="ftp-checkbox"
+                            style="width: 20px; height: 20px; cursor: pointer; accent-color: #FF9800;">
+                        <span style="font-weight: 600; color: #E65100;">📤 Need to upload files larger than 40MB?</span>
+                    </label>
+                    <div class="ftp-details" style="display: none; margin-top: 12px;">
+                        <textarea class="form-textarea ftp-description"
+                            placeholder="Describe the files (e.g., Server logs 500MB, Database backup 2GB)..."
+                            style="min-height: 80px; border-color: #FF9800;"></textarea>
+                        <div style="margin-top: 8px; color: #E65100; font-size: 13px;">
+                            ℹ️ We'll send you FTP credentials via email
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- LABS FORM -->
+    <div id="form-labs" class="form-section hidden">
+        <img src="images/Labs.png" alt="Labs" class="service-icon-img">
+        <h2 class="service-title">Adistec Labs</h2>
+        <span class="badge">4 required fields</span>
+        <p class="service-description">Adistec Labs® is the support program oriented to provide assistance and
+            technical support to customers who purchase solutions as Adistec vSAN Ready Node, Adistec Data
+            Protection Appliance or AEC POD.</p>
+
+        <div class="form-fields">
+            <div class="form-section">
+                <label class="form-label">
+                    Solicitante
+                    <span class="required">*</span>
+                </label>
+                <input type="text" class="form-input" name="solicitante_labs" placeholder="Nombre completo" required>
+            </div>
+
+            <div class="form-section">
+                <label class="form-label">
+                    Número Contacto
+                    <span class="required">*</span>
+                </label>
+                <input type="tel" class="form-input" name="numero_contacto_labs" placeholder="+56 9 1234 5678" required>
+            </div>
+
+            <div class="form-section">
+                <label class="form-label">
+                    País
+                    <span class="required">*</span>
+                </label>
+                <select class="form-select" name="pais_labs" required>
+                    <option value="">-- Seleccione un país --</option>
+                    <option value="Argentina">Argentina</option>
+                    <option value="Bolivia">Bolivia</option>
+                    <option value="Brasil">Brasil</option>
+                    <option value="Chile">Chile</option>
+                    <option value="Colombia">Colombia</option>
+                    <option value="Costa Rica">Costa Rica</option>
+                    <option value="Ecuador">Ecuador</option>
+                    <option value="El Salvador">El Salvador</option>
+                    <option value="Guatemala">Guatemala</option>
+                    <option value="Honduras">Honduras</option>
+                    <option value="México">México</option>
+                    <option value="Nicaragua">Nicaragua</option>
+                    <option value="Panamá">Panamá</option>
+                    <option value="Paraguay">Paraguay</option>
+                    <option value="Perú">Perú</option>
+                    <option value="República Dominicana">República Dominicana</option>
+                    <option value="Uruguay">Uruguay</option>
+                    <option value="Venezuela">Venezuela</option>
+                    <option value="Estados Unidos">Estados Unidos</option>
+                    <option value="España">España</option>
+                    <option value="Otro">Otro</option>
+                </select>
+            </div>
+
+            <div class="form-section">
+                <label class="form-label">
+                    Problem Type
+                    <span class="required">*</span>
+                </label>
+                <div class="radio-group">
+                    <div class="radio-item">
+                        <input type="radio" id="problema-individual" name="tipo_problema_labs" value="individual"
+                            required>
+                        <label for="problema-individual">Individual Problem (affects a specific user)</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="problema-general" name="tipo_problema_labs" value="general" required>
+                        <label for="problema-general">General Problem (affects multiple users or the complete
+                            service)</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- vPOD SECTION WITH CASCADE -->
+            <div class="form-section">
+                <label class="form-label">
+                    vPod Affected
+                    <span class="optional">(Optional)</span>
+                </label>
+                <select class="form-select" id="vpodScope" name="vpod_scope_labs">
+                    <option value="">-- No aplica --</option>
+                    <option value="one">Un vPod</option>
+                    <option value="multiple">Varios vPods</option>
+                    <option value="all">Todos los vPods</option>
+                </select>
+            </div>
+
+            <!-- Campo de texto condicional para vPOD -->
+            <div class="form-section hidden" id="vpodDetailSection">
+                <label class="form-label">
+                    <span id="vpodDetailLabel">Nombre del vPod</span>
+                    <span class="required">*</span>
+                </label>
+                <input type="text" class="form-input" id="vpodDetailInput" name="vpod_detail_labs"
+                    placeholder="Ingrese el/los vPod(s) afectado(s)">
+                <div class="field-hint" id="vpodHint">Ejemplo: vPod-12345</div>
+            </div>
+
+            <div class="form-section">
+                <label class="form-label">
+                    Credentials
+                    <span class="optional">(Optional)</span>
+                </label>
+                <textarea class="form-textarea" name="credenciales_labs"
+                    placeholder="Username and access credentials needed to replicate the problem..."></textarea>
+            </div>
+
+            <div class="form-section">
+                <label class="form-label">
+                    Case Subject
+                    <span class="required">*</span>
+                </label>
+                <input type="text" class="form-input" name="case_subject_labs" placeholder="Case subject">
+            </div>
+
+            <div class="form-section">
+                <label class="form-label">
+                    Case Description
+                    <span class="required">*</span>
+                </label>
+                <textarea class="form-textarea" name="case_description_labs"
+                    placeholder="Detailed description of the problem..."></textarea>
+            </div>
+
+            <div class="form-section">
+                <label class="form-label">
+                    Prioridad
+                    <span class="required">*</span>
+                </label>
+                <select class="form-select" name="prioridad_labs" required>
+                    <option value="">-- Seleccione prioridad --</option>
+                    <option value="Baja">Baja</option>
+                    <option value="Media">Media</option>
+                    <option value="Alta">Alta</option>
+                    <option value="Crítica">Crítica</option>
+                </select>
+            </div>
+
+            <div class="file-upload-section">
+                <label class="form-label">
+                    📎 Attach Files
+                    <span class="optional">(Optional)</span>
+                </label>
+                <input type="file" class="form-file" name="attachments_labs" multiple>
+                <div class="field-hint">Screenshots, logs, configurations, or other relevant documents</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- EDUCATION FORM -->
+    <div id="form-education" class="form-section hidden">
+        <img src="images/Education.png" alt="Education" class="service-icon-img">
+        <h2 class="service-title">Adistec Education</h2>
+        <span class="badge">2 required fields</span>
+        <p class="service-description">Adistec Education® is the support program oriented to provide assistance and
+            technical support to customers who purchase solutions as Adistec vSAN Ready Node, Adistec Data
+            Protection Appliance or AEC POD.</p>
+
+        <div class="form-fields">
+            <div class="form-section">
+                <label class="form-label">
+                    Solicitante
+                    <span class="required">*</span>
+                </label>
+                <input type="text" class="form-input" name="solicitante_education" placeholder="Nombre completo"
+                    required>
+            </div>
+
+            <div class="form-section">
+                <label class="form-label">
+                    Número Contacto
+                    <span class="required">*</span>
+                </label>
+                <input type="tel" class="form-input" name="numero_contacto_education" placeholder="+56 9 1234 5678"
+                    required>
+            </div>
+
+            <div class="form-section">
+                <label class="form-label">
+                    País
+                    <span class="required">*</span>
+                </label>
+                <select class="form-select" name="pais_education" required>
+                    <option value="">-- Seleccione un país --</option>
+                    <option value="Argentina">Argentina</option>
+                    <option value="Bolivia">Bolivia</option>
+                    <option value="Brasil">Brasil</option>
+                    <option value="Chile">Chile</option>
+                    <option value="Colombia">Colombia</option>
+                    <option value="Costa Rica">Costa Rica</option>
+                    <option value="Ecuador">Ecuador</option>
+                    <option value="El Salvador">El Salvador</option>
+                    <option value="Guatemala">Guatemala</option>
+                    <option value="Honduras">Honduras</option>
+                    <option value="México">México</option>
+                    <option value="Nicaragua">Nicaragua</option>
+                    <option value="Panamá">Panamá</option>
+                    <option value="Paraguay">Paraguay</option>
+                    <option value="Perú">Perú</option>
+                    <option value="República Dominicana">República Dominicana</option>
+                    <option value="Uruguay">Uruguay</option>
+                    <option value="Venezuela">Venezuela</option>
+                    <option value="Estados Unidos">Estados Unidos</option>
+                    <option value="España">España</option>
+                    <option value="Otro">Otro</option>
+                </select>
+            </div>
+
+            <div class="form-section">
+                <label class="form-label">
+                    Vendor
+                    <span class="required">*</span>
+                </label>
+                <select class="form-select" name="vendor_education" required>
+                    <option value="">-- Seleccione un vendor --</option>
+                    <option value="Nutanix">Nutanix</option>
+                    <option value="Veeam">Veeam</option>
+                    <option value="VMware">VMware</option>
+                    <option value="Fortinet">Fortinet</option>
+                    <option value="AWS">AWS</option>
+                    <option value="Veritas">Veritas</option>
+                    <option value="Forcepoint">Forcepoint</option>
+                    <option value="Omnissa">Omnissa</option>
+                </select>
+            </div>
+
+            <div class="form-section">
+                <label class="form-label">
+                    Case Subject
+                    <span class="required">*</span>
+                </label>
+                <input type="text" class="form-input" name="case_subject_education" placeholder="Case subject">
+            </div>
+
+            <div class="form-section">
+                <label class="form-label">
+                    Case Description
+                    <span class="required">*</span>
+                </label>
+                <textarea class="form-textarea" name="case_description_education"
+                    placeholder="Detailed description of the problem..."></textarea>
+            </div>
+
+            <div class="form-section">
+                <label class="form-label">
+                    Prioridad
+                    <span class="required">*</span>
+                </label>
+                <select class="form-select" name="prioridad_education" required>
+                    <option value="">-- Seleccione prioridad --</option>
+                    <option value="Baja">Baja</option>
+                    <option value="Media">Media</option>
+                    <option value="Alta">Alta</option>
+                    <option value="Crítica">Crítica</option>
+                </select>
+            </div>
+
+            <div class="file-upload-section">
+                <label class="form-label">
+                    📎 Attach Files
+                    <span class="optional">(Optional)</span>
+                </label>
+                <input type="file" class="form-file" name="attachments_education" multiple>
+                <div class="field-hint">You can attach course materials, screenshots, or relevant documents</div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- SUBMIT BUTTON -->
+    <button type="submit" class="submit-btn" id="submitBtn" disabled>
+        <span data-i18n="form.submit">Submit Support Request</span>
+    </button>
+    </form>
+    </div>
     </div>
 
     <script>
@@ -1620,7 +1792,7 @@ html {
         const awlcSubTypeSelect = document.getElementById('awlcSubType');
         const submitBtn = document.getElementById('submitBtn');
         const allForms = document.querySelectorAll('[id^="form-"]');
-        
+
         // Hide all forms
         function hideAllForms() {
             allForms.forEach(form => {
@@ -1631,7 +1803,7 @@ html {
                 });
             });
         }
-        
+
         // Hide sub-selects
         function hideSubSelects() {
             aisSubSelect.classList.add('hidden');
@@ -1644,12 +1816,12 @@ html {
             aisSubTypeSelect.required = false;
             awlcSubTypeSelect.required = false;
         }
-        
+
         // Show specific form
         function showForm(formId) {
             console.log('🎯 showForm called with:', formId);
             hideAllForms();
-            
+
             if (formId) {
                 const formToShow = document.getElementById(`form-${formId}`);
                 console.log('🔎 Looking for element:', `form-${formId}`, 'Found:', formToShow);
@@ -1661,9 +1833,9 @@ html {
                             input.required = true;
                         }
                     });
-                    
+
                     submitBtn.disabled = false;
-                    
+
                     setTimeout(() => {
                         formToShow.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                     }, 100);
@@ -1672,17 +1844,17 @@ html {
                 submitBtn.disabled = true;
             }
         }
-        
+
         // Event listener for main service
-        serviceTypeSelect.addEventListener('change', function() {
+        serviceTypeSelect.addEventListener('change', function () {
             console.log('🔍 Service changed to:', this.value);
             hideAllForms();
             hideSubSelects();
             submitBtn.disabled = true;
-            
+
             const value = this.value;
             console.log('📋 Checking value:', value);
-            
+
             if (value === 'ais') {
                 aisSubSelect.classList.remove('hidden');
                 aisProgramSelect.required = true;
@@ -1702,14 +1874,14 @@ html {
                 console.log('⚠️  No value selected');
             }
         });
-        
+
         // Event listener for AIS program (LEVEL 1)
-        aisProgramSelect.addEventListener('change', function() {
+        aisProgramSelect.addEventListener('change', function () {
             aisManufacturerSelect.classList.add('hidden');
             aisSubTypeSelect.value = '';
             hideAllForms();
             submitBtn.disabled = true;
-            
+
             if (this.value) {
                 aisManufacturerSelect.classList.remove('hidden');
                 aisSubTypeSelect.required = true;
@@ -1718,9 +1890,9 @@ html {
                 }, 100);
             }
         });
-        
+
         // Event listener for AIS manufacturer (LEVEL 2)
-        aisSubTypeSelect.addEventListener('change', function() {
+        aisSubTypeSelect.addEventListener('change', function () {
             const subValue = this.value;
             if (subValue) {
                 showForm(`ais-${subValue}`);
@@ -1729,9 +1901,9 @@ html {
                 submitBtn.disabled = true;
             }
         });
-        
+
         // Event listener for AWLC
-        awlcSubTypeSelect.addEventListener('change', function() {
+        awlcSubTypeSelect.addEventListener('change', function () {
             const subValue = this.value;
             if (subValue) {
                 showForm(`awlc-${subValue}`);
@@ -1740,51 +1912,51 @@ html {
                 submitBtn.disabled = true;
             }
         });
-        
-        
+
+
 
         // ========================================
         // INTEGRACIÓN CON FORMULARIO NATIVO DE FRESHSERVICE
         // ========================================
-        
+
         // Función para formatear los datos como texto
 
-    function formatTicketData() {
-    const serviceType = serviceTypeSelect.value;
-    let formattedData = '';
-    let subject = '';
-    
-    // Helper para obtener datos comunes
-    const getCommonData = (prefix) => {
-        const solicitante = document.querySelector(`[name="solicitante_${prefix}"]`)?.value || '';
-        const telefono = document.querySelector(`[name="numero_contacto_${prefix}"]`)?.value || '';
-        const pais = document.querySelector(`[name="pais_${prefix}"]`)?.value || '';
-        const caseSubject = document.querySelector(`[name="case_subject_${prefix}"]`)?.value || document.querySelector(`[name="subject_${prefix}"]`)?.value || '';
-        const description = document.querySelector(`[name="description_${prefix}"]`)?.value || document.querySelector(`[name="case_description_${prefix}"]`)?.value || '';
-        const prioridad = document.querySelector(`[name="prioridad_${prefix}"]`)?.value || '';
-        
-        return {
-            solicitante,
-            telefono,
-            pais,
-            caseSubject,
-            description,
-            prioridad
-        };
-    };
-    
-    // Helper para color de prioridad
-    const getPriorityColor = (prioridad) => {
-        const p = prioridad.toLowerCase();
-        if (p === 'crítica' || p === 'critical') return '#E74C3C';
-        if (p === 'alta' || p === 'high') return '#E67E22';
-        if (p === 'media' || p === 'medium') return '#F39C12';
-        return '#27AE60';
-    };
-    
-    // Template HTML base
-    const createHTMLTemplate = (title, sections) => {
-        return `
+        function formatTicketData() {
+            const serviceType = serviceTypeSelect.value;
+            let formattedData = '';
+            let subject = '';
+
+            // Helper para obtener datos comunes
+            const getCommonData = (prefix) => {
+                const solicitante = document.querySelector(`[name="solicitante_${prefix}"]`)?.value || '';
+                const telefono = document.querySelector(`[name="numero_contacto_${prefix}"]`)?.value || '';
+                const pais = document.querySelector(`[name="pais_${prefix}"]`)?.value || '';
+                const caseSubject = document.querySelector(`[name="case_subject_${prefix}"]`)?.value || document.querySelector(`[name="subject_${prefix}"]`)?.value || '';
+                const description = document.querySelector(`[name="description_${prefix}"]`)?.value || document.querySelector(`[name="case_description_${prefix}"]`)?.value || '';
+                const prioridad = document.querySelector(`[name="prioridad_${prefix}"]`)?.value || '';
+
+                return {
+                    solicitante,
+                    telefono,
+                    pais,
+                    caseSubject,
+                    description,
+                    prioridad
+                };
+            };
+
+            // Helper para color de prioridad
+            const getPriorityColor = (prioridad) => {
+                const p = prioridad.toLowerCase();
+                if (p === 'crítica' || p === 'critical') return '#E74C3C';
+                if (p === 'alta' || p === 'high') return '#E67E22';
+                if (p === 'media' || p === 'medium') return '#F39C12';
+                return '#27AE60';
+            };
+
+            // Template HTML base
+            const createHTMLTemplate = (title, sections) => {
+                return `
 <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 800px; margin: 0 auto;">
     <div style="background: linear-gradient(135deg, #1E6FCC 0%, #144A8C 100%); color: white; padding: 20px; border-radius: 8px 8px 0 0;">
         <h2 style="margin: 0; font-size: 22px; font-weight: 600; color: white;">${title}</h2>
@@ -1799,10 +1971,10 @@ html {
     </div>
 </div>
 `;
-    };
-    
-    const createSection = (title, color, rows) => {
-        return `
+            };
+
+            const createSection = (title, color, rows) => {
+                return `
 <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 16px; border-left: 4px solid ${color}; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
     <h3 style="margin: 0 0 16px 0; color: ${color}; font-size: 16px; font-weight: 600;">${title}</h3>
     <table style="width: 100%; border-collapse: collapse;">
@@ -1815,11 +1987,11 @@ html {
     </table>
 </div>
 `;
-    };
-    
-    const createPrioritySection = (prioridad) => {
-        const color = getPriorityColor(prioridad);
-        return `
+            };
+
+            const createPrioritySection = (prioridad) => {
+                const color = getPriorityColor(prioridad);
+                return `
 <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 16px; border-left: 4px solid ${color}; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
     <h3 style="margin: 0 0 16px 0; color: ${color}; font-size: 16px; font-weight: 600;">⚡ PRIORIDAD</h3>
     <div style="display: inline-block; padding: 8px 16px; background: ${color}; color: white; border-radius: 20px; font-weight: 600; font-size: 14px;">
@@ -1827,237 +1999,258 @@ html {
     </div>
 </div>
 `;
-    };
-    
-    const createDescriptionSection = (description) => {
-        return `
+            };
+
+            const createDescriptionSection = (description) => {
+                return `
 <div style="background: white; padding: 20px; border-radius: 8px; border-left: 4px solid #9B59B6; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
     <h3 style="margin: 0 0 16px 0; color: #9B59B6; font-size: 16px; font-weight: 600;">📝 DESCRIPCIÓN DEL CASO</h3>
     <div style="padding: 16px; background: #f8f9fa; border-radius: 6px; line-height: 1.6; color: #333; white-space: pre-wrap;">${description}</div>
 </div>
 `;
-    };
-    
-    // ═══════════════════════════════════════════════════════════════
-    // 1. PROGRESS
-    // ═══════════════════════════════════════════════════════════════
-    if (serviceType === 'progress') {
-        const data = getCommonData('progress');
-        const serial = document.querySelector('[name="numero_serie_progress"]')?.value || '';
-        const subject_field = document.querySelector('[name="subject_progress"]')?.value || '';
-        
-        subject = '[Progress] ' + subject_field;
-        
-        const sections = [
-            createSection(' INFORMACIÓN DEL SOLICITANTE', '#1E6FCC', [
-                { label: ' Email:', value: data.solicitante },
-                { label: ' Teléfono:', value: data.telefono },
-                { label: ' País:', value: data.pais }
-            ]),
-            createSection(' INFORMACIÓN TÉCNICA', '#4A90E2', [
-                { label: ' Serial Number:', value: serial },
-                { label: ' Subject:', value: subject_field }
-            ]),
-            createPrioritySection(data.prioridad),
-            createDescriptionSection(data.description)
-        ];
-        
-        formattedData = createHTMLTemplate('SOLICITUD DE SOPORTE PROGRESS', sections);
-    }
-    
-    // ═══════════════════════════════════════════════════════════════
-    // 2. AIS (INTEL / SUPERMICRO)
-    // ═══════════════════════════════════════════════════════════════
-    else if (serviceType === 'ais') {
-    const subType = aisSubTypeSelect.value;
-    const aisProgram = aisProgramSelect.value; // ⬅️ NUEVO: Capturar programa
-    const data = getCommonData(subType);
-    const serial = document.querySelector(`[name="numero_serie_${subType}"]`)?.value || '';
-    const motherboard = document.querySelector(`[name="motherboard_${subType}"]`)?.value || '';
-    const fakChecked = document.querySelector(`[name="fak_${subType}"]`)?.checked;
-    
-    subject = `[AIS - ${subType.toUpperCase()}] ` + data.caseSubject;
-    
-    // ⬅️ NUEVO: Mapear nombres de programas
-    const programNames = {
-        'vrn': 'vSAN Ready Node (VRN)',
-        'dpa': 'Data Protection Appliance (DPA)',
-        'bto': 'Build To Order',
-        'nutanix': 'Nutanix Support Program'
-    };
-    
-    const techRows = [
-        { label: ' Programa:', value: programNames[aisProgram] || aisProgram.toUpperCase() }, // ⬅️ NUEVO
-        { label: ' Fabricante:', value: subType.toUpperCase() },
-        { label: ' Serial Number:', value: serial }
-    ];
-        
-        if (motherboard) {
-            techRows.push({ label: ' MotherBoard:', value: motherboard });
-        }
-        
-        if (fakChecked) {
-            techRows.push({ label: ' FAK:', value: '✅ Incluido' });
-        }
-        
-        const sections = [
-            createSection(' INFORMACIÓN DEL SOLICITANTE', '#1E6FCC', [
-                { label: ' Email:', value: data.solicitante },
-                { label: ' Teléfono:', value: data.telefono },
-                { label: ' País:', value: data.pais }
-            ]),
-            createSection(' INFORMACIÓN TÉCNICA', '#4A90E2', techRows),
-            createPrioritySection(data.prioridad),
-            createDescriptionSection(data.description)
-        ];
-        
-        formattedData = createHTMLTemplate(`SOLICITUD DE SOPORTE AIS - ${subType.toUpperCase()}`, sections);
-    }
-    
-    // ═══════════════════════════════════════════════════════════════
-    // 3. AEC (ADISTEC ENTERPRISE CLOUD)
-    // ═══════════════════════════════════════════════════════════════
-    else if (serviceType === 'aec') {
-        const data = getCommonData('aec');
-        const partner = document.querySelector('[name="partner_integrador_aec"]')?.value || '';
-        const serviceId = document.querySelector('[name="service_id_aec"]')?.value || '';
-        const aecService = document.querySelector('[name="aec_service_adquirido"]')?.value || '';
-        
-        subject = '[AEC] ' + data.caseSubject;
-        
-        const sections = [
-            createSection(' INFORMACIÓN DEL SOLICITANTE', '#1E6FCC', [
-                { label: ' Email:', value: data.solicitante },
-                { label: ' Teléfono:', value: data.telefono },
-                { label: ' País:', value: data.pais }
-            ]),
-            createSection(' INFORMACIÓN DEL SERVICIO', '#4A90E2', [
-                { label: ' Partner (Integrador):', value: partner },
-                { label: ' Service ID:', value: serviceId },
-                { label: ' Servicio Adquirido:', value: aecService }
-            ]),
-            createPrioritySection(data.prioridad),
-            createDescriptionSection(data.description)
-        ];
-        
-        formattedData = createHTMLTemplate('SOLICITUD DE SOPORTE AEC', sections);
-    }
-    
-    // ═══════════════════════════════════════════════════════════════
-    // 4. AWLC (WHITE LABEL CLOUD - VMWARE / VEEAM)
-    // ═══════════════════════════════════════════════════════════════
-    else if (serviceType === 'awlc') {
-        const subType = awlcSubTypeSelect.value;
-        const data = getCommonData(subType);
-        const supportId = document.querySelector(`[name="soporte_id_${subType}"]`)?.value || '';
-        
-        subject = `[AWLC - ${subType.toUpperCase()}] ` + data.caseSubject;
-        
-        const techRows = [
-            { label: '🖥️ Plataforma:', value: subType.toUpperCase() }
-        ];
-        
-        if (supportId) {
-            techRows.push({ label: '🆔 Support ID:', value: supportId });
-        }
-        
-        const sections = [
-            createSection(' INFORMACIÓN DEL SOLICITANTE', '#1E6FCC', [
-                { label: ' Email:', value: data.solicitante },
-                { label: ' Teléfono:', value: data.telefono },
-                { label: ' País:', value: data.pais }
-            ]),
-            createSection('🔧 INFORMACIÓN TÉCNICA', '#4A90E2', techRows),
-            createPrioritySection(data.prioridad),
-            createDescriptionSection(data.description)
-        ];
-        
-        formattedData = createHTMLTemplate(`SOLICITUD DE SOPORTE AWLC - ${subType.toUpperCase()}`, sections);
-    }
-    
-    // ═══════════════════════════════════════════════════════════════
-    // 5. LABS
-    // ═══════════════════════════════════════════════════════════════
-    else if (serviceType === 'labs') {
-        const data = getCommonData('labs');
-        const vpodScope = document.getElementById('vpodScope')?.value || '';
-        const vpodDetail = document.getElementById('vpodDetailInput')?.value || '';
-        const tipoproblema = document.querySelector('[name="tipo_problema_labs"]:checked')?.value || '';
-        
-        let vpodInfo = 'No especificado';
-        if (vpodScope === 'all') {
-            vpodInfo = ' Todos los vPods';
-        } else if (vpodScope === 'one' && vpodDetail) {
-            vpodInfo = ` ${vpodDetail}`;
-        } else if (vpodScope === 'multiple' && vpodDetail) {
-            vpodInfo = ` Múltiples: ${vpodDetail}`;
-        }
-        
-        subject = '[Labs] ' + data.caseSubject;
-        
-        const sections = [
-            createSection(' INFORMACIÓN DEL SOLICITANTE', '#1E6FCC', [
-                { label: ' Email:', value: data.solicitante },
-                { label: ' Teléfono:', value: data.telefono },
-                { label: ' País:', value: data.pais }
-            ]),
-            createSection(' INFORMACIÓN DEL LABORATORIO', '#4A90E2', [
-                { label: ' Tipo de Problema:', value: tipoproblema === 'individual' ? 'Individual' : 'General' },
-                { label: ' vPod Afectado:', value: vpodInfo }
-            ]),
-            createPrioritySection(data.prioridad),
-            createDescriptionSection(data.description)
-        ];
-        
-        formattedData = createHTMLTemplate('SOLICITUD DE SOPORTE LABS', sections);
-    }
-    
-    // ═══════════════════════════════════════════════════════════════
-    // 6. EDUCATION
-    // ═══════════════════════════════════════════════════════════════
-    else if (serviceType === 'education') {
-        const data = getCommonData('education');
-        const vendor = document.querySelector('[name="vendor_education"]')?.value || '';
-        
-        subject = '[Education] ' + data.caseSubject;
-        
-        const sections = [
-            createSection(' INFORMACIÓN DEL SOLICITANTE', '#1E6FCC', [
-                { label: ' Email:', value: data.solicitante },
-                { label: ' Teléfono:', value: data.telefono },
-                { label: ' País:', value: data.pais }
-            ]),
-            createSection(' INFORMACIÓN DEL CURSO', '#4A90E2', [
-                { label: ' Vendor:', value: vendor }
-            ]),
-            createPrioritySection(data.prioridad),
-            createDescriptionSection(data.description)
-        ];
-        
-        formattedData = createHTMLTemplate('SOLICITUD DE SOPORTE EDUCATION', sections);
-    }
-    
-    return {
-        subject: subject,
-        description: formattedData,
-        email: getCommonData(serviceType === 'ais' ? aisSubTypeSelect.value : 
-                            serviceType === 'awlc' ? awlcSubTypeSelect.value : 
-                            serviceType).solicitante
-    };
-}
+            };
 
-        
+            // ═══════════════════════════════════════════════════════════════
+            // 1. PROGRESS
+            // ═══════════════════════════════════════════════════════════════
+            if (serviceType === 'progress') {
+                const data = getCommonData('progress');
+                const serial = document.querySelector('[name="numero_serie_progress"]')?.value || '';
+                const subject_field = document.querySelector('[name="subject_progress"]')?.value || '';
+
+                subject = '[Progress] ' + subject_field;
+
+                const sections = [
+                    createSection(' INFORMACIÓN DEL SOLICITANTE', '#1E6FCC', [
+                        { label: ' Email:', value: data.solicitante },
+                        { label: ' Teléfono:', value: data.telefono },
+                        { label: ' País:', value: data.pais }
+                    ]),
+                    createSection(' INFORMACIÓN TÉCNICA', '#4A90E2', [
+                        { label: ' Serial Number:', value: serial },
+                        { label: ' Subject:', value: subject_field }
+                    ]),
+                    createPrioritySection(data.prioridad),
+                    createDescriptionSection(data.description)
+                ];
+
+                formattedData = createHTMLTemplate('SOLICITUD DE SOPORTE PROGRESS', sections);
+            }
+
+            // ═══════════════════════════════════════════════════════════════
+            // 2. AIS (INTEL / SUPERMICRO)
+            // ═══════════════════════════════════════════════════════════════
+            else if (serviceType === 'ais') {
+                const subType = aisSubTypeSelect.value;
+                const aisProgram = aisProgramSelect.value; // ⬅️ NUEVO: Capturar programa
+                const data = getCommonData(subType);
+                const serial = document.querySelector(`[name="numero_serie_${subType}"]`)?.value || '';
+                const motherboard = document.querySelector(`[name="motherboard_${subType}"]`)?.value || '';
+                const fakChecked = document.querySelector(`[name="fak_${subType}"]`)?.checked;
+
+                subject = `[AIS - ${subType.toUpperCase()}] ` + data.caseSubject;
+
+                // ⬅️ NUEVO: Mapear nombres de programas
+                const programNames = {
+                    'vrn': 'vSAN Ready Node (VRN)',
+                    'dpa': 'Data Protection Appliance (DPA)',
+                    'bto': 'Build To Order',
+                    'nutanix': 'Nutanix Support Program'
+                };
+
+                const techRows = [
+                    { label: ' Programa:', value: programNames[aisProgram] || aisProgram.toUpperCase() }, // ⬅️ NUEVO
+                    { label: ' Fabricante:', value: subType.toUpperCase() },
+                    { label: ' Serial Number:', value: serial }
+                ];
+
+                if (motherboard) {
+                    techRows.push({ label: ' MotherBoard:', value: motherboard });
+                }
+
+                if (fakChecked) {
+                    techRows.push({ label: ' FAK:', value: '✅ Incluido' });
+                }
+
+                const sections = [
+                    createSection(' INFORMACIÓN DEL SOLICITANTE', '#1E6FCC', [
+                        { label: ' Email:', value: data.solicitante },
+                        { label: ' Teléfono:', value: data.telefono },
+                        { label: ' País:', value: data.pais }
+                    ]),
+                    createSection(' INFORMACIÓN TÉCNICA', '#4A90E2', techRows),
+                    createPrioritySection(data.prioridad),
+                    createDescriptionSection(data.description)
+                ];
+
+                formattedData = createHTMLTemplate(`SOLICITUD DE SOPORTE AIS - ${subType.toUpperCase()}`, sections);
+            }
+
+            // ═══════════════════════════════════════════════════════════════
+            // 3. AEC (ADISTEC ENTERPRISE CLOUD)
+            // ═══════════════════════════════════════════════════════════════
+            else if (serviceType === 'aec') {
+                const data = getCommonData('aec');
+                const partner = document.querySelector('[name="partner_integrador_aec"]')?.value || '';
+                const serviceId = document.querySelector('[name="service_id_aec"]')?.value || '';
+                const aecService = document.querySelector('[name="aec_service_adquirido"]')?.value || '';
+
+                subject = '[AEC] ' + data.caseSubject;
+
+                const sections = [
+                    createSection(' INFORMACIÓN DEL SOLICITANTE', '#1E6FCC', [
+                        { label: ' Email:', value: data.solicitante },
+                        { label: ' Teléfono:', value: data.telefono },
+                        { label: ' País:', value: data.pais }
+                    ]),
+                    createSection(' INFORMACIÓN DEL SERVICIO', '#4A90E2', [
+                        { label: ' Partner (Integrador):', value: partner },
+                        { label: ' Service ID:', value: serviceId },
+                        { label: ' Servicio Adquirido:', value: aecService }
+                    ]),
+                    createPrioritySection(data.prioridad),
+                    createDescriptionSection(data.description)
+                ];
+
+                formattedData = createHTMLTemplate('SOLICITUD DE SOPORTE AEC', sections);
+            }
+
+            // ═══════════════════════════════════════════════════════════════
+            // 4. AWLC (WHITE LABEL CLOUD - VMWARE / VEEAM)
+            // ═══════════════════════════════════════════════════════════════
+            else if (serviceType === 'awlc') {
+                const subType = awlcSubTypeSelect.value;
+                const data = getCommonData(subType);
+                const supportId = document.querySelector(`[name="soporte_id_${subType}"]`)?.value || '';
+
+                subject = `[AWLC - ${subType.toUpperCase()}] ` + data.caseSubject;
+
+                const techRows = [
+                    { label: '🖥️ Plataforma:', value: subType.toUpperCase() }
+                ];
+
+                if (supportId) {
+                    techRows.push({ label: '🆔 Support ID:', value: supportId });
+                }
+
+                const sections = [
+                    createSection(' INFORMACIÓN DEL SOLICITANTE', '#1E6FCC', [
+                        { label: ' Email:', value: data.solicitante },
+                        { label: ' Teléfono:', value: data.telefono },
+                        { label: ' País:', value: data.pais }
+                    ]),
+                    createSection('🔧 INFORMACIÓN TÉCNICA', '#4A90E2', techRows),
+                    createPrioritySection(data.prioridad),
+                    createDescriptionSection(data.description)
+                ];
+
+                formattedData = createHTMLTemplate(`SOLICITUD DE SOPORTE AWLC - ${subType.toUpperCase()}`, sections);
+            }
+
+            // ═══════════════════════════════════════════════════════════════
+            // 5. LABS
+            // ═══════════════════════════════════════════════════════════════
+            else if (serviceType === 'labs') {
+                const data = getCommonData('labs');
+                const vpodScope = document.getElementById('vpodScope')?.value || '';
+                const vpodDetail = document.getElementById('vpodDetailInput')?.value || '';
+                const tipoproblema = document.querySelector('[name="tipo_problema_labs"]:checked')?.value || '';
+
+                let vpodInfo = 'No especificado';
+                if (vpodScope === 'all') {
+                    vpodInfo = ' Todos los vPods';
+                } else if (vpodScope === 'one' && vpodDetail) {
+                    vpodInfo = ` ${vpodDetail}`;
+                } else if (vpodScope === 'multiple' && vpodDetail) {
+                    vpodInfo = ` Múltiples: ${vpodDetail}`;
+                }
+
+                subject = '[Labs] ' + data.caseSubject;
+
+                const sections = [
+                    createSection(' INFORMACIÓN DEL SOLICITANTE', '#1E6FCC', [
+                        { label: ' Email:', value: data.solicitante },
+                        { label: ' Teléfono:', value: data.telefono },
+                        { label: ' País:', value: data.pais }
+                    ]),
+                    createSection(' INFORMACIÓN DEL LABORATORIO', '#4A90E2', [
+                        { label: ' Tipo de Problema:', value: tipoproblema === 'individual' ? 'Individual' : 'General' },
+                        { label: ' vPod Afectado:', value: vpodInfo }
+                    ]),
+                    createPrioritySection(data.prioridad),
+                    createDescriptionSection(data.description)
+                ];
+
+                formattedData = createHTMLTemplate('SOLICITUD DE SOPORTE LABS', sections);
+            }
+
+            // ═══════════════════════════════════════════════════════════════
+            // 6. EDUCATION
+            // ═══════════════════════════════════════════════════════════════
+            else if (serviceType === 'education') {
+                const data = getCommonData('education');
+                const vendor = document.querySelector('[name="vendor_education"]')?.value || '';
+
+                subject = '[Education] ' + data.caseSubject;
+
+                const sections = [
+                    createSection(' INFORMACIÓN DEL SOLICITANTE', '#1E6FCC', [
+                        { label: ' Email:', value: data.solicitante },
+                        { label: ' Teléfono:', value: data.telefono },
+                        { label: ' País:', value: data.pais }
+                    ]),
+                    createSection(' INFORMACIÓN DEL CURSO', '#4A90E2', [
+                        { label: ' Vendor:', value: vendor }
+                    ]),
+                    createPrioritySection(data.prioridad),
+                    createDescriptionSection(data.description)
+                ];
+
+                formattedData = createHTMLTemplate('SOLICITUD DE SOPORTE EDUCATION', sections);
+            }
+            // ═══════════════════════════════════════════════════════════════
+            // DETECTAR SI NECESITA FTP (funciona para todos los forms)
+            // ═══════════════════════════════════════════════════════════════
+            
+            const activeForm = document.querySelector('.form-section:not(.hidden)');
+            if (activeForm) {
+                const ftpCheckbox = activeForm.querySelector('.ftp-checkbox');
+                const ftpTextarea = activeForm.querySelector('.ftp-description');
+                
+                if (ftpCheckbox && ftpCheckbox.checked && ftpTextarea && ftpTextarea.value.trim()) {
+                    const ftpSection = createSection('📤 ARCHIVOS GRANDES - FTP REQUERIDO', '#FF9800', [
+                        { label: '⚠️ Estado:', value: '🔴 REQUIERE CREDENCIALES FTP' },
+                        { label: '📝 Archivos a subir:', value: ftpTextarea.value }
+                    ]);
+                    
+                    // Buscar el cierre del div principal y agregar antes
+                    const lastDivIndex = formattedData.lastIndexOf('</div>');
+                    formattedData = formattedData.substring(0, lastDivIndex) + ftpSection + formattedData.substring(lastDivIndex);
+                }
+            }
+
+            return {
+                subject: subject,
+                description: formattedData,
+                email: getCommonData(serviceType === 'ais' ? aisSubTypeSelect.value :
+                    serviceType === 'awlc' ? awlcSubTypeSelect.value :
+                        serviceType).solicitante
+            };
+        }
+
+           
+
         // Función para enviar mediante el formulario nativo
         function submitToFreshserviceNative(ticketData) {
             console.log('📤 Enviando mediante formulario nativo de Freshservice...');
             console.log('📋 Datos:', ticketData);
-            
+
             // Crear un formulario oculto que se envía a Freshservice
             const form = document.createElement('form');
             form.method = 'POST';
             form.action = '/support/tickets';
             form.style.display = 'none';
-            
+
             // Agregar campos
             const fields = {
                 'helpdesk_ticket[email]': ticketData.email,
@@ -2066,7 +2259,7 @@ html {
                 'helpdesk_ticket[priority]': '1', // Baja por defecto
                 'helpdesk_ticket[status]': '2' // Open
             };
-            
+
             Object.keys(fields).forEach(key => {
                 const input = document.createElement('input');
                 input.type = 'hidden';
@@ -2074,63 +2267,63 @@ html {
                 input.value = fields[key];
                 form.appendChild(input);
             });
-            
+
             document.body.appendChild(form);
             form.submit();
         }
-        
+
         // Event listener for submit
-        document.getElementById('supportForm').addEventListener('submit', async function(e) {
+        document.getElementById('supportForm').addEventListener('submit', async function (e) {
             e.preventDefault();
-            
+
             console.log('📝 Formulario enviado');
-            
+
             // Validar que hay un servicio seleccionado
             const serviceType = serviceTypeSelect.value;
             if (!serviceType) {
                 alert('⚠️ Por favor selecciona un tipo de servicio');
                 return;
             }
-            
+
             if (serviceType === 'ais' && !aisSubTypeSelect.value) {
                 alert('⚠️ Por favor selecciona el tipo de AIS');
                 return;
             }
-            
+
             if (serviceType === 'awlc' && !awlcSubTypeSelect.value) {
                 alert('⚠️ Por favor selecciona el tipo de AWLC');
                 return;
             }
-            
+
             try {
                 // Formatear datos
                 const ticketData = formatTicketData();
-                
-               // Validación de email mejorada
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!ticketData.email || !emailRegex.test(ticketData.email)) {
-        alert('El campo "Solicitante" debe contener un email válido (ejemplo: usuario@empresa.com)');
-        return;
-    }
-                
+
+                // Validación de email mejorada
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!ticketData.email || !emailRegex.test(ticketData.email)) {
+                    alert('El campo "Solicitante" debe contener un email válido (ejemplo: usuario@empresa.com)');
+                    return;
+                }
+
                 // Mostrar loading
                 submitBtn.disabled = true;
                 submitBtn.innerHTML = '<span>⏳ Enviando ticket...</span>';
-                
+
                 // Enviar mediante formulario nativo
                 // Enviar datos al parent (página de Freshservice)
                 window.parent.postMessage({
                     type: 'ADISTEC_FORM_SUBMIT',
                     data: ticketData
                 }, '*');
-                
+
                 console.log('✅ Datos enviados al portal');
-                
+
                 // Mostrar mensaje
                 // Mostrar mensaje de éxito bonito
-// Crear overlay oscuro
-const overlay = document.createElement('div');
-overlay.style.cssText = `
+                // Crear overlay oscuro
+                const overlay = document.createElement('div');
+                overlay.style.cssText = `
     position: fixed;
     top: 0;
     left: 0;
@@ -2142,9 +2335,9 @@ overlay.style.cssText = `
     animation: fadeIn 0.3s ease;
 `;
 
-// Crear mensaje de éxito
-const successBox = document.createElement('div');
-successBox.style.cssText = `
+                // Crear mensaje de éxito
+                const successBox = document.createElement('div');
+                successBox.style.cssText = `
     position: fixed;
     top: 50%;
     left: 50%;
@@ -2160,7 +2353,7 @@ successBox.style.cssText = `
     max-width: 90%;
 `;
 
-successBox.innerHTML = `
+                successBox.innerHTML = `
     <div style="
         width: 80px;
         height: 80px;
@@ -2215,9 +2408,9 @@ successBox.innerHTML = `
     </div>
 `;
 
-// Agregar estilos de animación
-const style = document.createElement('style');
-style.textContent = `
+                // Agregar estilos de animación
+                const style = document.createElement('style');
+                style.textContent = `
     @keyframes fadeIn {
         from { opacity: 0; }
         to { opacity: 1; }
@@ -2240,15 +2433,15 @@ style.textContent = `
     }
 `;
 
-document.head.appendChild(style);
-document.body.appendChild(overlay);
-document.body.appendChild(successBox);
+                document.head.appendChild(style);
+                document.body.appendChild(overlay);
+                document.body.appendChild(successBox);
 
-// Recargar después de 2 segundos
-setTimeout(function() {
-    window.location.reload();
-}, 2000);
-                
+                // Recargar después de 2 segundos
+                setTimeout(function () {
+                    window.location.reload();
+                }, 2000);
+
             } catch (error) {
                 console.error('❌ Error:', error);
                 alert('❌ Error: ' + error.message);
@@ -2257,100 +2450,121 @@ setTimeout(function() {
             }
         });
 
-                // Initialize
+        // Initialize
         hideAllForms();
         hideSubSelects();
-        
+
         // Change logo to blue version on load
         const logo = document.getElementById('adistecLogo');
         logo.src = 'images/logo_ats_total_blanco.svg';
 
         // Traducciones
-const translations = {
-    es: {
-        header: {
-            title: "Soporte Técnico",
-            subtitle: "Seleccione el tipo de servicio y complete el formulario especializado"
-        },
-        form: {
-            serviceType: "Tipo de Servicio",
-            selectService: "-- Seleccione un servicio --",
-            submit: "Enviar Solicitud de Soporte",
-            required: "requerido",
-            optional: "Opcional",
-            fak: "First Aid Kit (FAK)",
-            fakLabel: "Incluir servicio First Aid Kit (FAK)"
-        }
-    },
-    en: {
-        header: {
-            title: "Technical Support",
-            subtitle: "Select the type of service and complete the specialized form"
-        },
-        form: {
-            serviceType: "Service Type",
-            selectService: "-- Select a service --",
-            submit: "Submit Support Request",
-            required: "required",
-            optional: "Optional",
-            fak: "First Aid Kit (FAK)",
-            fakLabel: "Include First Aid Kit (FAK) service"
-        }
-    },
-    pt: {
-        header: {
-            title: "Suporte Técnico",
-            subtitle: "Selecione o tipo de serviço e preencha o formulário especializado"
-        },
-        form: {
-            serviceType: "Tipo de Serviço",
-            selectService: "-- Selecione um serviço --",
-            submit: "Enviar Solicitação de Suporte",
-            required: "obrigatório",
-            optional: "Opcional",
-            fak: "First Aid Kit (FAK)",
-            fakLabel: "Incluir serviço First Aid Kit (FAK)"
-        }
-    }
-};
+        const translations = {
+            es: {
+                header: {
+                    title: "Soporte Técnico",
+                    subtitle: "Seleccione el tipo de servicio y complete el formulario especializado"
+                },
+                form: {
+                    serviceType: "Tipo de Servicio",
+                    selectService: "-- Seleccione un servicio --",
+                    submit: "Enviar Solicitud de Soporte",
+                    required: "requerido",
+                    optional: "Opcional",
+                    fak: "First Aid Kit (FAK)",
+                    fakLabel: "Incluir servicio First Aid Kit (FAK)"
+                }
+            },
+            en: {
+                header: {
+                    title: "Technical Support",
+                    subtitle: "Select the type of service and complete the specialized form"
+                },
+                form: {
+                    serviceType: "Service Type",
+                    selectService: "-- Select a service --",
+                    submit: "Submit Support Request",
+                    required: "required",
+                    optional: "Optional",
+                    fak: "First Aid Kit (FAK)",
+                    fakLabel: "Include First Aid Kit (FAK) service"
+                }
+            },
+            pt: {
+                header: {
+                    title: "Suporte Técnico",
+                    subtitle: "Selecione o tipo de serviço e preencha o formulário especializado"
+                },
+                form: {
+                    serviceType: "Tipo de Serviço",
+                    selectService: "-- Selecione um serviço --",
+                    submit: "Enviar Solicitação de Suporte",
+                    required: "obrigatório",
+                    optional: "Opcional",
+                    fak: "First Aid Kit (FAK)",
+                    fakLabel: "Incluir serviço First Aid Kit (FAK)"
+                }
+            }
+        };
 
-// Función para cambiar idioma
-function changeLanguage(lang) {
-    // Guardar preferencia
-    localStorage.setItem('preferredLanguage', lang);
-    
-    // Actualizar elementos con data-i18n
-    document.querySelectorAll('[data-i18n]').forEach(element => {
-        const key = element.getAttribute('data-i18n');
-        const keys = key.split('.');
-        let value = translations[lang];
-        
-        keys.forEach(k => {
-            value = value?.[k];
+        // Función para cambiar idioma
+        function changeLanguage(lang) {
+            // Guardar preferencia
+            localStorage.setItem('preferredLanguage', lang);
+
+            // Actualizar elementos con data-i18n
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                const keys = key.split('.');
+                let value = translations[lang];
+
+                keys.forEach(k => {
+                    value = value?.[k];
+                });
+
+                if (value) {
+                    element.textContent = value;
+                }
+            });
+
+            // Actualizar option del selector de servicio
+            const firstOption = document.querySelector('#serviceType option[value=""]');
+            if (firstOption) {
+                firstOption.textContent = translations[lang].form.selectService;
+            }
+        }
+
+        // Detectar idioma al cargar
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('preferredLanguage');
+            const browserLang = navigator.language.substring(0, 2);
+            const defaultLang = savedLang || (translations[browserLang] ? browserLang : 'en');
+
+            document.getElementById('languageSelector').value = defaultLang;
+            changeLanguage(defaultLang);
         });
-        
-        if (value) {
-            element.textContent = value;
-        }
-    });
-    
-    // Actualizar option del selector de servicio
-    const firstOption = document.querySelector('#serviceType option[value=""]');
-    if (firstOption) {
-        firstOption.textContent = translations[lang].form.selectService;
-    }
-}
 
-// Detectar idioma al cargar
-window.addEventListener('DOMContentLoaded', () => {
-    const savedLang = localStorage.getItem('preferredLanguage');
-    const browserLang = navigator.language.substring(0, 2);
-    const defaultLang = savedLang || (translations[browserLang] ? browserLang : 'en');
-    
-    document.getElementById('languageSelector').value = defaultLang;
-    changeLanguage(defaultLang);
-});
+        // ═══════════════════════════════════════════════════════════
+        // FTP PARA ARCHIVOS GRANDES - AUTO-FUNCIONA EN TODOS LOS FORMS
+        // ═══════════════════════════════════════════════════════════
+
+        document.querySelectorAll('.ftp-checkbox').forEach(checkbox => {
+            checkbox.addEventListener('change', function () {
+                const details = this.closest('.ftp-section').querySelector('.ftp-details');
+                const textarea = details.querySelector('.ftp-description');
+
+                if (this.checked) {
+                    details.style.display = 'block';
+                    textarea.required = true;
+                } else {
+                    details.style.display = 'none';
+                    textarea.required = false;
+                    textarea.value = '';
+                }
+            });
+        });
 
     </script>
 </body>
+
 </html>
