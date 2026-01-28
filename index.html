@@ -1630,25 +1630,26 @@
             </div>
 
             <div class="form-section">
-                <label class="form-label">
-                    Prioridad
-                    <span class="required">*</span>
-                </label>
-                <select class="form-select" name="prioridad_labs" required>
-                    <option value="">-- Seleccione prioridad --</option>
-                    <option value="Baja">Baja</option>
-                    <option value="Media">Media</option>
-                    <option value="Alta">Alta</option>
-                    <option value="Crítica">Crítica</option>
-                </select>
-            </div>
+    <label class="form-label">
+        Prioridad (Auto-calculada)
+        <span class="required">*</span>
+    </label>
+    <select class="form-select" name="prioridad_labs" id="prioridad_labs" required disabled style="background-color: #f0f0f0;">
+        <option value="">-- Se calculará automáticamente --</option>
+        <option value="Baja">Baja</option>
+        <option value="Media">Media</option>
+        <option value="Alta">Alta</option>
+        <option value="Urgente">Urgente</option>
+    </select>
+    <div class="field-hint" id="priority-explanation" style="color: #E67E22; font-weight: 600;"></div>
+</div>
 
             <div class="file-upload-section">
                 <label class="form-label">
                     📎 Attach Files
-                    <span class="optional">(Optional)</span>
+                    <span class="optional">(Required)</span>
                 </label>
-                <input type="file" class="form-file" name="attachments_labs" multiple>
+                <input type="file" class="form-file" name="attachments_labs" multiple required>
                 <div class="field-hint">Screenshots, logs, configurations, or other relevant documents</div>
             </div>
         </div>
