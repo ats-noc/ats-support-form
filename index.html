@@ -1591,17 +1591,18 @@
                     placeholder="Detailed description of the problem..."></textarea>
             </div>
 
+            <!-- Prioridad OCULTA - Siempre Baja por defecto -->
+            <input type="hidden" name="prioridad_labs" value="Baja">
+
             <div class="form-section">
                 <label class="form-label">
-                    Prioridad
+                    Tipo de Solicitante
                     <span class="required">*</span>
                 </label>
-                <select class="form-select" name="prioridad_labs" required>
-                    <option value="">-- Seleccione prioridad --</option>
-                    <option value="Baja">Baja</option>
-                    <option value="Media">Media</option>
-                    <option value="Alta">Alta</option>
-                    <option value="Crítica">Crítica</option>
+                <select class="form-select" name="tipo_solicitante_labs" required>
+                    <option value="">-- Seleccione tipo --</option>
+                    <option value="Instructor">Instructor</option>
+                    <option value="Alumno">Alumno</option>
                 </select>
             </div>
 
