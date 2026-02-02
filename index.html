@@ -1395,6 +1395,19 @@ html {
                             </select>
                         </div>
 
+                        <!-- ⬇️ AGREGAR ESTO AQUÍ -->
+                        <div class="form-section">
+                            <label class="form-label">
+                                Tipo de Solicitante
+                                <span class="required">*</span>
+                            </label>
+                            <select class="form-select" name="tipo_solicitante_labs" id="tipo_solicitante_labs" required>
+                                <option value="">-- Seleccione tipo --</option>
+                                <option value="Instructor">Instructor</option>
+                                <option value="Alumno">Alumno</option>
+                            </select>
+                        </div>
+
                         <div class="form-section">
                             <label class="form-label">
                                 Problem Type
@@ -1459,6 +1472,10 @@ html {
                             </label>
                             <textarea class="form-textarea" name="case_description_labs" placeholder="Detailed description of the problem..."></textarea>
                         </div>
+
+                        <!-- Prioridad oculta, siempre "Baja" por defecto -->
+                            <input type="hidden" name="prioridad_labs" id="prioridad_labs" value="Baja">
+                        
                         <div class="file-upload-section">
                             <label class="form-label">
                                 📎 Attach Files
@@ -1835,7 +1852,6 @@ html {
     
     // ═══════════════════════════════════════════════════════════════
     // LOS DEMÁS SERVICIOS (AIS, AEC, AWLC, LABS, EDUCATION)
-    // Mantén el formato que tenías antes (texto plano) o actualízalos después
     // ═══════════════════════════════════════════════════════════════
     else if (serviceType === 'ais') {
         const subType = aisSubTypeSelect.value;
@@ -1912,34 +1928,44 @@ Ticket generado desde el Portal de Soporte de Adistec
 `;
     }
     
-    else if (serviceType === 'labs') {
-        const data = getCommonData('labs');
-        const vpodScope = document.getElementById('vpodScope')?.value;
-        const vpodDetail = document.getElementById('vpodDetailInput')?.value;
-        let vpodInfo = '';
-        
-        if (vpodScope === 'all') {
-            vpodInfo = 'Todos los vPods';
-        } else if (vpodScope && vpodDetail) {
-            vpodInfo = vpodDetail;
-        }
-        
-        subject = '[Labs] ' + data.caseSubject;
-        formattedData = `
-=== SOLICITUD DE SOPORTE LABS ===
+// ═══════════════════════════════════════════════════════════════
+// 5. LABS
+// ═══════════════════════════════════════════════════════════════
+else if (serviceType === 'labs') {
+    const data = getCommonData('labs');
+    const vpodScope = document.getElementById('vpodScope')?.value || '';
+    const vpodDetail = document.getElementById('vpodDetailInput')?.value || '';
+    const tipoproblema = document.querySelector('[name="tipo_problema_labs"]:checked')?.value || '';
+    const tipoSolicitante = document.querySelector('[name="tipo_solicitante_labs"]')?.value || 'No especificado';
 
-INFORMACIÓN DEL SOLICITANTE:
-- Nombre: ${data.solicitante}
-- Teléfono: ${data.telefono}
-- País: ${data.pais}
+    let vpodInfo = 'No especificado';
+    if (vpodScope === 'all') {
+        vpodInfo = '🌐 Todos los vPods';
+    } else if (vpodScope === 'one' && vpodDetail) {
+        vpodInfo = `🎯 ${vpodDetail}`;
+    } else if (vpodScope === 'multiple' && vpodDetail) {
+        vpodInfo = `🎯 Múltiples: ${vpodDetail}`;
+    }
 
-INFORMACIÓN DEL vPOD:
-${vpodInfo ? '- vPOD Afectado: ' + vpodInfo : '- No aplica'}
+    subject = '[Labs] ' + data.caseSubject;
 
-PRIORIDAD: ${data.prioridad}
+    const sections = [
+        createSection('👤 INFORMACIÓN DEL SOLICITANTE', '#1E6FCC', [
+            { label: '📧 Email:', value: data.solicitante },
+            { label: '📞 Teléfono:', value: data.telefono },
+            { label: '🌎 País:', value: data.pais },
+            { label: '👨‍🏫 Tipo de Solicitante:', value: tipoSolicitante }
+        ]),
+        createSection('🔧 INFORMACIÓN DEL LABORATORIO', '#4A90E2', [
+            { label: '🔍 Tipo de Problema:', value: tipoproblema === 'individual' ? 'Individual' : 'General' },
+            { label: '🖥️ vPod Afectado:', value: vpodInfo }
+        ]),
+        createPrioritySection(data.prioridad),
+        createDescriptionSection(data.description)
+    ];
 
-DESCRIPCIÓN DEL CASO:
-${data.description}
+    formattedData = createHTMLTemplate('SOLICITUD DE SOPORTE LABS', sections);
+}
 
 ---
 Ticket generado desde el Portal de Soporte de Adistec
