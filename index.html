@@ -976,532 +976,495 @@
                 </div>
         </div>
 
-        <!-- AIS SUPERMICRO FORM -->
-        <div id="form-ais-supermicro" class="form-section hidden">
-            <span class="badge">4 required fields</span>
 
-            <div class="info-box">
-                <strong>ℹ️ Note:</strong>
-                This form does NOT require MotherBoard information (difference with Intel)
+<!-- AIS SUPERMICRO FORM -->
+<div id="form-ais-supermicro" class="form-section hidden">
+    <span class="badge">4 required fields</span>
+
+    <div class="info-box">
+        <strong>ℹ️ Note:</strong>
+        This form does NOT require MotherBoard information (difference with Intel)
+    </div>
+
+    <div class="form-fields">
+        <div class="form-section">
+            <label class="form-label">
+                Requester Name
+                <span class="required">*</span>
+            </label>
+            <input type="email" class="form-input" name="solicitante_supermicro" placeholder="email@ejemplo.com" required>
+        </div>
+
+        <div class="form-section">
+            <label class="form-label">
+                Número Contacto
+                <span class="required">*</span>
+            </label>
+            <input type="tel" class="form-input" name="numero_contacto_supermicro" placeholder="+56 9 1234 5678" required>
+        </div>
+
+        <div class="form-section">
+            <label class="form-label">
+                País
+                <span class="required">*</span>
+            </label>
+            <select class="form-select" name="pais_supermicro" required>
+                <option value="">-- Seleccione un país --</option>
+                <option value="Argentina">Argentina</option>
+                <option value="Bolivia">Bolivia</option>
+                <option value="Brasil">Brasil</option>
+                <option value="Chile">Chile</option>
+                <option value="Colombia">Colombia</option>
+                <option value="Costa Rica">Costa Rica</option>
+                <option value="Ecuador">Ecuador</option>
+                <option value="El Salvador">El Salvador</option>
+                <option value="Guatemala">Guatemala</option>
+                <option value="Honduras">Honduras</option>
+                <option value="México">México</option>
+                <option value="Nicaragua">Nicaragua</option>
+                <option value="Panamá">Panamá</option>
+                <option value="Paraguay">Paraguay</option>
+                <option value="Perú">Perú</option>
+                <option value="República Dominicana">República Dominicana</option>
+                <option value="Uruguay">Uruguay</option>
+                <option value="Venezuela">Venezuela</option>
+                <option value="Estados Unidos">Estados Unidos</option>
+                <option value="España">España</option>
+                <option value="Otro">Otro</option>
+            </select>
+        </div>
+
+        <div class="form-section">
+            <label class="form-label">
+                Serial Number
+                <span class="required">*</span>
+            </label>
+            <input type="text" class="form-input" name="numero_serie_supermicro" placeholder="e.g., SM-XYZ789012">
+        </div>
+
+        <div class="form-section">
+            <label class="form-label">
+                First Aid Kit (FAK)
+            </label>
+            <div style="display: flex; align-items: center; gap: 10px; padding: 12px; background: #f8f9fa; border-radius: 8px; border: 2px solid #ddd;">
+                <input type="checkbox" id="fak_supermicro" name="fak_supermicro" style="width: 20px; height: 20px; cursor: pointer; accent-color: #1E6FCC;">
+                <label for="fak_supermicro" style="cursor: pointer; margin: 0; font-weight: 500;">Include First Aid Kit (FAK) service</label>
             </div>
+        </div>
 
-            <div class="form-fields">
-                <div class="form-section">
-                    <label class="form-label">
-                        Requester Name
-                        <span class="required">*</span>
-                    </label>
-                    <input type="email" class="form-input" name="solicitante_supermicro" placeholder="email@ejemplo.com"
-                        required>
-                </div>
+        <div class="form-section">
+            <label class="form-label">
+                Case Subject
+                <span class="required">*</span>
+            </label>
+            <input type="text" class="form-input" name="case_subject_supermicro" placeholder="Case subject">
+        </div>
 
-                <div class="form-section">
-                    <label class="form-label">
-                        Número Contacto
-                        <span class="required">*</span>
-                    </label>
-                    <input type="tel" class="form-input" name="numero_contacto_supermicro" placeholder="+56 9 1234 5678"
-                        required>
-                </div>
+        <div class="form-section">
+            <label class="form-label">
+                Case Description
+                <span class="required">*</span>
+            </label>
+            <textarea class="form-textarea" name="case_description_supermicro" placeholder="Detailed description of the problem..."></textarea>
+        </div>
 
-                <div class="form-section">
-                    <label class="form-label">
-                        País
-                        <span class="required">*</span>
-                    </label>
-                    <select class="form-select" name="pais_supermicro" required>
-                        <option value="">-- Seleccione un país --</option>
-                        <option value="Argentina">Argentina</option>
-                        <option value="Bolivia">Bolivia</option>
-                        <option value="Brasil">Brasil</option>
-                        <option value="Chile">Chile</option>
-                        <option value="Colombia">Colombia</option>
-                        <option value="Costa Rica">Costa Rica</option>
-                        <option value="Ecuador">Ecuador</option>
-                        <option value="El Salvador">El Salvador</option>
-                        <option value="Guatemala">Guatemala</option>
-                        <option value="Honduras">Honduras</option>
-                        <option value="México">México</option>
-                        <option value="Nicaragua">Nicaragua</option>
-                        <option value="Panamá">Panamá</option>
-                        <option value="Paraguay">Paraguay</option>
-                        <option value="Perú">Perú</option>
-                        <option value="República Dominicana">República Dominicana</option>
-                        <option value="Uruguay">Uruguay</option>
-                        <option value="Venezuela">Venezuela</option>
-                        <option value="Estados Unidos">Estados Unidos</option>
-                        <option value="España">España</option>
-                        <option value="Otro">Otro</option>
-                    </select>
-                </div>
+        <div class="form-section">
+            <label class="form-label">
+                Prioridad
+                <span class="required">*</span>
+            </label>
+            <select class="form-select" name="prioridad_supermicro" required>
+                <option value="">-- Seleccione prioridad --</option>
+                <option value="Baja">Baja</option>
+                <option value="Media">Media</option>
+                <option value="Alta">Alta</option>
+                <option value="Crítica">Crítica</option>
+            </select>
+        </div>
 
-                <div class="form-section">
-                    <label class="form-label">
-                        Serial Number
-                        <span class="required">*</span>
-                    </label>
-                    <input type="text" class="form-input" name="numero_serie_supermicro"
-                        placeholder="e.g., SM-XYZ789012">
-                </div>
+        <div class="file-upload-section">
+            <label class="form-label">
+                📎 Attach Files
+                <span class="optional">(Optional)</span>
+            </label>
+            <input type="file" class="form-file" name="attachments_supermicro" multiple>
+            <div class="field-hint">You can attach screenshots, logs, or relevant documents (max 40MB)</div>
 
-                <div class="form-section">
-                    <label class="form-label">
-                        Case Subject
-                        <span class="required">*</span>
-                    </label>
-                    <input type="text" class="form-input" name="case_subject_supermicro" placeholder="Case subject">
-                </div>
-
-                <div class="form-section">
-                    <label class="form-label">
-                        Case Description
-                        <span class="required">*</span>
-                    </label>
-                    <textarea class="form-textarea" name="case_description_supermicro"
-                        placeholder="Detailed description of the problem..."></textarea>
-                </div>
-
-                <div class="form-section">
-                    <label class="form-label">
-                        Prioridad
-                        <span class="required">*</span>
-                    </label>
-                    <select class="form-select" name="prioridad_supermicro" required>
-                        <option value="">-- Seleccione prioridad --</option>
-                        <option value="Baja">Baja</option>
-                        <option value="Media">Media</option>
-                        <option value="Alta">Alta</option>
-                        <option value="Crítica">Crítica</option>
-                    </select>
-                </div>
-
-                <div class="file-upload-section">
-                    <label class="form-label">
-                        📎 Attach Files
-                        <span class="optional">(Optional)</span>
-                    </label>
-                    <input type="file" class="form-file" name="attachments_supermicro" multiple>
-                    <div class="field-hint">You can attach screenshots, logs, or relevant documents (max 40MB)</div>
-
-                    <!-- FTP para archivos grandes -->
-                    <div class="ftp-section"
-                        style="margin-top: 20px; padding: 16px; background: linear-gradient(135deg, #FFF3E0, #FFE0B2); border-radius: 8px; border-left: 4px solid #FF9800;">
-                        <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; margin: 0;">
-                            <input type="checkbox" class="ftp-checkbox"
-                                style="width: 20px; height: 20px; cursor: pointer; accent-color: #FF9800;">
-                            <span style="font-weight: 600; color: #E65100;">📤 Need to upload files larger than
-                                40MB?</span>
-                        </label>
-                        <div class="ftp-details" style="display: none; margin-top: 12px;">
-                            <textarea class="form-textarea ftp-description"
-                                placeholder="Describe the files (e.g., Server logs 500MB, Database backup 2GB)..."
-                                style="min-height: 80px; border-color: #FF9800;"></textarea>
-                            <div style="margin-top: 8px; color: #E65100; font-size: 13px;">
-                                ℹ️ We'll send you FTP credentials via email
-                            </div>
-                        </div>
+            <!-- FTP para archivos grandes -->
+            <div class="ftp-section" style="margin-top: 20px; padding: 16px; background: linear-gradient(135deg, #FFF3E0, #FFE0B2); border-radius: 8px; border-left: 4px solid #FF9800;">
+                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; margin: 0;">
+                    <input type="checkbox" class="ftp-checkbox" style="width: 20px; height: 20px; cursor: pointer; accent-color: #FF9800;">
+                    <span style="font-weight: 600; color: #E65100;">📤 Need to upload files larger than 40MB?</span>
+                </label>
+                <div class="ftp-details" style="display: none; margin-top: 12px;">
+                    <textarea class="form-textarea ftp-description" placeholder="Describe the files (e.g., Server logs 500MB, Database backup 2GB)..." style="min-height: 80px; border-color: #FF9800;"></textarea>
+                    <div style="margin-top: 8px; color: #E65100; font-size: 13px;">
+                        ℹ️ We'll send you FTP credentials via email
                     </div>
                 </div>
             </div>
-            <div class="form-section">
-                <label class="form-label">
-                    First Aid Kit (FAK)
-                    <span class="optional">(Optional)</span>
-                </label>
-                <div
-                    style="display: flex; align-items: center; gap: 10px; padding: 12px; background: #f8f9fa; border-radius: 8px; border: 2px solid #ddd;">
-                    <input type="checkbox" id="fak_supermicro" name="fak_supermicro"
-                        style="width: 20px; height: 20px; cursor: pointer; accent-color: #1E6FCC;">
-                    <label for="fak_supermicro" style="cursor: pointer; margin: 0; font-weight: 500;">Include First
-                        Aid Kit (FAK) service</label>
-                </div>
-            </div>
-
-
         </div>
     </div>
+</div>
+        
 
     <!-- AEC FORM -->
-    <div id="form-aec" class="form-section hidden">
-        <img src="images/AEC.png" alt="AEC" class="service-icon-img">
-        <h2 class="service-title">Adistec Enterprise Cloud (AEC)</h2>
-        <span class="badge">5 required fields</span>
-        <p class="service-description">Adistec Enterprise Cloud® is the support program oriented to provide
-            assistance and technical support to customers who purchase solutions as Adistec vSAN Ready Node, Adistec
-            Data POD.</p>
+<div id="form-aec" class="form-section hidden">
+    <img src="images/AEC.png" alt="AEC" class="service-icon-img">
+    <h2 class="service-title">Adistec Enterprise Cloud (AEC)</h2>
+    <span class="badge">5 required fields</span>
+    <p class="service-description">Adistec Enterprise Cloud® is the support program oriented to provide assistance and technical support to customers who purchase solutions as Adistec vSAN Ready Node, Adistec Data POD.</p>
 
-        <div class="form-fields">
-            <div class="form-section">
-                <label class="form-label">
-                    Solicitante
-                    <span class="required">*</span>
+    <div class="form-fields">
+        <div class="form-section">
+            <label class="form-label">
+                Solicitante
+                <span class="required">*</span>
+            </label>
+            <input type="text" class="form-input" name="solicitante_aec" placeholder="Nombre completo" required>
+        </div>
+
+        <div class="form-section">
+            <label class="form-label">
+                Número Contacto
+                <span class="required">*</span>
+            </label>
+            <input type="tel" class="form-input" name="numero_contacto_aec" placeholder="+56 9 1234 5678" required>
+        </div>
+
+        <div class="form-section">
+            <label class="form-label">
+                País
+                <span class="required">*</span>
+            </label>
+            <select class="form-select" name="pais_aec" required>
+                <option value="">-- Seleccione un país --</option>
+                <option value="Argentina">Argentina</option>
+                <option value="Bolivia">Bolivia</option>
+                <option value="Brasil">Brasil</option>
+                <option value="Chile">Chile</option>
+                <option value="Colombia">Colombia</option>
+                <option value="Costa Rica">Costa Rica</option>
+                <option value="Ecuador">Ecuador</option>
+                <option value="El Salvador">El Salvador</option>
+                <option value="Guatemala">Guatemala</option>
+                <option value="Honduras">Honduras</option>
+                <option value="México">México</option>
+                <option value="Nicaragua">Nicaragua</option>
+                <option value="Panamá">Panamá</option>
+                <option value="Paraguay">Paraguay</option>
+                <option value="Perú">Perú</option>
+                <option value="República Dominicana">República Dominicana</option>
+                <option value="Uruguay">Uruguay</option>
+                <option value="Venezuela">Venezuela</option>
+                <option value="Estados Unidos">Estados Unidos</option>
+                <option value="España">España</option>
+                <option value="Otro">Otro</option>
+            </select>
+        </div>
+
+        <div class="form-section">
+            <label class="form-label">
+                Subject Case
+                <span class="required">*</span>
+            </label>
+            <input type="text" class="form-input" name="subject_aec" placeholder="Case subject">
+        </div>
+
+        <div class="form-section">
+            <label class="form-label">
+                Partner (Integrator)
+                <span class="required">*</span>
+            </label>
+            <input type="text" class="form-input" name="partner_integrador_aec" placeholder="Partner integrator name">
+        </div>
+
+        <div class="form-section">
+            <label class="form-label">
+                Service ID Number
+                <span class="required">*</span>
+            </label>
+            <input type="text" class="form-input" name="service_id_aec" placeholder="e.g., AEC-2024-001">
+            <div class="field-hint">Contracted service ID</div>
+        </div>
+
+        <div class="form-section">
+            <label class="form-label">
+                AEC Service Acquired
+                <span class="required">*</span>
+            </label>
+            <input type="text" class="form-input" name="aec_service_adquirido">
+        </div>
+
+        <div class="form-section">
+            <label class="form-label">
+                Case Description
+                <span class="required">*</span>
+            </label>
+            <textarea class="form-textarea" name="case_description_aec" placeholder="Detailed description of the problem..."></textarea>
+        </div>
+
+        <div class="form-section">
+            <label class="form-label">
+                Prioridad
+                <span class="required">*</span>
+            </label>
+            <select class="form-select" name="prioridad_aec" required>
+                <option value="">-- Seleccione prioridad --</option>
+                <option value="Baja">Baja</option>
+                <option value="Media">Media</option>
+                <option value="Alta">Alta</option>
+                <option value="Crítica">Crítica</option>
+            </select>
+        </div>
+
+        <div class="file-upload-section">
+            <label class="form-label">
+                📎 Attach Files
+                <span class="optional">(Optional)</span>
+            </label>
+            <input type="file" class="form-file" name="attachments_aec" multiple>
+            <div class="field-hint">You can attach screenshots, logs, or relevant documents (max 40MB)</div>
+
+            <!-- FTP para archivos grandes -->
+            <div class="ftp-section" style="margin-top: 20px; padding: 16px; background: linear-gradient(135deg, #FFF3E0, #FFE0B2); border-radius: 8px; border-left: 4px solid #FF9800;">
+                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; margin: 0;">
+                    <input type="checkbox" class="ftp-checkbox" style="width: 20px; height: 20px; cursor: pointer; accent-color: #FF9800;">
+                    <span style="font-weight: 600; color: #E65100;">📤 Need to upload files larger than 40MB?</span>
                 </label>
-                <input type="text" class="form-input" name="solicitante_aec" placeholder="Nombre completo" required>
-            </div>
-
-            <div class="form-section">
-                <label class="form-label">
-                    Número Contacto
-                    <span class="required">*</span>
-                </label>
-                <input type="tel" class="form-input" name="numero_contacto_aec" placeholder="+56 9 1234 5678" required>
-            </div>
-
-            <div class="form-section">
-                <label class="form-label">
-                    País
-                    <span class="required">*</span>
-                </label>
-                <select class="form-select" name="pais_aec" required>
-                    <option value="-- Seleccione un país --</option>
-                                <option value=" Argentina">Argentina</option>
-                    <option value="Bolivia">Bolivia</option>
-                    <option value="Brasil">Brasil</option>
-                    <option value="Chile">Chile</option>
-                    <option value="Colombia">Colombia</option>
-                    <option value="Costa Rica">Costa Rica</option>
-                    <option value="Ecuador">Ecuador</option>
-                    <option value="El Salvador">El Salvador</option>
-                    <option value="Guatemala">Guatemala</option>
-                    <option value="Honduras">Honduras</option>
-                    <option value="México">México</option>
-                    <option value="Nicaragua">Nicaragua</option>
-                    <option value="Panamá">Panamá</option>
-                    <option value="Paraguay">Paraguay</option>
-                    <option value="Perú">Perú</option>
-                    <option value="República Dominicana">República Dominicana</option>
-                    <option value="Uruguay">Uruguay</option>
-                    <option value="Venezuela">Venezuela</option>
-                    <option value="Estados Unidos">Estados Unidos</option>
-                    <option value="España">España</option>
-                    <option value="Otro">Otro</option>
-                </select>
-            </div>
-
-            <div class="form-section">
-                <label class="form-label">
-                    Subject Case
-                    <span class="required">*</span>
-                </label>
-                <input type="text" class="form-input" name="subject_aec" placeholder="Case subject">
-            </div>
-
-            <div class="form-section">
-                <label class="form-label">
-                    Partner (Integrator)
-                    <span class="required">*</span>
-                </label>
-                <input type="text" class="form-input" name="partner_integrador_aec"
-                    placeholder="Partner integrator name">
-            </div>
-
-            <div class="form-section">
-                <label class="form-label">
-                    Service ID Number
-                    <span class="required">*</span>
-                </label>
-                <input type="text" class="form-input" name="service_id_aec" placeholder="e.g., AEC-2024-001">
-                <div class="field-hint">Contracted service ID</div>
-            </div>
-
-            <div class="form-section">
-                <label class="form-label">
-                    AEC Service Acquired
-                    <span class="required">*</span>
-                </label>
-                <input type="text" class="form-input" name="aec_service_adquirido">
-            </div>
-
-            <div class="form-section">
-                <label class="form-label">
-                    Case Description
-                    <span class="required">*</span>
-                </label>
-                <textarea class="form-textarea" name="case_description_aec"
-                    placeholder="Detailed description of the problem..."></textarea>
-            </div>
-
-            <div class="form-section">
-                <label class="form-label">
-                    Prioridad
-                    <span class="required">*</span>
-                </label>
-                <select class="form-select" name="prioridad_aec" required>
-                    <option value="">-- Seleccione prioridad --</option>
-                    <option value="Baja">Baja</option>
-                    <option value="Media">Media</option>
-                    <option value="Alta">Alta</option>
-                    <option value="Crítica">Crítica</option>
-                </select>
-            </div>
-
-            <div class="file-upload-section">
-                <label class="form-label">
-                    📎 Attach Files
-                    <span class="optional">(Optional)</span>
-                </label>
-                <input type="file" class="form-file" name="attachments_aec" multiple>
-                <div class="field-hint">You can attach screenshots, logs, or relevant documents (max 40MB)</div>
-
-                <!-- FTP para archivos grandes -->
-                <div class="ftp-section"
-                    style="margin-top: 20px; padding: 16px; background: linear-gradient(135deg, #FFF3E0, #FFE0B2); border-radius: 8px; border-left: 4px solid #FF9800;">
-                    <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; margin: 0;">
-                        <input type="checkbox" class="ftp-checkbox"
-                            style="width: 20px; height: 20px; cursor: pointer; accent-color: #FF9800;">
-                        <span style="font-weight: 600; color: #E65100;">📤 Need to upload files larger than 40MB?</span>
-                    </label>
-                    <div class="ftp-details" style="display: none; margin-top: 12px;">
-                        <textarea class="form-textarea ftp-description"
-                            placeholder="Describe the files (e.g., Server logs 500MB, Database backup 2GB)..."
-                            style="min-height: 80px; border-color: #FF9800;"></textarea>
-                        <div style="margin-top: 8px; color: #E65100; font-size: 13px;">
-                            ℹ️ We'll send you FTP credentials via email
-                        </div>
+                <div class="ftp-details" style="display: none; margin-top: 12px;">
+                    <textarea class="form-textarea ftp-description" placeholder="Describe the files (e.g., Server logs 500MB, Database backup 2GB)..." style="min-height: 80px; border-color: #FF9800;"></textarea>
+                    <div style="margin-top: 8px; color: #E65100; font-size: 13px;">
+                        ℹ️ We'll send you FTP credentials via email
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    </div>
+</div>
 
-    <!-- AWLC VEEAM FORM -->
-    <div id="form-awlc-veeam" class="form-section hidden">
-        <span class="badge">3 required fields</span>
+<!-- AWLC VEEAM FORM -->
+<div id="form-awlc-veeam" class="form-section hidden">
+    <span class="badge">3 required fields</span>
 
-        <div class="form-fields">
-            <div class="form-section">
-                <label class="form-label">
-                    Solicitante
-                    <span class="required">*</span>
+    <div class="form-fields">
+        <div class="form-section">
+            <label class="form-label">
+                Solicitante
+                <span class="required">*</span>
+            </label>
+            <input type="text" class="form-input" name="solicitante_veeam" placeholder="Nombre completo" required>
+        </div>
+
+        <div class="form-section">
+            <label class="form-label">
+                Número Contacto
+                <span class="required">*</span>
+            </label>
+            <input type="tel" class="form-input" name="numero_contacto_veeam" placeholder="+56 9 1234 5678" required>
+        </div>
+
+        <div class="form-section">
+            <label class="form-label">
+                País
+                <span class="required">*</span>
+            </label>
+            <select class="form-select" name="pais_veeam" required>
+                <option value="">-- Seleccione un país --</option>
+                <option value="Argentina">Argentina</option>
+                <option value="Bolivia">Bolivia</option>
+                <option value="Brasil">Brasil</option>
+                <option value="Chile">Chile</option>
+                <option value="Colombia">Colombia</option>
+                <option value="Costa Rica">Costa Rica</option>
+                <option value="Ecuador">Ecuador</option>
+                <option value="El Salvador">El Salvador</option>
+                <option value="Guatemala">Guatemala</option>
+                <option value="Honduras">Honduras</option>
+                <option value="México">México</option>
+                <option value="Nicaragua">Nicaragua</option>
+                <option value="Panamá">Panamá</option>
+                <option value="Paraguay">Paraguay</option>
+                <option value="Perú">Perú</option>
+                <option value="República Dominicana">República Dominicana</option>
+                <option value="Uruguay">Uruguay</option>
+                <option value="Venezuela">Venezuela</option>
+                <option value="Estados Unidos">Estados Unidos</option>
+                <option value="España">España</option>
+                <option value="Otro">Otro</option>
+            </select>
+        </div>
+
+        <div class="form-section">
+            <label class="form-label">
+                Support ID
+                <span class="required">*</span>
+            </label>
+            <input type="text" class="form-input" name="soporte_id_veeam" placeholder="e.g., VEEAM-2024-456">
+            <div class="field-hint">Support case reference ID</div>
+        </div>
+
+        <div class="form-section">
+            <label class="form-label">
+                Case Subject
+                <span class="required">*</span>
+            </label>
+            <input type="text" class="form-input" name="case_subject_veeam" placeholder="Case subject">
+        </div>
+
+        <div class="form-section">
+            <label class="form-label">
+                Case Description
+                <span class="required">*</span>
+            </label>
+            <textarea class="form-textarea" name="case_description_veeam" placeholder="Detailed description of the problem..."></textarea>
+        </div>
+
+        <div class="form-section">
+            <label class="form-label">
+                Prioridad
+                <span class="required">*</span>
+            </label>
+            <select class="form-select" name="prioridad_veeam" required>
+                <option value="">-- Seleccione prioridad --</option>
+                <option value="Baja">Baja</option>
+                <option value="Media">Media</option>
+                <option value="Alta">Alta</option>
+                <option value="Crítica">Crítica</option>
+            </select>
+        </div>
+
+        <div class="file-upload-section">
+            <label class="form-label">
+                📎 Attach Files
+                <span class="optional">(Optional)</span>
+            </label>
+            <input type="file" class="form-file" name="attachments_veeam" multiple>
+            <div class="field-hint">You can attach screenshots, logs, or relevant documents (max 40MB)</div>
+
+            <!-- FTP para archivos grandes -->
+            <div class="ftp-section" style="margin-top: 20px; padding: 16px; background: linear-gradient(135deg, #FFF3E0, #FFE0B2); border-radius: 8px; border-left: 4px solid #FF9800;">
+                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; margin: 0;">
+                    <input type="checkbox" class="ftp-checkbox" style="width: 20px; height: 20px; cursor: pointer; accent-color: #FF9800;">
+                    <span style="font-weight: 600; color: #E65100;">📤 Need to upload files larger than 40MB?</span>
                 </label>
-                <input type="text" class="form-input" name="solicitante_veeam" placeholder="Nombre completo" required>
-            </div>
-
-            <div class="form-section">
-                <label class="form-label">
-                    Número Contacto
-                    <span class="required">*</span>
-                </label>
-                <input type="tel" class="form-input" name="numero_contacto_veeam" placeholder="+56 9 1234 5678"
-                    required>
-            </div>
-
-            <div class="form-section">
-                <label class="form-label">
-                    País
-                    <span class="required">*</span>
-                </label>
-                <select class="form-select" name="pais_veeam" required>
-                    <option value="">-- Seleccione un país --</option>
-                    <option value="Argentina">Argentina</option>
-                    <option value="Bolivia">Bolivia</option>
-                    <option value="Brasil">Brasil</option>
-                    <option value="Chile">Chile</option>
-                    <option value="Colombia">Colombia</option>
-                    <option value="Costa Rica">Costa Rica</option>
-                    <option value="Ecuador">Ecuador</option>
-                    <option value="El Salvador">El Salvador</option>
-                    <option value="Guatemala">Guatemala</option>
-                    <option value="Honduras">Honduras</option>
-                    <option value="México">México</option>
-                    <option value="Nicaragua">Nicaragua</option>
-                    <option value="Panamá">Panamá</option>
-                    <option value="Paraguay">Paraguay</option>
-                    <option value="Perú">Perú</option>
-                    <option value="República Dominicana">República Dominicana</option>
-                    <option value="Uruguay">Uruguay</option>
-                    <option value="Venezuela">Venezuela</option>
-                    <option value="Estados Unidos">Estados Unidos</option>
-                    <option value="España">España</option>
-                    <option value="Otro">Otro</option>
-                </select>
-            </div>
-
-            <div class="form-section">
-                <label class="form-label">
-                    Support ID
-                    <span class="required">*</span>
-                </label>
-                <input type="text" class="form-input" name="soporte_id_veeam" placeholder="e.g., VEEAM-2024-456">
-                <div class="field-hint">Support case reference ID</div>
-            </div>
-
-            <div class="form-section">
-                <label class="form-label">
-                    Case Subject
-                    <span class="required">*</span>
-                </label>
-                <input type="text" class="form-input" name="case_subject_veeam" placeholder="Case subject">
-            </div>
-
-            <div class="form-section">
-                <label class="form-label">
-                    Case Description
-                    <span class="required">*</span>
-                </label>
-                <textarea class="form-textarea" name="case_description_veeam"
-                    placeholder="Detailed description of the problem..."></textarea>
-            </div>
-
-            <div class="form-section">
-                <label class="form-label">
-                    Prioridad
-                    <span class="required">*</span>
-                </label>
-                <select class="form-select" name="prioridad_veeam" required>
-                    <option value="">-- Seleccione prioridad --</option>
-                    <option value="Baja">Baja</option>
-                    <option value="Media">Media</option>
-                    <option value="Alta">Alta</option>
-                    <option value="Crítica">Crítica</option>
-                </select>
-            </div>
-
-            <div class="file-upload-section">
-                <label class="form-label">
-                    📎 Attach Files
-                    <span class="optional">(Optional)</span>
-                </label>
-                <input type="file" class="form-file" name="attachments_veeam" multiple>
-                <div class="field-hint">You can attach screenshots, logs, or relevant documents (max 40MB)</div>
-
-                <!-- FTP para archivos grandes -->
-                <div class="ftp-section"
-                    style="margin-top: 20px; padding: 16px; background: linear-gradient(135deg, #FFF3E0, #FFE0B2); border-radius: 8px; border-left: 4px solid #FF9800;">
-                    <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; margin: 0;">
-                        <input type="checkbox" class="ftp-checkbox"
-                            style="width: 20px; height: 20px; cursor: pointer; accent-color: #FF9800;">
-                        <span style="font-weight: 600; color: #E65100;">📤 Need to upload files larger than 40MB?</span>
-                    </label>
-                    <div class="ftp-details" style="display: none; margin-top: 12px;">
-                        <textarea class="form-textarea ftp-description"
-                            placeholder="Describe the files (e.g., Server logs 500MB, Database backup 2GB)..."
-                            style="min-height: 80px; border-color: #FF9800;"></textarea>
-                        <div style="margin-top: 8px; color: #E65100; font-size: 13px;">
-                            ℹ️ We'll send you FTP credentials via email
-                        </div>
+                <div class="ftp-details" style="display: none; margin-top: 12px;">
+                    <textarea class="form-textarea ftp-description" placeholder="Describe the files (e.g., Server logs 500MB, Database backup 2GB)..." style="min-height: 80px; border-color: #FF9800;"></textarea>
+                    <div style="margin-top: 8px; color: #E65100; font-size: 13px;">
+                        ℹ️ We'll send you FTP credentials via email
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    </div>
+</div>
 
-    <!-- AWLC VMWARE FORM -->
-    <div id="form-awlc-vmware" class="form-section hidden">
-        <span class="badge">2 required fields</span>
+ <!-- AWLC VMWARE FORM -->
+<div id="form-awlc-vmware" class="form-section hidden">
+    <span class="badge">2 required fields</span>
 
-        <div class="form-fields">
-            <div class="form-section">
-                <label class="form-label">
-                    Solicitante
-                    <span class="required">*</span>
+    <div class="form-fields">
+        <div class="form-section">
+            <label class="form-label">
+                Solicitante
+                <span class="required">*</span>
+            </label>
+            <input type="text" class="form-input" name="solicitante_vmware" placeholder="Nombre completo" required>
+        </div>
+
+        <div class="form-section">
+            <label class="form-label">
+                Número Contacto
+                <span class="required">*</span>
+            </label>
+            <input type="tel" class="form-input" name="numero_contacto_vmware" placeholder="+56 9 1234 5678" required>
+        </div>
+
+        <div class="form-section">
+            <label class="form-label">
+                País
+                <span class="required">*</span>
+            </label>
+            <select class="form-select" name="pais_vmware" required>
+                <option value="">-- Seleccione un país --</option>
+                <option value="Argentina">Argentina</option>
+                <option value="Bolivia">Bolivia</option>
+                <option value="Brasil">Brasil</option>
+                <option value="Chile">Chile</option>
+                <option value="Colombia">Colombia</option>
+                <option value="Costa Rica">Costa Rica</option>
+                <option value="Ecuador">Ecuador</option>
+                <option value="El Salvador">El Salvador</option>
+                <option value="Guatemala">Guatemala</option>
+                <option value="Honduras">Honduras</option>
+                <option value="México">México</option>
+                <option value="Nicaragua">Nicaragua</option>
+                <option value="Panamá">Panamá</option>
+                <option value="Paraguay">Paraguay</option>
+                <option value="Perú">Perú</option>
+                <option value="República Dominicana">República Dominicana</option>
+                <option value="Uruguay">Uruguay</option>
+                <option value="Venezuela">Venezuela</option>
+                <option value="Estados Unidos">Estados Unidos</option>
+                <option value="España">España</option>
+                <option value="Otro">Otro</option>
+            </select>
+        </div>
+
+        <div class="form-section">
+            <label class="form-label">
+                Case Subject
+                <span class="required">*</span>
+            </label>
+            <input type="text" class="form-input" name="case_subject_vmware" placeholder="Case subject">
+        </div>
+
+        <div class="form-section">
+            <label class="form-label">
+                Case Description
+                <span class="required">*</span>
+            </label>
+            <textarea class="form-textarea" name="case_description_vmware" placeholder="Detailed description of the problem..."></textarea>
+        </div>
+
+        <div class="form-section">
+            <label class="form-label">
+                Prioridad
+                <span class="required">*</span>
+            </label>
+            <select class="form-select" name="prioridad_vmware" required>
+                <option value="">-- Seleccione prioridad --</option>
+                <option value="Baja">Baja</option>
+                <option value="Media">Media</option>
+                <option value="Alta">Alta</option>
+                <option value="Crítica">Crítica</option>
+            </select>
+        </div>
+
+        <div class="file-upload-section">
+            <label class="form-label">
+                📎 Attach Files
+                <span class="optional">(Optional)</span>
+            </label>
+            <input type="file" class="form-file" name="attachments_vmware" multiple>
+            <div class="field-hint">You can attach screenshots, logs, or relevant documents (max 40MB)</div>
+
+            <!-- FTP para archivos grandes -->
+            <div class="ftp-section" style="margin-top: 20px; padding: 16px; background: linear-gradient(135deg, #FFF3E0, #FFE0B2); border-radius: 8px; border-left: 4px solid #FF9800;">
+                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; margin: 0;">
+                    <input type="checkbox" class="ftp-checkbox" style="width: 20px; height: 20px; cursor: pointer; accent-color: #FF9800;">
+                    <span style="font-weight: 600; color: #E65100;">📤 Need to upload files larger than 40MB?</span>
                 </label>
-                <input type="text" class="form-input" name="solicitante_vmware" placeholder="Nombre completo" required>
-            </div>
-
-            <div class="form-section">
-                <label class="form-label">
-                    Número Contacto
-                    <span class="required">*</span>
-                </label>
-                <input type="tel" class="form-input" name="numero_contacto_vmware" placeholder="+56 9 1234 5678"
-                    required>
-            </div>
-
-            <div class="form-section">
-                <label class="form-label">
-                    País
-                    <span class="required">*</span>
-                </label>
-                <select class="form-select" name="pais_vmware" required>
-                    <option value="">-- Seleccione un país --</option>
-                    <option value="Argentina">Argentina</option>
-                    <option value="Bolivia">Bolivia</option>
-                    <option value="Brasil">Brasil</option>
-                    <option value="Chile">Chile</option>
-                    <option value="Colombia">Colombia</option>
-                    <option value="Costa Rica">Costa Rica</option>
-                    <option value="Ecuador">Ecuador</option>
-                    <option value="El Salvador">El Salvador</option>
-                    <option value="Guatemala">Guatemala</option>
-                    <option value="Honduras">Honduras</option>
-                    <option value="México">México</option>
-                    <option value="Nicaragua">Nicaragua</option>
-                    <option value="Panamá">Panamá</option>
-                    <option value="Paraguay">Paraguay</option>
-                    <option value="Perú">Perú</option>
-                    <option value="República Dominicana">República Dominicana</option>
-                    <option value="Uruguay">Uruguay</option>
-                    <option value="Venezuela">Venezuela</option>
-                    <option value="Estados Unidos">Estados Unidos</option>
-                    <option value="España">España</option>
-                    <option value="Otro">Otro</option>
-                </select>
-            </div>
-
-            <div class="form-section">
-                <label class="form-label">
-                    Case Subject
-                    <span class="required">*</span>
-                </label>
-                <input type="text" class="form-input" name="case_subject_vmware" placeholder="Case subject">
-            </div>
-
-            <div class="form-section">
-                <label class="form-label">
-                    Case Description
-                    <span class="required">*</span>
-                </label>
-                <textarea class="form-textarea" name="case_description_vmware"
-                    placeholder="Detailed description of the problem..."></textarea>
-            </div>
-
-            <div class="form-section">
-                <label class="form-label">
-                    Prioridad
-                    <span class="required">*</span>
-                </label>
-                <select class="form-select" name="prioridad_vmware" required>
-                    <option value="">-- Seleccione prioridad --</option>
-                    <option value="Baja">Baja</option>
-                    <option value="Media">Media</option>
-                    <option value="Alta">Alta</option>
-                    <option value="Crítica">Crítica</option>
-                </select>
-            </div>
-
-            <div class="file-upload-section">
-                <label class="form-label">
-                    📎 Attach Files
-                    <span class="optional">(Optional)</span>
-                </label>
-                <input type="file" class="form-file" name="attachments_vmware" multiple>
-                <div class="field-hint">You can attach screenshots, logs, or relevant documents (max 40MB)</div>
-
-                <!-- FTP para archivos grandes -->
-                <div class="ftp-section"
-                    style="margin-top: 20px; padding: 16px; background: linear-gradient(135deg, #FFF3E0, #FFE0B2); border-radius: 8px; border-left: 4px solid #FF9800;">
-                    <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; margin: 0;">
-                        <input type="checkbox" class="ftp-checkbox"
-                            style="width: 20px; height: 20px; cursor: pointer; accent-color: #FF9800;">
-                        <span style="font-weight: 600; color: #E65100;">📤 Need to upload files larger than 40MB?</span>
-                    </label>
-                    <div class="ftp-details" style="display: none; margin-top: 12px;">
-                        <textarea class="form-textarea ftp-description"
-                            placeholder="Describe the files (e.g., Server logs 500MB, Database backup 2GB)..."
-                            style="min-height: 80px; border-color: #FF9800;"></textarea>
-                        <div style="margin-top: 8px; color: #E65100; font-size: 13px;">
-                            ℹ️ We'll send you FTP credentials via email
-                        </div>
+                <div class="ftp-details" style="display: none; margin-top: 12px;">
+                    <textarea class="form-textarea ftp-description" placeholder="Describe the files (e.g., Server logs 500MB, Database backup 2GB)..." style="min-height: 80px; border-color: #FF9800;"></textarea>
+                    <div style="margin-top: 8px; color: #E65100; font-size: 13px;">
+                        ℹ️ We'll send you FTP credentials via email
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    </div>
-
+</div>
     <!-- LABS FORM -->
     <div id="form-labs" class="form-section hidden">
         <img src="images/Labs.png" alt="Labs" class="service-icon-img">
