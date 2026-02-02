@@ -2111,7 +2111,7 @@
                 formattedData = createHTMLTemplate(`SOLICITUD DE SOPORTE AWLC - ${subType.toUpperCase()}`, sections);
             }
 
-            // ═══════════════════════════════════════════════════════════════
+           // ═══════════════════════════════════════════════════════════════
             // 5. LABS
             // ═══════════════════════════════════════════════════════════════
             else if (serviceType === 'labs') {
@@ -2119,35 +2119,36 @@
                 const vpodScope = document.getElementById('vpodScope')?.value || '';
                 const vpodDetail = document.getElementById('vpodDetailInput')?.value || '';
                 const tipoproblema = document.querySelector('[name="tipo_problema_labs"]:checked')?.value || '';
+                const tipoSolicitante = document.querySelector('[name="tipo_solicitante_labs"]')?.value || '';
 
                 let vpodInfo = 'No especificado';
                 if (vpodScope === 'all') {
-                    vpodInfo = ' Todos los vPods';
+                    vpodInfo = '🖥️ Todos los vPods';
                 } else if (vpodScope === 'one' && vpodDetail) {
-                    vpodInfo = ` ${vpodDetail}`;
+                    vpodInfo = `🖥️ ${vpodDetail}`;
                 } else if (vpodScope === 'multiple' && vpodDetail) {
-                    vpodInfo = ` Múltiples: ${vpodDetail}`;
+                    vpodInfo = `🖥️ Múltiples: ${vpodDetail}`;
                 }
 
                 subject = '[Labs] ' + data.caseSubject;
 
                 const sections = [
-                    createSection(' INFORMACIÓN DEL SOLICITANTE', '#1E6FCC', [
-                        { label: ' Email:', value: data.solicitante },
-                        { label: ' Teléfono:', value: data.telefono },
-                        { label: ' País:', value: data.pais }
+                    createSection('👤 INFORMACIÓN DEL SOLICITANTE', '#1E6FCC', [
+                        { label: '📧 Email:', value: data.solicitante },
+                        { label: '📞 Teléfono:', value: data.telefono },
+                        { label: '🌎 País:', value: data.pais },
+                        { label: '👨‍🏫 Tipo:', value: tipoSolicitante }
                     ]),
-                    createSection(' INFORMACIÓN DEL LABORATORIO', '#4A90E2', [
-                        { label: ' Tipo de Problema:', value: tipoproblema === 'individual' ? 'Individual' : 'General' },
-                        { label: ' vPod Afectado:', value: vpodInfo }
+                    createSection('🔬 INFORMACIÓN DEL LABORATORIO', '#4A90E2', [
+                        { label: '⚠️ Tipo de Problema:', value: tipoproblema === 'individual' ? 'Individual' : 'General' },
+                        { label: '💻 vPod Afectado:', value: vpodInfo }
                     ]),
-                    createPrioritySection(data.prioridad),
+                    createPrioritySection('Baja'),
                     createDescriptionSection(data.description)
                 ];
 
                 formattedData = createHTMLTemplate('SOLICITUD DE SOPORTE LABS', sections);
             }
-
             // ═══════════════════════════════════════════════════════════════
             // 6. EDUCATION
             // ═══════════════════════════════════════════════════════════════
