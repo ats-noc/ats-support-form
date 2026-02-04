@@ -640,8 +640,8 @@
                             <option value="">-- Select program --</option>
                             <option value="vrn">vSAN Ready Node Appliance Support Program (VRN)</option>
                             <option value="dpa">Data Protection Appliance Support Program (DPA)</option>
-                            <option value="bto">Build To Order</option>
-                            <option value="nutanix">Nutanix Support Program</option>
+                            <option value="bto">Build To Order (BTO)</option>
+                            <option value="nutanix">Nutanix Support Program (NTX)</option>
                         </select>
                     </div>
                 </div>
@@ -695,11 +695,11 @@
                     <div class="form-fields">
                         <div class="form-section">
                             <label class="form-label">
-                                Solicitante
+                                Solicitante (Email)
                                 <span class="required">*</span>
                             </label>
                             <input type="text" class="form-input" name="solicitante_progress"
-                                placeholder="Nombre completo" required>
+                                placeholder="ejemplo@empresa.com" required>
                         </div>
 
                         <div class="form-section">
@@ -823,10 +823,10 @@
                     <div class="form-fields">
                         <div class="form-section">
                             <label class="form-label">
-                                Solicitante
+                                Solicitante (Email)
                                 <span class="required">*</span>
                             </label>
-                            <input type="text" class="form-input" name="solicitante_intel" placeholder="Nombre completo"
+                            <input type="text" class="form-input" name="solicitante_intel" placeholder="ejemplo@empresa.com"
                                 required>
                         </div>
 
@@ -988,10 +988,10 @@
     <div class="form-fields">
         <div class="form-section">
             <label class="form-label">
-                Requester Name
+                Solicitante (Email)
                 <span class="required">*</span>
             </label>
-            <input type="email" class="form-input" name="solicitante_supermicro" placeholder="email@ejemplo.com" required>
+            <input type="email" class="form-input" name="solicitante_supermicro" placeholder="ejemplo@empresa.com" required>
         </div>
 
         <div class="form-section">
@@ -1117,10 +1117,10 @@
     <div class="form-fields">
         <div class="form-section">
             <label class="form-label">
-                Solicitante
+                Solicitante (Email)
                 <span class="required">*</span>
             </label>
-            <input type="text" class="form-input" name="solicitante_aec" placeholder="Nombre completo" required>
+            <input type="text" class="form-input" name="solicitante_aec" placeholder="ejemplo@empresa.com" required>
         </div>
 
         <div class="form-section">
@@ -1249,10 +1249,10 @@
     <div class="form-fields">
         <div class="form-section">
             <label class="form-label">
-                Solicitante
+                Solicitante (Email)
                 <span class="required">*</span>
             </label>
-            <input type="text" class="form-input" name="solicitante_veeam" placeholder="Nombre completo" required>
+            <input type="text" class="form-input" name="solicitante_veeam" placeholder="ejemplo@empresa.com" required>
         </div>
 
         <div class="form-section">
@@ -1365,10 +1365,10 @@
     <div class="form-fields">
         <div class="form-section">
             <label class="form-label">
-                Solicitante
+                Solicitante (Email)
                 <span class="required">*</span>
             </label>
-            <input type="text" class="form-input" name="solicitante_vmware" placeholder="Nombre completo" required>
+            <input type="text" class="form-input" name="solicitante_vmware" placeholder="ejemplo@empresa.com" required>
         </div>
 
         <div class="form-section">
@@ -1464,11 +1464,12 @@
         </div>
     </div>
 </div>
-    <!-- LABS FORM -->
+
+<!-- LABS FORM -->
     <div id="form-labs" class="form-section hidden">
         <img src="images/Labs.png" alt="Labs" class="service-icon-img">
         <h2 class="service-title">Adistec Labs</h2>
-        <span class="badge">4 required fields</span>
+        <span class="badge">7 required fields</span>
         <p class="service-description">Adistec Labs® is the support program oriented to provide assistance and
             technical support to customers who purchase solutions as Adistec vSAN Ready Node, Adistec Data
             Protection Appliance or AEC POD.</p>
@@ -1476,10 +1477,10 @@
         <div class="form-fields">
             <div class="form-section">
                 <label class="form-label">
-                    Solicitante
+                    Solicitante (Email)
                     <span class="required">*</span>
                 </label>
-                <input type="text" class="form-input" name="solicitante_labs" placeholder="Nombre completo" required>
+                <input type="text" class="form-input" name="solicitante_labs" placeholder="ejemplo@empresa.com" required>
             </div>
 
             <div class="form-section">
@@ -1521,33 +1522,57 @@
                 </select>
             </div>
 
+            <!-- Prioridad OCULTA - Siempre Baja por defecto -->
+            <input type="hidden" name="prioridad_labs" value="Baja">
+
+            <!-- TIPO DE SOLICITANTE -->
             <div class="form-section">
                 <label class="form-label">
-                    Problem Type
+                    Tipo de Solicitante
                     <span class="required">*</span>
                 </label>
-                <div class="radio-group">
-                    <div class="radio-item">
-                        <input type="radio" id="problema-individual" name="tipo_problema_labs" value="individual"
-                            required>
-                        <label for="problema-individual">Individual Problem (affects a specific user)</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="problema-general" name="tipo_problema_labs" value="general" required>
-                        <label for="problema-general">General Problem (affects multiple users or the complete
-                            service)</label>
-                    </div>
-                </div>
+                <select class="form-select" name="tipo_solicitante_labs" required>
+                    <option value="">-- Seleccione tipo --</option>
+                    <option value="Instructor">Instructor</option>
+                    <option value="Alumno">Alumno</option>
+                </select>
             </div>
 
-            <!-- vPOD SECTION WITH CASCADE -->
+            <!-- VENDOR - MISMO QUE EDUCATION -->
+            <div class="form-section">
+                <label class="form-label">
+                    Vendor
+                    <span class="required">*</span>
+                </label>
+                <select class="form-select" name="vendor_labs" required>
+                    <option value="">-- Seleccione un vendor --</option>
+                    <option value="Nutanix">Nutanix</option>
+                    <option value="Veeam">Veeam</option>
+                    <option value="VMware">VMware</option>
+                    <option value="Fortinet">Fortinet</option>
+                    <option value="AWS">AWS</option>
+                    <option value="Veritas">Veritas</option>
+                </select>
+            </div>
+
+            <!-- NOMBRE DEL CURSO -->
+            <div class="form-section">
+                <label class="form-label">
+                    Nombre del Curso
+                    <span class="required">*</span>
+                </label>
+                <input type="text" class="form-input" name="nombre_curso_labs" placeholder="e.g., VMware vSphere: Install, Configure, Manage [V8]" required>
+                <div class="field-hint">Ingrese el nombre completo del curso</div>
+            </div>
+
+            <!-- vPOD AFFECTED - REEMPLAZA A "PROBLEM TYPE" -->
             <div class="form-section">
                 <label class="form-label">
                     vPod Affected
-                    <span class="optional">(Optional)</span>
+                    <span class="required">*</span>
                 </label>
-                <select class="form-select" id="vpodScope" name="vpod_scope_labs">
-                    <option value="">-- No aplica --</option>
+                <select class="form-select" id="vpodScope" name="vpod_scope_labs" required>
+                    <option value="">-- Seleccione una opción --</option>
                     <option value="one">Un vPod</option>
                     <option value="multiple">Varios vPods</option>
                     <option value="all">Todos los vPods</option>
@@ -1560,18 +1585,17 @@
                     <span id="vpodDetailLabel">Nombre del vPod</span>
                     <span class="required">*</span>
                 </label>
-                <input type="text" class="form-input" id="vpodDetailInput" name="vpod_detail_labs"
-                    placeholder="Ingrese el/los vPod(s) afectado(s)">
-                <div class="field-hint" id="vpodHint">Ejemplo: vPod-12345</div>
+                <input type="text" class="form-input" id="vpodDetailInput" name="vpod_detail_labs" placeholder="Ingrese el/los vPod(s) afectado(s)">
+                <div class="field-hint" id="vpodHint">Ejemplo: vsoss8-uxz-01</div>
             </div>
 
-            <div class="form-section">
+            <!-- CREDENCIALES - SOLO SE MUESTRA SI HAY UN VPOD O VARIOS VPODS -->
+            <div class="form-section hidden" id="credentialsSection">
                 <label class="form-label">
                     Credentials
                     <span class="optional">(Optional)</span>
                 </label>
-                <textarea class="form-textarea" name="credenciales_labs"
-                    placeholder="Username and access credentials needed to replicate the problem..."></textarea>
+                <textarea class="form-textarea" name="credenciales_labs" placeholder="Username and access credentials needed to replicate the problem..."></textarea>
             </div>
 
             <div class="form-section">
@@ -1587,23 +1611,7 @@
                     Case Description
                     <span class="required">*</span>
                 </label>
-                <textarea class="form-textarea" name="case_description_labs"
-                    placeholder="Detailed description of the problem..."></textarea>
-            </div>
-
-            <!-- Prioridad OCULTA - Siempre Baja por defecto -->
-            <input type="hidden" name="prioridad_labs" value="Baja">
-
-            <div class="form-section">
-                <label class="form-label">
-                    Tipo de Solicitante
-                    <span class="required">*</span>
-                </label>
-                <select class="form-select" name="tipo_solicitante_labs" required>
-                    <option value="">-- Seleccione tipo --</option>
-                    <option value="Instructor">Instructor</option>
-                    <option value="Alumno">Alumno</option>
-                </select>
+                <textarea class="form-textarea" name="case_description_labs" placeholder="Detailed description of the problem..."></textarea>
             </div>
 
             <div class="file-upload-section">
@@ -1617,6 +1625,7 @@
         </div>
     </div>
 
+
     <!-- EDUCATION FORM -->
     <div id="form-education" class="form-section hidden">
         <img src="images/Education.png" alt="Education" class="service-icon-img">
@@ -1629,10 +1638,10 @@
         <div class="form-fields">
             <div class="form-section">
                 <label class="form-label">
-                    Solicitante
+                    Solicitante (Email)
                     <span class="required">*</span>
                 </label>
-                <input type="text" class="form-input" name="solicitante_education" placeholder="Nombre completo"
+                <input type="text" class="form-input" name="solicitante_education" placeholder="ejemplo@empresa.com"
                     required>
             </div>
 
@@ -2111,15 +2120,16 @@
                 formattedData = createHTMLTemplate(`SOLICITUD DE SOPORTE AWLC - ${subType.toUpperCase()}`, sections);
             }
 
-           // ═══════════════════════════════════════════════════════════════
+            // ═══════════════════════════════════════════════════════════════
             // 5. LABS
             // ═══════════════════════════════════════════════════════════════
             else if (serviceType === 'labs') {
                 const data = getCommonData('labs');
                 const vpodScope = document.getElementById('vpodScope')?.value || '';
                 const vpodDetail = document.getElementById('vpodDetailInput')?.value || '';
-                const tipoproblema = document.querySelector('[name="tipo_problema_labs"]:checked')?.value || '';
                 const tipoSolicitante = document.querySelector('[name="tipo_solicitante_labs"]')?.value || '';
+                const vendor = document.querySelector('[name="vendor_labs"]')?.value || '';
+                const nombreCurso = document.querySelector('[name="nombre_curso_labs"]')?.value || '';
 
                 let vpodInfo = 'No especificado';
                 if (vpodScope === 'all') {
@@ -2139,8 +2149,11 @@
                         { label: '🌎 País:', value: data.pais },
                         { label: '👨‍🏫 Tipo:', value: tipoSolicitante }
                     ]),
+                    createSection('📚 INFORMACIÓN DEL CURSO', '#9B59B6', [
+                        { label: '🏢 Vendor:', value: vendor },
+                        { label: '📖 Nombre del Curso:', value: nombreCurso }
+                    ]),
                     createSection('🔬 INFORMACIÓN DEL LABORATORIO', '#4A90E2', [
-                        { label: '⚠️ Tipo de Problema:', value: tipoproblema === 'individual' ? 'Individual' : 'General' },
                         { label: '💻 vPod Afectado:', value: vpodInfo }
                     ]),
                     createPrioritySection('Baja'),
@@ -2149,6 +2162,7 @@
 
                 formattedData = createHTMLTemplate('SOLICITUD DE SOPORTE LABS', sections);
             }
+
             // ═══════════════════════════════════════════════════════════════
             // 6. EDUCATION
             // ═══════════════════════════════════════════════════════════════
@@ -2533,6 +2547,54 @@
                 }
             });
         });
+
+        // ═══════════════════════════════════════════════════════════
+        // LABS: Control de vPod y Credenciales
+        // ═══════════════════════════════════════════════════════════
+        
+        const vpodScopeSelect = document.getElementById('vpodScope');
+        const vpodDetailSection = document.getElementById('vpodDetailSection');
+        const vpodDetailInput = document.getElementById('vpodDetailInput');
+        const vpodDetailLabel = document.getElementById('vpodDetailLabel');
+        const vpodHint = document.getElementById('vpodHint');
+        const credentialsSection = document.getElementById('credentialsSection');
+
+        if (vpodScopeSelect) {
+            vpodScopeSelect.addEventListener('change', function() {
+                const value = this.value;
+                
+                // Mostrar/ocultar campo de detalle de vPod
+                if (value === 'one' || value === 'multiple') {
+                    vpodDetailSection.classList.remove('hidden');
+                    vpodDetailInput.required = true;
+                    
+                    // Actualizar label y hint según selección
+                    if (value === 'one') {
+                        vpodDetailLabel.textContent = 'Nombre del vPod';
+                        vpodHint.textContent = 'Ejemplo: vPod-12345';
+                    } else {
+                        vpodDetailLabel.textContent = 'Nombres de los vPods';
+                        vpodHint.textContent = 'Ejemplo: vPod-12345, vPod-67890';
+                    }
+                    
+                    // MOSTRAR Credenciales
+                    credentialsSection.classList.remove('hidden');
+                    
+                } else {
+                    // Ocultar campo de detalle
+                    vpodDetailSection.classList.add('hidden');
+                    vpodDetailInput.required = false;
+                    vpodDetailInput.value = '';
+                    
+                    // OCULTAR Credenciales
+                    credentialsSection.classList.add('hidden');
+                    const credentialsTextarea = credentialsSection.querySelector('textarea');
+                    if (credentialsTextarea) {
+                        credentialsTextarea.value = '';
+                    }
+                }
+            });
+        }
 
     </script>
 </body>
