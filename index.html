@@ -577,19 +577,14 @@
             outline-offset: 2px;
         }
     </style>
+
+        <!-- i18next - Librería de traducción -->
+    <script src="https://cdn.jsdelivr.net/npm/i18next@23.7.6/i18next.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-i18next@1.2.1/jquery-i18next.min.js"></script>
 </head>
 
 <body>
-    <!-- LANGUAGE SELECTOR -->
-    <div
-        style="position: fixed; top: 20px; right: 20px; z-index: 1000; background: white; padding: 10px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
-        <select id="languageSelector" onchange="changeLanguage(this.value)"
-            style="padding: 8px 12px; border-radius: 8px; border: 2px solid #1E6FCC; background: white; font-weight: 600; cursor: pointer; font-size: 14px;">
-            <option value="es">🇪🇸 Español</option>
-            <option value="en">🇺🇸 English</option>
-            <option value="pt">🇧🇷 Português</option>
-        </select>
-    </div>
 
     <div class="container">
         <!-- HEADER WITH LOGO -->
@@ -606,6 +601,24 @@
         <div class="form-card">
             <form id="supportForm" enctype="multipart/form-data">
 
+                <div class="form-card">
+            <form id="supportForm" enctype="multipart/form-data">
+
+                <!-- LANGUAGE SELECTOR DENTRO DEL FORM -->
+                <div class="form-section" style="background: linear-gradient(135deg, #E8F2FF, #F0F7FF); padding: 20px; border-radius: 12px; margin-bottom: 32px; border: 2px solid #1E6FCC;">
+                    <label class="form-label" style="color: #1E6FCC; margin-bottom: 16px;">
+                        🌐 <span data-i18n="form.language">Idioma / Language / Idioma</span>
+                        <span class="required">*</span>
+                    </label>
+                    <select id="languageSelector" class="form-select" onchange="changeLanguage(this.value)" required style="border: 2px solid #1E6FCC; font-weight: 600;">
+                        <option value="es">🇪🇸 Español</option>
+                        <option value="en">🇺🇸 English</option>
+                        <option value="pt">🇧🇷 Português</option>
+                    </select>
+                    <div class="field-hint" data-i18n="form.languageHint">Seleccione el idioma del formulario / Select form language / Selecione o idioma do formulário</div>
+                </div>
+
+
                 <!-- SERVICE SELECTION -->
                 <div class="form-section">
                     <label class="form-label">
@@ -614,12 +627,12 @@
                     </label>
                     <select id="serviceType" class="form-select" required>
                         <option value="">-- Select a service --</option>
-                        <option value="progress">Progress</option>
+                        <option value="progress">Progress Support Program</option>
                         <option value="ais">Adistec Integrated Solutions (AIS)</option>
                         <option value="aec">Adistec Enterprise Cloud (AEC)</option>
                         <option value="awlc">Adistec White Label Cloud (AWLC)</option>
-                        <option value="labs">Adistec Labs</option>
-                        <option value="education">Adistec Education</option>
+                        <option value="labs">Adistec Labs Support Program</option>
+                        <option value="education">Adistec Education Support Program</option>
                     </select>
                 </div>
 
@@ -685,9 +698,8 @@
 
                 <!-- PROGRESS FORM -->
                 <div id="form-progress" class="form-section hidden">
-                    
-                    <! -- Cambiar logo por circular -->
                     <img src="images/Progress.png" alt="Progress" class="service-icon-img progress-logo">
+                    <h2 class="service-title">Progress</h2>
                     <span class="badge">3 required fields</span>
                     <p class="service-description">Adistec, as a regional Progress® distributor, provides direct support
                         for the OpenEdge solution through its dedicated team for its customers. In case you require
@@ -1756,6 +1768,236 @@
     </div>
 
     <script>
+
+        // ═══════════════════════════════════════════════════════════
+        // CONFIGURACIÓN DE i18next - TRADUCCIÓN AUTOMÁTICA
+        // ═══════════════════════════════════════════════════════════
+        
+        const resources = {
+            es: {
+                translation: {
+                    // Header
+                    "header.title": "Soporte Técnico",
+                    "header.subtitle": "Seleccione el tipo de servicio y complete el formulario especializado",
+                    
+                    // Form común
+                    "form.language": "Idioma",
+                    "form.languageHint": "Seleccione el idioma del formulario",
+                    "form.serviceType": "Tipo de Servicio",
+                    "form.selectService": "-- Seleccione un servicio --",
+                    "form.submit": "Enviar Solicitud de Soporte",
+                    "form.optional": "(Opcional)",
+                    "form.solicitante": "Solicitante",
+                    "form.solicitanteEmail": "Solicitante (Email)",
+                    "form.numeroContacto": "Número Contacto",
+                    "form.pais": "País",
+                    "form.selectPais": "-- Seleccione un país --",
+                    "form.caseSubject": "Asunto del Caso",
+                    "form.caseDescription": "Descripción del Caso",
+                    "form.prioridad": "Prioridad",
+                    "form.selectPrioridad": "-- Seleccione prioridad --",
+                    "form.attachFiles": "📎 Adjuntar Archivos",
+                    "form.attachHint": "Puede adjuntar capturas de pantalla, logs o documentos relevantes (máx 40MB)",
+                    
+                    // Progress
+                    "progress.title": "Progress",
+                    "progress.badge": "3 campos requeridos",
+                    "progress.serialNumber": "Número de Serie",
+                    "progress.subject": "Asunto",
+                    "progress.description": "Descripción",
+                    
+                    // AIS
+                    "ais.selectProgram": "Seleccione programa",
+                    "ais.selectManufacturer": "Seleccione fabricante",
+                    "ais.requesterName": "Nombre del Solicitante",
+                    "ais.serialNumber": "Número de Serie",
+                    "ais.fak": "First Aid Kit (FAK)",
+                    "ais.fakLabel": "Incluir servicio First Aid Kit (FAK)",
+                    "ais.motherboard": "MotherBoard",
+                    
+                    // AEC
+                    "aec.title": "Adistec Enterprise Cloud (AEC)",
+                    "aec.badge": "5 campos requeridos",
+                    "aec.partner": "Partner (Integrador)",
+                    "aec.serviceId": "Número de ID del Servicio",
+                    "aec.serviceAcquired": "Servicio AEC Adquirido",
+                    
+                    // AWLC
+                    "awlc.title": "Adistec White Label Cloud (AWLC)",
+                    "awlc.selectPlatform": "Seleccione plataforma",
+                    "awlc.supportId": "ID de Soporte",
+                    
+                    // Labs
+                    "labs.title": "Adistec Labs",
+                    "labs.badge": "7 campos requeridos",
+                    "labs.tipoSolicitante": "Tipo de Solicitante",
+                    "labs.selectTipo": "-- Seleccione tipo --",
+                    "labs.instructor": "Instructor",
+                    "labs.alumno": "Alumno",
+                    "labs.vendor": "Vendor",
+                    "labs.selectVendor": "-- Seleccione un vendor --",
+                    "labs.nombreCurso": "Nombre del Curso",
+                    "labs.vpodAffected": "vPod Afectado",
+                    "labs.selectVpod": "-- Seleccione una opción --",
+                    "labs.unVpod": "Un vPod",
+                    "labs.variosVpods": "Varios vPods",
+                    "labs.todosVpods": "Todos los vPods",
+                    "labs.credentials": "Credenciales",
+                    
+                    // Education
+                    "education.title": "Adistec Education",
+                    "education.badge": "2 campos requeridos",
+                    "education.vendor": "Vendor"
+                }
+            },
+            en: {
+                translation: {
+                    "header.title": "Technical Support",
+                    "header.subtitle": "Select the type of service and complete the specialized form",
+                    "form.language": "Language",
+                    "form.languageHint": "Select form language",
+                    "form.serviceType": "Service Type",
+                    "form.selectService": "-- Select a service --",
+                    "form.submit": "Submit Support Request",
+                    "form.optional": "(Optional)",
+                    "form.solicitante": "Requester",
+                    "form.solicitanteEmail": "Requester (Email)",
+                    "form.numeroContacto": "Contact Number",
+                    "form.pais": "Country",
+                    "form.selectPais": "-- Select a country --",
+                    "form.caseSubject": "Case Subject",
+                    "form.caseDescription": "Case Description",
+                    "form.prioridad": "Priority",
+                    "form.selectPrioridad": "-- Select priority --",
+                    "form.attachFiles": "📎 Attach Files",
+                    "form.attachHint": "You can attach screenshots, logs, or relevant documents (max 40MB)",
+                    "progress.title": "Progress",
+                    "progress.badge": "3 required fields",
+                    "progress.serialNumber": "Serial Number",
+                    "progress.subject": "Subject",
+                    "progress.description": "Description",
+                    "ais.selectProgram": "Select program",
+                    "ais.selectManufacturer": "Select manufacturer",
+                    "ais.requesterName": "Requester Name",
+                    "ais.serialNumber": "Serial Number",
+                    "ais.fak": "First Aid Kit (FAK)",
+                    "ais.fakLabel": "Include First Aid Kit (FAK) service",
+                    "ais.motherboard": "MotherBoard",
+                    "aec.title": "Adistec Enterprise Cloud (AEC)",
+                    "aec.badge": "5 required fields",
+                    "aec.partner": "Partner (Integrator)",
+                    "aec.serviceId": "Service ID Number",
+                    "aec.serviceAcquired": "AEC Service Acquired",
+                    "awlc.title": "Adistec White Label Cloud (AWLC)",
+                    "awlc.selectPlatform": "Select platform",
+                    "awlc.supportId": "Support ID",
+                    "labs.title": "Adistec Labs",
+                    "labs.badge": "7 required fields",
+                    "labs.tipoSolicitante": "Requester Type",
+                    "labs.selectTipo": "-- Select type --",
+                    "labs.instructor": "Instructor",
+                    "labs.alumno": "Student",
+                    "labs.vendor": "Vendor",
+                    "labs.selectVendor": "-- Select a vendor --",
+                    "labs.nombreCurso": "Course Name",
+                    "labs.vpodAffected": "vPod Affected",
+                    "labs.selectVpod": "-- Select an option --",
+                    "labs.unVpod": "One vPod",
+                    "labs.variosVpods": "Multiple vPods",
+                    "labs.todosVpods": "All vPods",
+                    "labs.credentials": "Credentials",
+                    "education.title": "Adistec Education",
+                    "education.badge": "2 required fields",
+                    "education.vendor": "Vendor"
+                }
+            },
+            pt: {
+                translation: {
+                    "header.title": "Suporte Técnico",
+                    "header.subtitle": "Selecione o tipo de serviço e preencha o formulário especializado",
+                    "form.language": "Idioma",
+                    "form.languageHint": "Selecione o idioma do formulário",
+                    "form.serviceType": "Tipo de Serviço",
+                    "form.selectService": "-- Selecione um serviço --",
+                    "form.submit": "Enviar Solicitação de Suporte",
+                    "form.optional": "(Opcional)",
+                    "form.solicitante": "Solicitante",
+                    "form.solicitanteEmail": "Solicitante (Email)",
+                    "form.numeroContacto": "Número de Contato",
+                    "form.pais": "País",
+                    "form.selectPais": "-- Selecione um país --",
+                    "form.caseSubject": "Assunto do Caso",
+                    "form.caseDescription": "Descrição do Caso",
+                    "form.prioridad": "Prioridade",
+                    "form.selectPrioridad": "-- Selecione prioridade --",
+                    "form.attachFiles": "📎 Anexar Arquivos",
+                    "form.attachHint": "Você pode anexar capturas de tela, logs ou documentos relevantes (máx 40MB)",
+                    "progress.title": "Progress",
+                    "progress.badge": "3 campos obrigatórios",
+                    "progress.serialNumber": "Número de Série",
+                    "progress.subject": "Assunto",
+                    "progress.description": "Descrição",
+                    "ais.selectProgram": "Selecione programa",
+                    "ais.selectManufacturer": "Selecione fabricante",
+                    "ais.requesterName": "Nome do Solicitante",
+                    "ais.serialNumber": "Número de Série",
+                    "ais.fak": "First Aid Kit (FAK)",
+                    "ais.fakLabel": "Incluir serviço First Aid Kit (FAK)",
+                    "ais.motherboard": "Placa Mãe",
+                    "aec.title": "Adistec Enterprise Cloud (AEC)",
+                    "aec.badge": "5 campos obrigatórios",
+                    "aec.partner": "Partner (Integrador)",
+                    "aec.serviceId": "Número de ID do Serviço",
+                    "aec.serviceAcquired": "Serviço AEC Adquirido",
+                    "awlc.title": "Adistec White Label Cloud (AWLC)",
+                    "awlc.selectPlatform": "Selecione plataforma",
+                    "awlc.supportId": "ID de Suporte",
+                    "labs.title": "Adistec Labs",
+                    "labs.badge": "7 campos obrigatórios",
+                    "labs.tipoSolicitante": "Tipo de Solicitante",
+                    "labs.selectTipo": "-- Selecione o tipo --",
+                    "labs.instructor": "Instrutor",
+                    "labs.alumno": "Aluno",
+                    "labs.vendor": "Fornecedor",
+                    "labs.selectVendor": "-- Selecione um fornecedor --",
+                    "labs.nombreCurso": "Nome do Curso",
+                    "labs.vpodAffected": "vPod Afetado",
+                    "labs.selectVpod": "-- Selecione uma opção --",
+                    "labs.unVpod": "Um vPod",
+                    "labs.variosVpods": "Vários vPods",
+                    "labs.todosVpods": "Todos os vPods",
+                    "labs.credentials": "Credenciais",
+                    "education.title": "Adistec Education",
+                    "education.badge": "2 campos obrigatórios",
+                    "education.vendor": "Fornecedor"
+                }
+            }
+        };
+
+        // Inicializar i18next
+        i18next.init({
+            lng: 'es',
+            resources: resources
+        }, function(err, t) {
+            jqueryI18next.init(i18next, $);
+            $('body').localize();
+        });
+
+        // Función simplificada para cambiar idioma
+        function changeLanguage(lang) {
+            i18next.changeLanguage(lang, function() {
+                $('body').localize();
+            });
+            localStorage.setItem('preferredLanguage', lang);
+        }
+
+        // Detectar idioma guardado al cargar
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('preferredLanguage') || 'es';
+            document.getElementById('languageSelector').value = savedLang;
+            changeLanguage(savedLang);
+        });
+
         // Main elements
         const serviceTypeSelect = document.getElementById('serviceType');
         const aisSubSelect = document.getElementById('ais-sub-select');
@@ -1992,7 +2234,7 @@
                 const serial = document.querySelector('[name="numero_serie_progress"]')?.value || '';
                 const subject_field = document.querySelector('[name="subject_progress"]')?.value || '';
 
-                subject = '[Progress] ' + subject_field;
+                subject = '[ Progress ] - ' + subject_field;
 
                 const sections = [
                     createSection(' INFORMACIÓN DEL SOLICITANTE', '#1E6FCC', [
@@ -2022,7 +2264,7 @@
                 const motherboard = document.querySelector(`[name="motherboard_${subType}"]`)?.value || '';
                 const fakChecked = document.querySelector(`[name="fak_${subType}"]`)?.checked;
 
-                subject = `[AIS - ${subType.toUpperCase()}] ` + data.caseSubject;
+                subject = `[ AIS - ${subType.toUpperCase()}] - ` + data.caseSubject;
 
                 // ⬅️ NUEVO: Mapear nombres de programas
                 const programNames = {
@@ -2069,7 +2311,7 @@
                 const serviceId = document.querySelector('[name="service_id_aec"]')?.value || '';
                 const aecService = document.querySelector('[name="aec_service_adquirido"]')?.value || '';
 
-                subject = '[AEC] ' + data.caseSubject;
+                subject = '[ AEC ] - ' + data.caseSubject;
 
                 const sections = [
                     createSection(' INFORMACIÓN DEL SOLICITANTE', '#1E6FCC', [
@@ -2097,7 +2339,7 @@
                 const data = getCommonData(subType);
                 const supportId = document.querySelector(`[name="soporte_id_${subType}"]`)?.value || '';
 
-                subject = `[AWLC - ${subType.toUpperCase()}] ` + data.caseSubject;
+                subject = `[ AWLC - ${subType.toUpperCase()} ] - ` + data.caseSubject;
 
                 const techRows = [
                     { label: '🖥️ Plataforma:', value: subType.toUpperCase() }
@@ -2141,7 +2383,7 @@
                     vpodInfo = `🖥️ Múltiples: ${vpodDetail}`;
                 }
 
-                subject = '[Labs] ' + data.caseSubject;
+                subject = '[ LABS ] - ' + data.caseSubject;
 
                 const sections = [
                     createSection('👤 INFORMACIÓN DEL SOLICITANTE', '#1E6FCC', [
@@ -2157,6 +2399,7 @@
                     createSection('🔬 INFORMACIÓN DEL LABORATORIO', '#4A90E2', [
                         { label: '💻 vPod Afectado:', value: vpodInfo }
                     ]),
+                    createPrioritySection('Baja'),
                     createDescriptionSection(data.description)
                 ];
 
@@ -2170,7 +2413,7 @@
                 const data = getCommonData('education');
                 const vendor = document.querySelector('[name="vendor_education"]')?.value || '';
 
-                subject = '[Education] ' + data.caseSubject;
+                subject = '[ Education ] - ' + data.caseSubject;
 
                 const sections = [
                     createSection(' INFORMACIÓN DEL SOLICITANTE', '#1E6FCC', [
@@ -2442,7 +2685,7 @@
         const logo = document.getElementById('adistecLogo');
         logo.src = 'images/logo_ats_total_blanco.svg';
 
-        // Traducciones
+// Traducciones
         const translations = {
             es: {
                 header: {
@@ -2450,13 +2693,45 @@
                     subtitle: "Seleccione el tipo de servicio y complete el formulario especializado"
                 },
                 form: {
+                    language: "Idioma",
+                    languageHint: "Seleccione el idioma del formulario",
                     serviceType: "Tipo de Servicio",
                     selectService: "-- Seleccione un servicio --",
                     submit: "Enviar Solicitud de Soporte",
                     required: "requerido",
                     optional: "Opcional",
-                    fak: "First Aid Kit (FAK)",
-                    fakLabel: "Incluir servicio First Aid Kit (FAK)"
+                    solicitante: "Solicitante (Email)",
+                    solicitantePlaceholder: "ejemplo@empresa.com",
+                    solicitanteHint: "Correo electrónico del solicitante",
+                    numeroContacto: "Número Contacto",
+                    contactoPlaceholder: "+56 9 1234 5678",
+                    pais: "País",
+                    selectPais: "-- Seleccione un país --",
+                    tipoSolicitante: "Tipo de Solicitante",
+                    selectTipo: "-- Seleccione tipo --",
+                    vendor: "Vendor",
+                    selectVendor: "-- Seleccione un vendor --",
+                    nombreCurso: "Nombre del Curso",
+                    nombreCursoPlaceholder: "e.g., VMware vSphere: Install, Configure, Manage [V8]",
+                    nombreCursoHint: "Ingrese el nombre completo del curso",
+                    vpodAffected: "vPod Affected",
+                    selectVpod: "-- Seleccione una opción --",
+                    unVpod: "Un vPod",
+                    variosVpods: "Varios vPods",
+                    todosVpods: "Todos los vPods",
+                    nombreVpod: "Nombre del vPod",
+                    nombresVpods: "Nombres de los vPods",
+                    vpodPlaceholder: "Ingrese el/los vPod(s) afectado(s)",
+                    vpodHintOne: "Ejemplo: vPod-12345",
+                    vpodHintMultiple: "Ejemplo: vPod-12345, vPod-67890",
+                    credentials: "Credenciales",
+                    credentialsPlaceholder: "Usuario y credenciales de acceso necesarias para replicar el problema...",
+                    caseSubject: "Asunto del Caso",
+                    caseSubjectPlaceholder: "Asunto del caso",
+                    caseDescription: "Descripción del Caso",
+                    caseDescriptionPlaceholder: "Descripción detallada del problema...",
+                    attachFiles: "📎 Adjuntar Archivos",
+                    attachHint: "Capturas de pantalla, logs, configuraciones u otros documentos relevantes"
                 }
             },
             en: {
@@ -2465,13 +2740,45 @@
                     subtitle: "Select the type of service and complete the specialized form"
                 },
                 form: {
+                    language: "Language",
+                    languageHint: "Select form language",
                     serviceType: "Service Type",
                     selectService: "-- Select a service --",
                     submit: "Submit Support Request",
                     required: "required",
                     optional: "Optional",
-                    fak: "First Aid Kit (FAK)",
-                    fakLabel: "Include First Aid Kit (FAK) service"
+                    solicitante: "Requester (Email)",
+                    solicitantePlaceholder: "example@company.com",
+                    solicitanteHint: "Requester's email address",
+                    numeroContacto: "Contact Number",
+                    contactoPlaceholder: "+1 555 123 4567",
+                    pais: "Country",
+                    selectPais: "-- Select a country --",
+                    tipoSolicitante: "Requester Type",
+                    selectTipo: "-- Select type --",
+                    vendor: "Vendor",
+                    selectVendor: "-- Select a vendor --",
+                    nombreCurso: "Course Name",
+                    nombreCursoPlaceholder: "e.g., VMware vSphere: Install, Configure, Manage [V8]",
+                    nombreCursoHint: "Enter the full course name",
+                    vpodAffected: "vPod Affected",
+                    selectVpod: "-- Select an option --",
+                    unVpod: "One vPod",
+                    variosVpods: "Multiple vPods",
+                    todosVpods: "All vPods",
+                    nombreVpod: "vPod Name",
+                    nombresVpods: "vPod Names",
+                    vpodPlaceholder: "Enter the affected vPod(s)",
+                    vpodHintOne: "Example: vPod-12345",
+                    vpodHintMultiple: "Example: vPod-12345, vPod-67890",
+                    credentials: "Credentials",
+                    credentialsPlaceholder: "Username and access credentials needed to replicate the problem...",
+                    caseSubject: "Case Subject",
+                    caseSubjectPlaceholder: "Case subject",
+                    caseDescription: "Case Description",
+                    caseDescriptionPlaceholder: "Detailed description of the problem...",
+                    attachFiles: "📎 Attach Files",
+                    attachHint: "Screenshots, logs, configurations, or other relevant documents"
                 }
             },
             pt: {
@@ -2480,13 +2787,45 @@
                     subtitle: "Selecione o tipo de serviço e preencha o formulário especializado"
                 },
                 form: {
+                    language: "Idioma",
+                    languageHint: "Selecione o idioma do formulário",
                     serviceType: "Tipo de Serviço",
                     selectService: "-- Selecione um serviço --",
                     submit: "Enviar Solicitação de Suporte",
                     required: "obrigatório",
                     optional: "Opcional",
-                    fak: "First Aid Kit (FAK)",
-                    fakLabel: "Incluir serviço First Aid Kit (FAK)"
+                    solicitante: "Solicitante (Email)",
+                    solicitantePlaceholder: "exemplo@empresa.com",
+                    solicitanteHint: "Endereço de e-mail do solicitante",
+                    numeroContacto: "Número de Contato",
+                    contactoPlaceholder: "+55 11 91234 5678",
+                    pais: "País",
+                    selectPais: "-- Selecione um país --",
+                    tipoSolicitante: "Tipo de Solicitante",
+                    selectTipo: "-- Selecione o tipo --",
+                    vendor: "Fornecedor",
+                    selectVendor: "-- Selecione um fornecedor --",
+                    nombreCurso: "Nome do Curso",
+                    nombreCursoPlaceholder: "ex., VMware vSphere: Install, Configure, Manage [V8]",
+                    nombreCursoHint: "Digite o nome completo do curso",
+                    vpodAffected: "vPod Afetado",
+                    selectVpod: "-- Selecione uma opção --",
+                    unVpod: "Um vPod",
+                    variosVpods: "Vários vPods",
+                    todosVpods: "Todos os vPods",
+                    nombreVpod: "Nome do vPod",
+                    nombresVpods: "Nomes dos vPods",
+                    vpodPlaceholder: "Digite o(s) vPod(s) afetado(s)",
+                    vpodHintOne: "Exemplo: vPod-12345",
+                    vpodHintMultiple: "Exemplo: vPod-12345, vPod-67890",
+                    credentials: "Credenciais",
+                    credentialsPlaceholder: "Nome de usuário e credenciais de acesso necessárias para replicar o problema...",
+                    caseSubject: "Assunto do Caso",
+                    caseSubjectPlaceholder: "Assunto do caso",
+                    caseDescription: "Descrição do Caso",
+                    caseDescriptionPlaceholder: "Descrição detalhada do problema...",
+                    attachFiles: "📎 Anexar Arquivos",
+                    attachHint: "Capturas de tela, logs, configurações ou outros documentos relevantes"
                 }
             }
         };
@@ -2511,12 +2850,49 @@
                 }
             });
 
+            // Actualizar placeholders
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+                const key = element.getAttribute('data-i18n-placeholder');
+                const keys = key.split('.');
+                let value = translations[lang];
+
+                keys.forEach(k => {
+                    value = value?.[k];
+                });
+
+                if (value) {
+                    element.placeholder = value;
+                }
+            });
+
             // Actualizar option del selector de servicio
             const firstOption = document.querySelector('#serviceType option[value=""]');
             if (firstOption) {
                 firstOption.textContent = translations[lang].form.selectService;
             }
         }
+
+            // Actualizar elementos con data-i18n
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                const keys = key.split('.');
+                let value = translations[lang];
+
+                keys.forEach(k => {
+                    value = value?.[k];
+                });
+
+                if (value) {
+                    element.textContent = value;
+                }
+            });
+
+            // Actualizar option del selector de servicio
+            const firstOption = document.querySelector('#serviceType option[value=""]');
+            if (firstOption) {
+                firstOption.textContent = translations[lang].form.selectService;
+            }
+
 
         // Detectar idioma al cargar
         window.addEventListener('DOMContentLoaded', () => {
