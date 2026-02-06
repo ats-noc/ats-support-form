@@ -2134,14 +2134,14 @@
                 const subject_field = document.querySelector('[name="subject_progress"]')?.value || '';
                 subject = '[ PROGRESS ] - ' + subject_field;
                 const sections = [
-                    createSection('👤 INFORMACIÓN DEL SOLICITANTE', '#1E6FCC', [
-                        { label: '📧 Email:', value: data.solicitante },
-                        { label: '📞 Teléfono:', value: data.telefono },
-                        { label: '🌎 País:', value: data.pais }
+                    createSection(' INFORMACIÓN DEL SOLICITANTE', '#1E6FCC', [
+                        { label: ' Email:', value: data.solicitante },
+                        { label: ' Teléfono:', value: data.telefono },
+                        { label: ' País:', value: data.pais }
                     ]),
-                    createSection('🔧 INFORMACIÓN TÉCNICA', '#4A90E2', [
-                        { label: '🔢 Serial Number:', value: serial },
-                        { label: '📋 Subject:', value: subject_field }
+                    createSection(' INFORMACIÓN TÉCNICA', '#4A90E2', [
+                        { label: ' Serial Number:', value: serial },
+                        { label: ' Subject:', value: subject_field }
                     ]),
                     createPrioritySection(data.prioridad),
                     createDescriptionSection(data.description)
@@ -2167,19 +2167,19 @@
                 };
 
                 const techRows = [
-                    { label: '📦 Programa:', value: programNames[aisProgram] || aisProgram.toUpperCase() },
-                    { label: '🏭 Fabricante:', value: subType.toUpperCase() },
-                    { label: '🔢 Serial Number:', value: serial }
+                    { label: ' Programa:', value: programNames[aisProgram] || aisProgram.toUpperCase() },
+                    { label: ' Fabricante:', value: subType.toUpperCase() },
+                    { label: ' Serial Number:', value: serial }
                 ];
 
-                if (motherboard) techRows.push({ label: '🖥️ MotherBoard:', value: motherboard });
-                if (fakChecked) techRows.push({ label: '🩹 FAK:', value: '✅ Incluido' });
+                if (motherboard) techRows.push({ label: ' MotherBoard:', value: motherboard });
+                if (fakChecked) techRows.push({ label: ' FAK:', value: '✅ Incluido' });
 
                 const sections = [
-                    createSection('👤 INFORMACIÓN DEL SOLICITANTE', '#1E6FCC', [
-                        { label: '📧 Email:', value: data.solicitante },
-                        { label: '📞 Teléfono:', value: data.telefono },
-                        { label: '🌎 País:', value: data.pais }
+                    createSection(' INFORMACIÓN DEL SOLICITANTE', '#1E6FCC', [
+                        { label: ' Email:', value: data.solicitante },
+                        { label: ' Teléfono:', value: data.telefono },
+                        { label: ' País:', value: data.pais }
                     ]),
                     createSection('🔧 INFORMACIÓN TÉCNICA', '#4A90E2', techRows),
                     createPrioritySection(data.prioridad),
@@ -2197,15 +2197,15 @@
                 subject = '[ AEC ] - ' + data.caseSubject;
 
                 const sections = [
-                    createSection('👤 INFORMACIÓN DEL SOLICITANTE', '#1E6FCC', [
-                        { label: '📧 Email:', value: data.solicitante },
-                        { label: '📞 Teléfono:', value: data.telefono },
-                        { label: '🌎 País:', value: data.pais }
+                    createSection(' INFORMACIÓN DEL SOLICITANTE', '#1E6FCC', [
+                        { label: ' Email:', value: data.solicitante },
+                        { label: ' Teléfono:', value: data.telefono },
+                        { label: ' País:', value: data.pais }
                     ]),
-                    createSection('☁️ INFORMACIÓN DEL SERVICIO', '#4A90E2', [
-                        { label: '🤝 Partner (Integrador):', value: partner },
-                        { label: '🆔 Service ID:', value: serviceId },
-                        { label: '📦 Servicio Adquirido:', value: aecService }
+                    createSection(' INFORMACIÓN DEL SERVICIO', '#4A90E2', [
+                        { label: ' Partner (Integrador):', value: partner },
+                        { label: ' Service ID:', value: serviceId },
+                        { label: ' Servicio Adquirido:', value: aecService }
                     ]),
                     createPrioritySection(data.prioridad),
                     createDescriptionSection(data.description)
@@ -2220,16 +2220,16 @@
                 const supportId = document.querySelector(`[name="soporte_id_${subType}"]`)?.value || '';
                 subject = `[ AWLC - ${subType.toUpperCase()} ] - ` + data.caseSubject;
 
-                const techRows = [{ label: '🖥️ Plataforma:', value: subType.toUpperCase() }];
-                if (supportId) techRows.push({ label: '🆔 Support ID:', value: supportId });
+                const techRows = [{ label: ' Plataforma:', value: subType.toUpperCase() }];
+                if (supportId) techRows.push({ label: ' Support ID:', value: supportId });
 
                 const sections = [
-                    createSection('👤 INFORMACIÓN DEL SOLICITANTE', '#1E6FCC', [
-                        { label: '📧 Email:', value: data.solicitante },
-                        { label: '📞 Teléfono:', value: data.telefono },
-                        { label: '🌎 País:', value: data.pais }
+                    createSection(' INFORMACIÓN DEL SOLICITANTE', '#1E6FCC', [
+                        { label: ' Email:', value: data.solicitante },
+                        { label: ' Teléfono:', value: data.telefono },
+                        { label: ' País:', value: data.pais }
                     ]),
-                    createSection('🔧 INFORMACIÓN TÉCNICA', '#4A90E2', techRows),
+                    createSection(' INFORMACIÓN TÉCNICA', '#4A90E2', techRows),
                     createPrioritySection(data.prioridad),
                     createDescriptionSection(data.description)
                 ];
@@ -2246,25 +2246,25 @@
                 const nombreCurso = document.querySelector('[name="nombre_curso_labs"]')?.value || '';
 
                 let vpodInfo = 'No especificado';
-                if (vpodScope === 'all') vpodInfo = '🖥️ Todos los vPods';
-                else if (vpodScope === 'one' && vpodDetail) vpodInfo = `🖥️ ${vpodDetail}`;
-                else if (vpodScope === 'multiple' && vpodDetail) vpodInfo = `🖥️ Múltiples: ${vpodDetail}`;
+                if (vpodScope === 'all') vpodInfo = ' Todos los vPods';
+                else if (vpodScope === 'one' && vpodDetail) vpodInfo = ` ${vpodDetail}`;
+                else if (vpodScope === 'multiple' && vpodDetail) vpodInfo = ` Múltiples: ${vpodDetail}`;
 
                 subject = '[ LABS ] - ' + data.caseSubject;
 
                 const sections = [
-                    createSection('👤 INFORMACIÓN DEL SOLICITANTE', '#1E6FCC', [
-                        { label: '📧 Email:', value: data.solicitante },
-                        { label: '📞 Teléfono:', value: data.telefono },
-                        { label: '🌎 País:', value: data.pais },
-                        { label: '👨‍🏫 Tipo:', value: tipoSolicitante }
+                    createSection(' INFORMACIÓN DEL SOLICITANTE', '#1E6FCC', [
+                        { label: ' Email:', value: data.solicitante },
+                        { label: ' Teléfono:', value: data.telefono },
+                        { label: ' País:', value: data.pais },
+                        { label: ' Tipo:', value: tipoSolicitante }
                     ]),
-                    createSection('📚 INFORMACIÓN DEL CURSO', '#9B59B6', [
-                        { label: '🏢 Vendor:', value: vendor },
-                        { label: '📖 Nombre del Curso:', value: nombreCurso }
+                    createSection(' INFORMACIÓN DEL CURSO', '#9B59B6', [
+                        { label: ' Vendor:', value: vendor },
+                        { label: ' Nombre del Curso:', value: nombreCurso }
                     ]),
-                    createSection('🔬 INFORMACIÓN DEL LABORATORIO', '#4A90E2', [
-                        { label: '💻 vPod Afectado:', value: vpodInfo }
+                    createSection(' INFORMACIÓN DEL LABORATORIO', '#4A90E2', [
+                        { label: ' vPod Afectado:', value: vpodInfo }
                     ]),
                     createDescriptionSection(data.description)
                 ];
@@ -2278,13 +2278,13 @@
                 subject = '[ EDUCATION ] - ' + data.caseSubject;
 
                 const sections = [
-                    createSection('👤 INFORMACIÓN DEL SOLICITANTE', '#1E6FCC', [
-                        { label: '📧 Email:', value: data.solicitante },
-                        { label: '📞 Teléfono:', value: data.telefono },
-                        { label: '🌎 País:', value: data.pais }
+                    createSection(' INFORMACIÓN DEL SOLICITANTE', '#1E6FCC', [
+                        { label: ' Email:', value: data.solicitante },
+                        { label: ' Teléfono:', value: data.telefono },
+                        { label: ' País:', value: data.pais }
                     ]),
-                    createSection('📚 INFORMACIÓN DEL CURSO', '#4A90E2', [
-                        { label: '🏢 Vendor:', value: vendor }
+                    createSection(' INFORMACIÓN DEL CURSO', '#4A90E2', [
+                        { label: ' Vendor:', value: vendor }
                     ]),
                     createPrioritySection(data.prioridad),
                     createDescriptionSection(data.description)
@@ -2303,10 +2303,10 @@
                         ? ftpTextarea.value
                         : 'Cliente marcó la opción pero no especificó archivos';
 
-                    const ftpSection = createSection('📤 ARCHIVOS GRANDES - FTP REQUERIDO', '#FF9800', [
-                        { label: '🔴 ACCIÓN REQUERIDA:', value: 'Enviar credenciales FTP al cliente' },
-                        { label: '📧 Email del cliente:', value: getCommonData(serviceType === 'ais' ? aisSubTypeSelect.value : serviceType === 'awlc' ? awlcSubTypeSelect.value : serviceType).solicitante },
-                        { label: '📝 Descripción de archivos:', value: ftpDescription }
+                    const ftpSection = createSection(' ARCHIVOS GRANDES - FTP REQUERIDO', '#FF9800', [
+                        { label: ' ACCIÓN REQUERIDA:', value: 'Enviar credenciales FTP al cliente' },
+                        { label: ' Email del cliente:', value: getCommonData(serviceType === 'ais' ? aisSubTypeSelect.value : serviceType === 'awlc' ? awlcSubTypeSelect.value : serviceType).solicitante },
+                        { label: ' Descripción de archivos:', value: ftpDescription }
                     ]);
 
                     const lastDivIndex = formattedData.lastIndexOf('</div>');
