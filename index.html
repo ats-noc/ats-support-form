@@ -2096,7 +2096,7 @@
     <div style="background: #f8f9fa; padding: 20px; border-radius: 0 0 8px 8px;">
         ${sections.join('')}
         <div style="text-align: center; margin-top: 24px; padding-top: 20px; border-top: 2px solid #dee2e6; color: #6c757d; font-size: 13px;">
-            🎯 Ticket generado desde el Portal de Soporte de Adistec
+             Ticket generado desde el Portal de Soporte de Adistec
         </div>
     </div>
 </div>`;
@@ -2116,14 +2116,14 @@
                 const color = getPriorityColor(prioridad);
                 return `
 <div style="background: white; padding: 24px; border-radius: 8px; margin-bottom: 16px; border-left: 4px solid ${color}; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-    <h3 style="margin: 0 0 20px 0; color: ${color}; font-size: 16px; font-weight: 600;">⚡ PRIORIDAD</h3>
+    <h3 style="margin: 0 0 20px 0; color: ${color}; font-size: 16px; font-weight: 600;"> PRIORIDAD</h3>
     <div style="display: inline-block; padding: 12px 24px; background: ${color}; color: white; border-radius: 20px; font-weight: 600; font-size: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.15);">${prioridad}</div>
 </div>`;
             };
 
             const createDescriptionSection = (description) => `
 <div style="background: white; padding: 24px; border-radius: 8px; margin-bottom: 16px; border-left: 4px solid #9B59B6; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-    <h3 style="margin: 0 0 20px 0; color: #9B59B6; font-size: 16px; font-weight: 600;">📝 DESCRIPCIÓN DEL CASO</h3>
+    <h3 style="margin: 0 0 20px 0; color: #9B59B6; font-size: 16px; font-weight: 600;"> DESCRIPCIÓN DEL CASO</h3>
     <div style="padding: 20px; background: #f8f9fa; border-radius: 6px; line-height: 1.8; color: #333; white-space: pre-wrap; font-size: 14px;">${description}</div>
 </div>`;
 
@@ -2181,7 +2181,7 @@
                         { label: ' Teléfono:', value: data.telefono },
                         { label: ' País:', value: data.pais }
                     ]),
-                    createSection('🔧 INFORMACIÓN TÉCNICA', '#4A90E2', techRows),
+                    createSection(' INFORMACIÓN TÉCNICA', '#4A90E2', techRows),
                     createPrioritySection(data.prioridad),
                     createDescriptionSection(data.description)
                 ];
