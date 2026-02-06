@@ -831,7 +831,7 @@
 
                 <!-- AIS INTEL FORM -->
                 <div id="form-ais-intel" class="form-section hidden">
-                    <span class="badge">5 required fields</span>
+                    <span class="badge">7 required fields</span>
 
                     <div class="form-fields">
                         <div class="form-section">
@@ -885,15 +885,6 @@
 
                         <div class="form-section">
                             <label class="form-label">
-                                Requester Name
-                                <span class="required">*</span>
-                            </label>
-                            <input type="text" class="form-input" name="nombre_solicitante_intel"
-                                placeholder="Full name">
-                        </div>
-
-                        <div class="form-section">
-                            <label class="form-label">
                                 Serial Number
                                 <span class="required">*</span>
                             </label>
@@ -901,20 +892,15 @@
                                 placeholder="e.g., INTEL-ABC123456">
                             <div class="field-hint">Intel equipment serial number</div>
                         </div>
+
                         <div class="form-section">
                             <label class="form-label">
-                                First Aid Kit (FAK)
+                                ¿Cuentan con un First Aid Kit (FAK)?
+                                <span class="optional">(Optional)</span>
                             </label>
-                            <div
-                                style="display: flex; align-items: center; gap: 10px; padding: 12px; background: #f8f9fa; border-radius: 8px; border: 2px solid #ddd;">
-                                <input type="checkbox" id="fak_intel" name="fak_intel"
-                                    style="width: 20px; height: 20px; cursor: pointer; accent-color: #1E6FCC;">
-                                <label for="fak_intel" style="cursor: pointer; margin: 0; font-weight: 500;">Include
-                                    First Aid Kit (FAK) service</label>
-                            </div>
+                            <input type="text" class="form-input" name="fak_intel" placeholder="Sí / No / No sé">
+                            <div class="field-hint">Indique si tienen un First Aid Kit disponible</div>
                         </div>
-
-
 
                         <div class="form-section">
                             <label class="form-label">
@@ -923,6 +909,64 @@
                             </label>
                             <input type="text" class="form-input" name="motherboard_intel"
                                 placeholder="Motherboard model">
+                        </div>
+
+                        <!-- ══════════════════════════════════════════════════════════ -->
+                        <!-- NUEVO: SISTEMA OPERATIVO -->
+                        <!-- ══════════════════════════════════════════════════════════ -->
+                        <div class="form-section">
+                            <label class="form-label">
+                                Sistema Operativo (SO)
+                                <span class="required">*</span>
+                            </label>
+                            <select class="form-select" id="so_intel" name="so_intel" required>
+                                <option value="">-- Seleccione un SO --</option>
+                                <option value="windows">Windows</option>
+                                <option value="linux">Linux</option>
+                                <option value="esxi">VMware ESXi</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+
+                        <!-- NUEVO: VERSIÓN DEL SO (Condicional) -->
+                        <div class="form-section hidden" id="so_version_intel_section">
+                            <label class="form-label">
+                                Versión del SO
+                                <span class="required">*</span>
+                            </label>
+                            <select class="form-select" id="so_version_intel" name="so_version_intel">
+                                <option value="">-- Seleccione versión --</option>
+                            </select>
+                        </div>
+
+                        <!-- ══════════════════════════════════════════════════════════ -->
+                        <!-- NUEVO: APLICATIVOS -->
+                        <!-- ══════════════════════════════════════════════════════════ -->
+                        <div class="form-section">
+                            <label class="form-label">
+                                Aplicativo
+                                <span class="required">*</span>
+                            </label>
+                            <select class="form-select" id="aplicativo_intel" name="aplicativo_intel" required>
+                                <option value="">-- Seleccione un aplicativo --</option>
+                                <option value="veeam">Veeam</option>
+                                <option value="nutanix">Nutanix</option>
+                                <option value="commvault">Commvault</option>
+                                <option value="quest">Quest (Qorestor)</option>
+                                <option value="vmware">VMware</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+
+                        <!-- NUEVO: VERSIÓN DEL APLICATIVO (Condicional) -->
+                        <div class="form-section hidden" id="aplicativo_version_intel_section">
+                            <label class="form-label">
+                                Versión del Aplicativo
+                                <span class="required">*</span>
+                            </label>
+                            <select class="form-select" id="aplicativo_version_intel" name="aplicativo_version_intel">
+                                <option value="">-- Seleccione versión --</option>
+                            </select>
                         </div>
 
                         <div class="form-section">
@@ -987,6 +1031,8 @@
                         </div>
                     </div>
                 </div>
+
+
 
 
                 <!-- AIS SUPERMICRO FORM -->
@@ -2156,8 +2202,16 @@
                 const data = getCommonData(subType);
                 const serial = document.querySelector(`[name="numero_serie_${subType}"]`)?.value || '';
                 const motherboard = document.querySelector(`[name="motherboard_${subType}"]`)?.value || '';
-                const fakChecked = document.querySelector(`[name="fak_${subType}"]`)?.checked;
+                const fakValue = document.querySelector(`[name="fak_${subType}"]`)?.value || '';
                 subject = `[ AIS - ${subType.toUpperCase()} ] - ` + data.caseSubject;
+
+
+
+                // NUEVO: Capturar SO y Aplicativos
+                const so = document.querySelector(`[name="so_${subType}"]`)?.value || '';
+                const soVersion = document.querySelector(`[name="so_version_${subType}"]`)?.value || '';
+                const aplicativo = document.querySelector(`[name="aplicativo_${subType}"]`)?.value || '';
+                const aplicativoVersion = document.querySelector(`[name="aplicativo_version_${subType}"]`)?.value || '';
 
                 const programNames = {
                     'vrn': 'vSAN Ready Node (VRN)',
@@ -2173,7 +2227,17 @@
                 ];
 
                 if (motherboard) techRows.push({ label: ' MotherBoard:', value: motherboard });
-                if (fakChecked) techRows.push({ label: ' FAK:', value: '✅ Incluido' });
+                if (fakValue) techRows.push({ label: ' FAK:', value: fakValue });
+
+                // NUEVO: Agregar SO y Aplicativos al ticket
+                if (so) {
+                    const soLabel = so === 'windows' ? 'Windows' : so === 'linux' ? 'Linux' : so === 'esxi' ? 'VMware ESXi' : 'Otro';
+                    techRows.push({ label: ' Sistema Operativo:', value: `${soLabel} - ${soVersion}` });
+                }
+                if (aplicativo) {
+                    const appLabel = aplicativo.charAt(0).toUpperCase() + aplicativo.slice(1);
+                    techRows.push({ label: ' Aplicativo:', value: `${appLabel} - ${aplicativoVersion}` });
+                }
 
                 const sections = [
                     createSection(' INFORMACIÓN DEL SOLICITANTE', '#1E6FCC', [
@@ -2391,6 +2455,108 @@
                 submitBtn.innerHTML = '<span data-i18n="form.submit">Submit Support Request</span>';
             }
         });
+
+        // ═══════════════════════════════════════════════════════════
+        // AIS: LÓGICA DE SO Y APLICATIVOS EN CASCADA
+        // ═══════════════════════════════════════════════════════════
+
+        // Definición de versiones por SO
+        const soVersions = {
+            windows: [
+                'Windows Server 2019',
+                'Windows Server 2022',
+                'Windows 10',
+                'Windows 11'
+            ],
+            linux: [
+                'Ubuntu 20.04 LTS',
+                'Ubuntu 22.04 LTS',
+                'Red Hat Enterprise Linux 8.x',
+                'Red Hat Enterprise Linux 9.x',
+                'CentOS 7.x',
+                'Debian 11',
+                'Debian 12'
+            ],
+            esxi: [
+                'VMware ESXi 7.0',
+                'VMware ESXi 8.0'
+            ],
+            otro: [] // Campo de texto libre se manejará diferente
+        };
+
+        // Definición de versiones por Aplicativo (PLACEHOLDER)
+        const aplicativoVersions = {
+            veeam: ['Versión 1.x', 'Versión 2.x', 'Versión 3.x'],
+            nutanix: ['Versión 1.x', 'Versión 2.x', 'Versión 3.x'],
+            commvault: ['Versión 1.x', 'Versión 2.x', 'Versión 3.x'],
+            quest: ['Versión 1.x', 'Versión 2.x', 'Versión 3.x'],
+            vmware: ['Versión 1.x', 'Versión 2.x', 'Versión 3.x'],
+            otro: []
+        };
+
+        // Función para poblar versiones dinámicamente
+        function populateVersions(selectId, versions, sectionId) {
+            const select = document.getElementById(selectId);
+            const section = document.getElementById(sectionId);
+
+            if (!select || !section) return;
+
+            // Limpiar opciones previas
+            select.innerHTML = '<option value="">-- Seleccione versión --</option>';
+
+            if (versions.length === 0) {
+                // Si no hay versiones (caso "Otro"), mostrar input de texto
+                section.classList.remove('hidden');
+                select.required = false;
+                // Convertir select en input
+                const input = document.createElement('input');
+                input.type = 'text';
+                input.className = 'form-input';
+                input.name = select.name;
+                input.id = select.id;
+                input.placeholder = 'Especifique la versión';
+                input.required = true;
+                select.parentNode.replaceChild(input, select);
+            } else {
+                // Poblar con versiones disponibles
+                versions.forEach(version => {
+                    const option = document.createElement('option');
+                    option.value = version;
+                    option.textContent = version;
+                    select.appendChild(option);
+                });
+                section.classList.remove('hidden');
+                select.required = true;
+            }
+        }
+
+        // Event listeners para INTEL
+        const soIntel = document.getElementById('so_intel');
+        const aplicativoIntel = document.getElementById('aplicativo_intel');
+
+        if (soIntel) {
+            soIntel.addEventListener('change', function () {
+                const soType = this.value;
+                if (soType) {
+                    populateVersions('so_version_intel', soVersions[soType], 'so_version_intel_section');
+                } else {
+                    document.getElementById('so_version_intel_section').classList.add('hidden');
+                    document.getElementById('so_version_intel').required = false;
+                }
+            });
+        }
+
+        if (aplicativoIntel) {
+            aplicativoIntel.addEventListener('change', function () {
+                const appType = this.value;
+                if (appType) {
+                    populateVersions('aplicativo_version_intel', aplicativoVersions[appType], 'aplicativo_version_intel_section');
+                } else {
+                    document.getElementById('aplicativo_version_intel_section').classList.add('hidden');
+                    document.getElementById('aplicativo_version_intel').required = false;
+                }
+            });
+        }
 
         hideAllForms();
         hideSubSelects();
