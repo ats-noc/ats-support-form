@@ -576,6 +576,211 @@
             outline: 2px solid var(--adistec-primary);
             outline-offset: 2px;
         }
+
+        /* ═══════════════════════════════════════════════════════════
+   HELP SYSTEM - MODALES DE AYUDA
+   ═══════════════════════════════════════════════════════════ */
+
+        .help-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(135deg, #4A90E2, #1E6FCC);
+            color: white;
+            border-radius: 50%;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-left: 8px;
+            transition: var(--transition);
+            box-shadow: 0 2px 6px rgba(30, 111, 204, 0.3);
+            position: relative;
+            top: -1px;
+        }
+
+        .help-icon:hover {
+            transform: scale(1.15);
+            box-shadow: 0 4px 12px rgba(30, 111, 204, 0.5);
+            background: linear-gradient(135deg, #5BA3F5, #2878DD);
+        }
+
+        .help-icon:active {
+            transform: scale(1.05);
+        }
+
+        /* Modal Overlay */
+        .help-modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(4px);
+            z-index: 10000;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .help-modal-overlay.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        /* Modal Container */
+        .help-modal {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: slideUp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        /* Modal Header */
+        .help-modal-header {
+            background: linear-gradient(135deg, #1E6FCC 0%, #144A8C 100%);
+            color: white;
+            padding: 24px 32px;
+            border-radius: 16px 16px 0 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .help-modal-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .help-modal-close {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .help-modal-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg);
+        }
+
+        /* Modal Body */
+        .help-modal-body {
+            padding: 32px;
+        }
+
+        .help-section {
+            margin-bottom: 24px;
+        }
+
+        .help-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .help-section h4 {
+            color: #1E6FCC;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .help-section p {
+            color: #555;
+            font-size: 14px;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        .help-section ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .help-section li {
+            color: #555;
+            font-size: 14px;
+            line-height: 1.7;
+            margin-bottom: 8px;
+        }
+
+        .help-code {
+            background: #F5F7FA;
+            border: 1px solid #E1E8ED;
+            border-radius: 6px;
+            padding: 12px 16px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            color: #2C3E50;
+            margin-top: 8px;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+
+        .help-image-placeholder {
+            background: linear-gradient(135deg, #E8F2FF, #F0F7FF);
+            border: 2px dashed #1E6FCC;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            color: #1E6FCC;
+            font-size: 13px;
+            margin-top: 12px;
+        }
+
+        .help-warning {
+            background: #FFF3E0;
+            border-left: 4px solid #FF9800;
+            padding: 12px 16px;
+            border-radius: 4px;
+            margin-top: 12px;
+        }
+
+        .help-warning p {
+            color: #E65100;
+            margin: 0;
+            font-size: 13px;
+        }
+
+        @media (max-width: 768px) {
+            .help-modal {
+                max-width: 100%;
+                margin: 10px;
+            }
+
+            .help-modal-header {
+                padding: 20px 24px;
+            }
+
+            .help-modal-title {
+                font-size: 18px;
+            }
+
+            .help-modal-body {
+                padding: 24px;
+            }
+        }
     </style>
 
     <!-- i18next - Librería de traducción -->
@@ -700,7 +905,6 @@
                 <div id="form-progress" class="form-section hidden">
                     <img src="images/Progress.png" alt="Progress" class="service-icon-img progress-logo">
                     <h2 class="service-title">Progress</h2>
-                    <span class="badge">3 required fields</span>
                     <p class="service-description">Adistec, as a regional Progress® distributor, provides direct support
                         for the OpenEdge solution through its dedicated team for its customers. In case you require
                         support, please complete the form with your details.</p>
@@ -831,7 +1035,6 @@
 
                 <!-- AIS INTEL FORM -->
                 <div id="form-ais-intel" class="form-section hidden">
-                    <span class="badge">7 required fields</span>
 
                     <div class="form-fields">
                         <div class="form-section">
@@ -887,6 +1090,8 @@
                             <label class="form-label">
                                 Serial Number
                                 <span class="required">*</span>
+                                <span class="help-icon" onclick="openHelpModal('helpModalSerial')"
+                                    title="¿Cómo encontrar el Serial Number?">?</span>
                             </label>
                             <input type="text" class="form-input" name="numero_serie_intel"
                                 placeholder="e.g., INTEL-ABC123456">
@@ -897,6 +1102,8 @@
                             <label class="form-label">
                                 ¿Cuentan con un First Aid Kit (FAK)?
                                 <span class="optional">(Optional)</span>
+                                <span class="help-icon" onclick="openHelpModal('helpModalFAK')"
+                                    title="¿Qué es el FAK?">?</span>
                             </label>
                             <input type="text" class="form-input" name="fak_intel" placeholder="Sí / No / No sé">
                             <div class="field-hint">Indique si tienen un First Aid Kit disponible</div>
@@ -906,6 +1113,8 @@
                             <label class="form-label">
                                 MotherBoard
                                 <span class="required">*</span>
+                                <span class="help-icon" onclick="openHelpModal('helpModalMotherboard')"
+                                    title="¿Cómo identificar la MotherBoard?">?</span>
                             </label>
                             <select class="form-select" name="motherboard_intel" required>
                                 <option value="">-- Seleccione modelo --</option>
@@ -949,6 +1158,8 @@
                             <label class="form-label" id="so_detail_intel_label">
                                 Kernel
                                 <span class="required">*</span>
+                                <span class="help-icon" onclick="openHelpModal('helpModalKernel')"
+                                    title="¿Cómo obtener el Kernel?">?</span>
                             </label>
                             <input type="text" class="form-input" id="so_detail_intel" name="so_detail_intel"
                                 placeholder="Ejemplo: 5.4.0-42-generic">
@@ -1053,12 +1264,8 @@
 
                 <!-- AIS SUPERMICRO FORM -->
                 <div id="form-ais-supermicro" class="form-section hidden">
-                    <span class="badge">4 required fields</span>
 
-                    <div class="info-box">
-                        <strong>ℹ️ Note:</strong>
-                        This form does NOT require MotherBoard information (difference with Intel)
-                    </div>
+
 
                     <div class="form-fields">
                         <div class="form-section">
@@ -1114,6 +1321,8 @@
                             <label class="form-label">
                                 Serial Number
                                 <span class="required">*</span>
+                                <span class="help-icon" onclick="openHelpModal('helpModalSerial')"
+                                    title="¿Cómo encontrar el Serial Number?">?</span>
                             </label>
                             <input type="text" class="form-input" name="numero_serie_supermicro"
                                 placeholder="e.g., SM-XYZ789012">
@@ -1123,6 +1332,8 @@
                             <label class="form-label">
                                 ¿Cuentan con un First Aid Kit (FAK)?
                                 <span class="optional">(Optional)</span>
+                                <span class="help-icon" onclick="openHelpModal('helpModalFAK')"
+                                    title="¿Qué es el FAK?">?</span>
                             </label>
                             <input type="text" class="form-input" name="fak_supermicro" placeholder="Sí / No / No sé">
                             <div class="field-hint">Indique si tienen un First Aid Kit disponible</div>
@@ -1132,6 +1343,8 @@
                             <label class="form-label">
                                 System Model
                                 <span class="required">*</span>
+                                <span class="help-icon" onclick="openHelpModal('helpModalSystemModel')"
+                                    title="¿Cómo identificar el System Model?">?</span>
                             </label>
                             <select class="form-select" name="motherboard_supermicro" required>
                                 <option value="">-- Seleccione modelo --</option>
@@ -1214,7 +1427,7 @@
                 <div id="form-aec" class="form-section hidden">
                     <img src="images/AEC.png" alt="AEC" class="service-icon-img">
                     <h2 class="service-title">Adistec Enterprise Cloud (AEC)</h2>
-                    <span class="badge">5 required fields</span>
+
                     <p class="service-description">Adistec Enterprise Cloud® is the support program oriented to provide
                         assistance and technical support to customers who purchase solutions as Adistec vSAN Ready Node,
                         Adistec Data POD.</p>
@@ -1361,7 +1574,7 @@
 
                 <!-- AWLC VEEAM FORM -->
                 <div id="form-awlc-veeam" class="form-section hidden">
-                    <span class="badge">3 required fields</span>
+
 
                     <div class="form-fields">
                         <div class="form-section">
@@ -1488,7 +1701,7 @@
 
                 <!-- AWLC VMWARE FORM -->
                 <div id="form-awlc-vmware" class="form-section hidden">
-                    <span class="badge">2 required fields</span>
+
 
                     <div class="form-fields">
                         <div class="form-section">
@@ -1607,7 +1820,6 @@
                 <div id="form-labs" class="form-section hidden">
                     <img src="images/Labs.png" alt="Labs" class="service-icon-img">
                     <h2 class="service-title">Adistec Labs</h2>
-                    <span class="badge">7 required fields</span>
                     <p class="service-description">Adistec Labs® is the support program oriented to provide assistance
                         and
                         technical support to customers who purchase solutions as Adistec vSAN Ready Node, Adistec Data
@@ -1775,7 +1987,6 @@
                 <div id="form-education" class="form-section hidden">
                     <img src="images/Education.png" alt="Education" class="service-icon-img">
                     <h2 class="service-title">Adistec Education</h2>
-                    <span class="badge">2 required fields</span>
                     <p class="service-description">Adistec Education® is the support program oriented to provide
                         assistance and
                         technical support to customers who purchase solutions as Adistec vSAN Ready Node, Adistec Data
@@ -1899,6 +2110,250 @@
                     <span data-i18n="form.submit">Submit Support Request</span>
                 </button>
             </form>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         MODALES DE AYUDA
+         ═══════════════════════════════════════════════════════════ -->
+
+    <!-- Modal: Serial Number -->
+    <div id="helpModalSerial" class="help-modal-overlay">
+        <div class="help-modal">
+            <div class="help-modal-header">
+                <h3 class="help-modal-title">
+                    <span></span> ¿Cómo encontrar el Serial Number?
+                </h3>
+                <button class="help-modal-close" onclick="closeHelpModal('helpModalSerial')">&times;</button>
+            </div>
+            <div class="help-modal-body">
+                <div class="help-section">
+                    <h4> En Intel / SuperMicro</h4>
+                    <p>El serial number suele estar ubicado en:</p>
+                    <ul><li><strong>Puede encontrar mas información acerca de los seriales de los equipos SuperMicro puede visitar el siguiente enlace: <a>https://www.supermicro.com/es/support/rma/sn</a></strong></li>
+                        <li><strong>Etiqueta física:</strong> En la parte frontal o posterior del servidor</li>
+                        <li><strong>BIOS/UEFI:</strong> Al encender, presiona F2 o DEL para entrar al BIOS</li>
+                        <li><strong>Desde el Sistema Operativo:</strong></li>
+                    </ul>
+                    <div class="help-code">Linux: sudo dmidecode -s system-serial-number
+                        Windows: wmic bios get serialnumber
+                        ESXi: esxcfg-info | grep "Serial Number"</div>
+                </div>
+
+                <div class="help-section">
+                    <h4> Formato esperado</h4>
+                    <p>Ejemplos de seriales válidos:</p>
+                    <ul>
+                        <li>INTEL-ABC123456</li>
+                        <li>SM-XYZ789012</li>
+                        <li>S2600WF0123456789</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: MotherBoard -->
+    <div id="helpModalMotherboard" class="help-modal-overlay">
+        <div class="help-modal">
+            <div class="help-modal-header">
+                <h3 class="help-modal-title">
+                    <span></span> ¿Cómo identificar el modelo de MotherBoard?
+                </h3>
+                <button class="help-modal-close" onclick="closeHelpModal('helpModalMotherboard')">&times;</button>
+            </div>
+            <div class="help-modal-body">
+                <div class="help-section">
+                    <h4> Métodos para identificar la MotherBoard</h4>
+                    <p><strong>1. Desde el Sistema Operativo:</strong></p>
+                    <div class="help-code">Linux: sudo dmidecode -t baseboard | grep "Product Name"
+                        Windows: wmic baseboard get product
+                        ESXi: esxcfg-info | grep "Board"</div>
+                </div>
+
+                <div class="help-section">
+                    <p><strong>2. En la BIOS/UEFI:</strong></p>
+                    <ul>
+                        <li>Reinicia el servidor</li>
+                        <li>Presiona F2 o DEL al iniciar</li>
+                        <li>Busca la sección "Main" o "System Information"</li>
+                        <li>El modelo aparecerá como "Baseboard" o "Motherboard"</li>
+                    </ul>
+                </div>
+
+                <div class="help-section">
+                    <h4>Modelos Intel soportados</h4>
+                    <p>S2600WF, S2600BP, M50CYP, S2600TPR, S1200SP</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: FAK -->
+    <div id="helpModalFAK" class="help-modal-overlay">
+        <div class="help-modal">
+            <div class="help-modal-header">
+                <h3 class="help-modal-title">
+                    <span></span> ¿Qué es el First Aid Kit (FAK)?
+                </h3>
+                <button class="help-modal-close" onclick="closeHelpModal('helpModalFAK')">&times;</button>
+            </div>
+            <div class="help-modal-body">
+                <div class="help-section">
+                    <h4> ¿Qué es el FAK?</h4>
+                    <p>El <strong>First Aid Kit (FAK)</strong> es un kit de repuestos físicos que algunos clientes
+                        adquieren junto con su servidor. Incluye componentes de reemplazo rápido como:</p>
+                    <ul>
+                        <li>Fuentes de poder redundantes</li>
+                        <li>Discos duros de repuesto</li>
+                        <li>Módulos de memoria RAM</li>
+                        <li>Ventiladores</li>
+                    </ul>
+                </div>
+
+                <div class="help-section">
+                    <h4> ¿Cómo saber si tengo FAK?</h4>
+                    <p>Si adquiriste tu servidor con Adistec, revisa:</p>
+                    <ul>
+                        <li>Tu orden de compra o factura</li>
+                        <li>Documentación de entrega del servidor</li>
+                        <li>Caja o paquete adicional que vino con el servidor</li>
+                    </ul>
+                </div>
+
+                <div class="help-warning">
+                    <p><strong> Si no estás seguro:</strong> Selecciona "No sé" y nuestro equipo te ayudará a
+                        verificarlo.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Kernel Linux -->
+    <div id="helpModalKernel" class="help-modal-overlay">
+        <div class="help-modal">
+            <div class="help-modal-header">
+                <h3 class="help-modal-title">
+                    <span></span> ¿Cómo obtener la versión del Kernel en Linux?
+                </h3>
+                <button class="help-modal-close" onclick="closeHelpModal('helpModalKernel')">&times;</button>
+            </div>
+            <div class="help-modal-body">
+                <div class="help-section">
+                    <h4> Comando para ver el Kernel</h4>
+                    <p>Abre una terminal y ejecuta:</p>
+                    <div class="help-code">uname -r</div>
+                    <p>O para información más detallada:</p>
+                    <div class="help-code">uname -a</div>
+                </div>
+
+                <div class="help-section">
+                    <h4> Ejemplo de salida</h4>
+                    <div class="help-code">5.4.0-42-generic
+                        4.14.35-1902.3.2.el7uek.x86_64</div>
+                    <p>Copia exactamente lo que aparece después de ejecutar el comando.</p>
+                </div>
+
+                <div class="help-section">
+                    <h4> Formatos comunes</h4>
+                    <ul>
+                        <li><strong>Ubuntu:</strong> 5.4.0-42-generic</li>
+                        <li><strong>Red Hat:</strong> 4.18.0-193.el8.x86_64</li>
+                        <li><strong>Oracle Linux:</strong> 5.4.17-2102.201.3.el7uek.x86_64</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: ESXi Build -->
+    <div id="helpModalESXi" class="help-modal-overlay">
+        <div class="help-modal">
+            <div class="help-modal-header">
+                <h3 class="help-modal-title">
+                    <span></span> ¿Cómo obtener Build y Versión de ESXi?
+                </h3>
+                <button class="help-modal-close" onclick="closeHelpModal('helpModalESXi')">&times;</button>
+            </div>
+            <div class="help-modal-body">
+                <div class="help-section">
+                    <h4> Método 1: Desde la consola del host</h4>
+                    <p>En la pantalla de inicio de ESXi, verás la información directamente:</p>
+                    <div class="help-code">VMware ESXi 7.0.3 (VMkernel Release Build 23794027)</div>
+                    <p>Anota el número de Build completo.</p>
+                </div>
+
+                <div class="help-section">
+                    <h4> Método 2: Desde SSH</h4>
+                    <p>Conéctate por SSH al host y ejecuta:</p>
+                    <div class="help-code">vmware -vl</div>
+                    <p>Salida de ejemplo:</p>
+                    <div class="help-code">VMware ESXi 7.0.3 build-23794027
+                        VMware ESXi 7.0 Update 3</div>
+                </div>
+
+                <div class="help-section">
+                    <h4> Método 3: Desde vCenter/vSphere Client</h4>
+                    <ul>
+                        <li>Conéctate a vCenter</li>
+                        <li>Selecciona el host ESXi</li>
+                        <li>Ve a la pestaña "Summary"</li>
+                        <li>La versión y build aparecen en "Hypervisor"</li>
+                    </ul>
+                </div>
+
+                <div class="help-section">
+                    <h4> Formato esperado</h4>
+                    <p>Ejemplos válidos:</p>
+                    <ul>
+                        <li>Build 23794027, Version 7.0 U3</li>
+                        <li>Build 20842708, Version 8.0</li>
+                        <li>Build 19193900, Version 6.7 U3</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: System Model SuperMicro -->
+    <div id="helpModalSystemModel" class="help-modal-overlay">
+        <div class="help-modal">
+            <div class="help-modal-header">
+                <h3 class="help-modal-title">
+                    <span></span> ¿Cómo identificar el System Model en SuperMicro?
+                </h3>
+                <button class="help-modal-close" onclick="closeHelpModal('helpModalSystemModel')">&times;</button>
+            </div>
+            <div class="help-modal-body">
+                <div class="help-section">
+                    <h4> Métodos para identificar el modelo</h4>
+                    <p><strong>1. Etiqueta del chasis:</strong></p>
+                    <p>Busca una etiqueta en la parte frontal o posterior del servidor que indique el modelo (ej:
+                        SYS-120U-TNR)</p>
+                </div>
+
+                <div class="help-section">
+                    <p><strong>2. Desde el Sistema Operativo:</strong></p>
+                    <div class="help-code">Linux: sudo dmidecode -s system-product-name
+                        Windows: wmic computersystem get model
+                        ESXi: esxcfg-info | grep "System Model"</div>
+                </div>
+
+                <div class="help-section">
+                    <p><strong>3. En IPMI/BMC:</strong></p>
+                    <ul>
+                        <li>Accede a la interfaz web de IPMI</li>
+                        <li>Ve a "System Information"</li>
+                        <li>El modelo aparecerá como "Product Name"</li>
+                    </ul>
+                </div>
+
+                <div class="help-section">
+                    <h4>Modelos SuperMicro soportados</h4>
+                    <p>SYS-120U-TNR, SYS-220-BT-HNC9R, SYS-121H-TNR, SYS-220BT-HNC9R, SYS-220BT-HNTR, SYS-610C-TR,
+                        SYS-620C-TR12R</p>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -2609,6 +3064,42 @@
                 }
             });
         }
+
+        // ═══════════════════════════════════════════════════════════
+        // SISTEMA DE AYUDA - MODALES
+        // ═══════════════════════════════════════════════════════════
+
+        function openHelpModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent background scroll
+            }
+        }
+
+        function closeHelpModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = ''; // Restore scroll
+            }
+        }
+
+        // Cerrar modal al hacer clic fuera del contenido
+        document.addEventListener('click', function (e) {
+            if (e.target.classList.contains('help-modal-overlay')) {
+                closeHelpModal(e.target.id);
+            }
+        });
+
+        // Cerrar modal con tecla ESC
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.help-modal-overlay.active').forEach(modal => {
+                    closeHelpModal(modal.id);
+                });
+            }
+        });
 
         hideAllForms();
         hideSubSelects();
