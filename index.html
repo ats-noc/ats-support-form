@@ -2237,10 +2237,9 @@
 
                 // NUEVO: Capturar SO y Aplicativos
                 const so = document.querySelector(`[name="so_${subType}"]`)?.value || '';
-                const soVersion = document.querySelector(`[name="so_version_${subType}"]`)?.value || '';
+                const soDetail = document.querySelector(`[name="so_detail_${subType}"]`)?.value || '';
                 const aplicativo = document.querySelector(`[name="aplicativo_${subType}"]`)?.value || '';
                 const aplicativoVersion = document.querySelector(`[name="aplicativo_version_${subType}"]`)?.value || '';
-
                 const programNames = {
                     'vrn': 'vSAN Ready Node (VRN)',
                     'dpa': 'Data Protection Appliance (DPA)',
