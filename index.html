@@ -907,8 +907,14 @@
                                 MotherBoard
                                 <span class="required">*</span>
                             </label>
-                            <input type="text" class="form-input" name="motherboard_intel"
-                                placeholder="Motherboard model">
+                            <select class="form-select" name="motherboard_intel" required>
+                                <option value="">-- Seleccione modelo --</option>
+                                <option value="S2600WF">S2600WF</option>
+                                <option value="S2600BP">S2600BP</option>
+                                <option value="M50CYP">M50CYP</option>
+                                <option value="S2600TPR">S2600TPR</option>
+                                <option value="S1200SP">S1200SP</option>
+                            </select>
                         </div>
 
                         <!-- ══════════════════════════════════════════════════════════ -->
@@ -921,22 +927,32 @@
                             </label>
                             <select class="form-select" id="so_intel" name="so_intel" required>
                                 <option value="">-- Seleccione un SO --</option>
-                                <option value="windows">Windows</option>
-                                <option value="linux">Linux</option>
-                                <option value="esxi">VMware ESXi</option>
+                                <option value="windows_server_2012">Windows Server 2012</option>
+                                <option value="windows_server_2016">Windows Server 2016</option>
+                                <option value="windows_server_2019">Windows Server 2019</option>
+                                <option value="windows_server_2022">Windows Server 2022</option>
+                                <option value="windows_server_2025">Windows Server 2025</option>
+                                <option value="oracle_linux_7x">Oracle Linux 7.x</option>
+                                <option value="oracle_linux_8x">Oracle Linux 8.x</option>
+                                <option value="oracle_linux_9x">Oracle Linux 9.x</option>
+                                <option value="linux">Linux (Otro)</option>
+                                <option value="esxi_6x">VMware ESXi 6.x</option>
+                                <option value="esxi_7x">VMware ESXi 7.x</option>
+                                <option value="esxi_8x">VMware ESXi 8.x</option>
+                                <option value="esxi_9x">VMware ESXi 9.x</option>
                                 <option value="otro">Otro</option>
                             </select>
                         </div>
 
-                        <!-- NUEVO: VERSIÓN DEL SO (Condicional) -->
-                        <div class="form-section hidden" id="so_version_intel_section">
-                            <label class="form-label">
-                                Versión del SO
+                        <!-- NUEVO: KERNEL/BUILD/VERSION (Condicional para Linux y ESXi) -->
+                        <div class="form-section hidden" id="so_detail_intel_section">
+                            <label class="form-label" id="so_detail_intel_label">
+                                Kernel
                                 <span class="required">*</span>
                             </label>
-                            <select class="form-select" id="so_version_intel" name="so_version_intel">
-                                <option value="">-- Seleccione versión --</option>
-                            </select>
+                            <input type="text" class="form-input" id="so_detail_intel" name="so_detail_intel"
+                                placeholder="Ejemplo: 5.4.0-42-generic">
+                            <div class="field-hint" id="so_detail_intel_hint">Especifique el kernel exacto</div>
                         </div>
 
                         <!-- ══════════════════════════════════════════════════════════ -->
@@ -949,24 +965,24 @@
                             </label>
                             <select class="form-select" id="aplicativo_intel" name="aplicativo_intel" required>
                                 <option value="">-- Seleccione un aplicativo --</option>
-                                <option value="veeam">Veeam</option>
-                                <option value="nutanix">Nutanix</option>
-                                <option value="commvault">Commvault</option>
-                                <option value="quest">Quest (Qorestor)</option>
-                                <option value="vmware">VMware</option>
-                                <option value="otro">Otro</option>
+                                <option value="Veeam">Veeam</option>
+                                <option value="Nutanix">Nutanix</option>
+                                <option value="Commvault">Commvault</option>
+                                <option value="Quest (Qorestor)">Quest (Qorestor)</option>
+                                <option value="VMware">VMware</option>
+                                <option value="Otro">Otro</option>
                             </select>
                         </div>
 
-                        <!-- NUEVO: VERSIÓN DEL APLICATIVO (Condicional) -->
+                        <!-- NUEVO: VERSIÓN DEL APLICATIVO -->
                         <div class="form-section hidden" id="aplicativo_version_intel_section">
                             <label class="form-label">
                                 Versión del Aplicativo
                                 <span class="required">*</span>
                             </label>
-                            <select class="form-select" id="aplicativo_version_intel" name="aplicativo_version_intel">
-                                <option value="">-- Seleccione versión --</option>
-                            </select>
+                            <input type="text" class="form-input" id="aplicativo_version_intel"
+                                name="aplicativo_version_intel" placeholder="Ejemplo: 12.1.2.5309">
+                            <div class="field-hint">Especifique la versión exacta del aplicativo</div>
                         </div>
 
                         <div class="form-section">
@@ -1105,16 +1121,28 @@
 
                         <div class="form-section">
                             <label class="form-label">
-                                First Aid Kit (FAK)
+                                ¿Cuentan con un First Aid Kit (FAK)?
+                                <span class="optional">(Optional)</span>
                             </label>
-                            <div
-                                style="display: flex; align-items: center; gap: 10px; padding: 12px; background: #f8f9fa; border-radius: 8px; border: 2px solid #ddd;">
-                                <input type="checkbox" id="fak_supermicro" name="fak_supermicro"
-                                    style="width: 20px; height: 20px; cursor: pointer; accent-color: #1E6FCC;">
-                                <label for="fak_supermicro"
-                                    style="cursor: pointer; margin: 0; font-weight: 500;">Include First Aid Kit (FAK)
-                                    service</label>
-                            </div>
+                            <input type="text" class="form-input" name="fak_supermicro" placeholder="Sí / No / No sé">
+                            <div class="field-hint">Indique si tienen un First Aid Kit disponible</div>
+                        </div>
+
+                        <div class="form-section">
+                            <label class="form-label">
+                                System Model
+                                <span class="required">*</span>
+                            </label>
+                            <select class="form-select" name="motherboard_supermicro" required>
+                                <option value="">-- Seleccione modelo --</option>
+                                <option value="SYS-120U-TNR">SYS-120U-TNR</option>
+                                <option value="SYS-220-BT-HNC9R">SYS-220-BT-HNC9R</option>
+                                <option value="SYS-121H-TNR">SYS-121H-TNR</option>
+                                <option value="SYS-220BT-HNC9R">SYS-220BT-HNC9R</option>
+                                <option value="SYS-220BT-HNTR">SYS-220BT-HNTR</option>
+                                <option value="SYS-610C-TR">SYS-610C-TR</option>
+                                <option value="SYS-620C-TR12R">SYS-620C-TR12R</option>
+                            </select>
                         </div>
 
                         <div class="form-section">
@@ -2234,9 +2262,8 @@
                     const soLabel = so === 'windows' ? 'Windows' : so === 'linux' ? 'Linux' : so === 'esxi' ? 'VMware ESXi' : 'Otro';
                     techRows.push({ label: ' Sistema Operativo:', value: `${soLabel} - ${soVersion}` });
                 }
-                if (aplicativo) {
-                    const appLabel = aplicativo.charAt(0).toUpperCase() + aplicativo.slice(1);
-                    techRows.push({ label: ' Aplicativo:', value: `${appLabel} - ${aplicativoVersion}` });
+                if (aplicativo && aplicativoVersion) {
+                    techRows.push({ label: 'Aplicativo:', value: `${aplicativo} - ${aplicativoVersion}` });
                 }
 
                 const sections = [
@@ -2457,103 +2484,109 @@
         });
 
         // ═══════════════════════════════════════════════════════════
-        // AIS: LÓGICA DE SO Y APLICATIVOS EN CASCADA
+        // AIS: LÓGICA DE SO Y APLICATIVOS
         // ═══════════════════════════════════════════════════════════
 
-        // Definición de versiones por SO
-        const soVersions = {
-            windows: [
-                'Windows Server 2019',
-                'Windows Server 2022',
-                'Windows 10',
-                'Windows 11'
-            ],
-            linux: [
-                'Ubuntu 20.04 LTS',
-                'Ubuntu 22.04 LTS',
-                'Red Hat Enterprise Linux 8.x',
-                'Red Hat Enterprise Linux 9.x',
-                'CentOS 7.x',
-                'Debian 11',
-                'Debian 12'
-            ],
-            esxi: [
-                'VMware ESXi 7.0',
-                'VMware ESXi 8.0'
-            ],
-            otro: [] // Campo de texto libre se manejará diferente
-        };
-
-        // Definición de versiones por Aplicativo (PLACEHOLDER)
-        const aplicativoVersions = {
-            veeam: ['Versión 1.x', 'Versión 2.x', 'Versión 3.x'],
-            nutanix: ['Versión 1.x', 'Versión 2.x', 'Versión 3.x'],
-            commvault: ['Versión 1.x', 'Versión 2.x', 'Versión 3.x'],
-            quest: ['Versión 1.x', 'Versión 2.x', 'Versión 3.x'],
-            vmware: ['Versión 1.x', 'Versión 2.x', 'Versión 3.x'],
-            otro: []
-        };
-
-        // Función para poblar versiones dinámicamente
-        function populateVersions(selectId, versions, sectionId) {
-            const select = document.getElementById(selectId);
-            const section = document.getElementById(sectionId);
-
-            if (!select || !section) return;
-
-            // Limpiar opciones previas
-            select.innerHTML = '<option value="">-- Seleccione versión --</option>';
-
-            if (versions.length === 0) {
-                // Si no hay versiones (caso "Otro"), mostrar input de texto
-                section.classList.remove('hidden');
-                select.required = false;
-                // Convertir select en input
-                const input = document.createElement('input');
-                input.type = 'text';
-                input.className = 'form-input';
-                input.name = select.name;
-                input.id = select.id;
-                input.placeholder = 'Especifique la versión';
-                input.required = true;
-                select.parentNode.replaceChild(input, select);
-            } else {
-                // Poblar con versiones disponibles
-                versions.forEach(version => {
-                    const option = document.createElement('option');
-                    option.value = version;
-                    option.textContent = version;
-                    select.appendChild(option);
-                });
-                section.classList.remove('hidden');
-                select.required = true;
-            }
-        }
-
-        // Event listeners para INTEL
+        // Lógica para SO - INTEL
         const soIntel = document.getElementById('so_intel');
-        const aplicativoIntel = document.getElementById('aplicativo_intel');
+        const soDetailIntelSection = document.getElementById('so_detail_intel_section');
+        const soDetailIntelInput = document.getElementById('so_detail_intel');
+        const soDetailIntelLabel = document.getElementById('so_detail_intel_label');
+        const soDetailIntelHint = document.getElementById('so_detail_intel_hint');
 
         if (soIntel) {
             soIntel.addEventListener('change', function () {
-                const soType = this.value;
-                if (soType) {
-                    populateVersions('so_version_intel', soVersions[soType], 'so_version_intel_section');
-                } else {
-                    document.getElementById('so_version_intel_section').classList.add('hidden');
-                    document.getElementById('so_version_intel').required = false;
+                const soValue = this.value;
+
+                // Resetear
+                soDetailIntelSection.classList.add('hidden');
+                soDetailIntelInput.required = false;
+                soDetailIntelInput.value = '';
+
+                // Mostrar campo adicional según el SO seleccionado
+                if (soValue === 'linux') {
+                    soDetailIntelLabel.innerHTML = 'Kernel <span class="required">*</span>';
+                    soDetailIntelInput.placeholder = 'Ejemplo: 5.4.0-42-generic';
+                    soDetailIntelHint.textContent = 'Especifique el kernel exacto';
+                    soDetailIntelSection.classList.remove('hidden');
+                    soDetailIntelInput.required = true;
+                } else if (soValue.startsWith('esxi_')) {
+                    soDetailIntelLabel.innerHTML = 'Build y Versión <span class="required">*</span>';
+                    soDetailIntelInput.placeholder = 'Ejemplo: Build 12345678, Version 7.0 U3';
+                    soDetailIntelHint.textContent = 'Especifique el build y versión exacta de ESXi';
+                    soDetailIntelSection.classList.remove('hidden');
+                    soDetailIntelInput.required = true;
                 }
             });
         }
 
+        // Lógica para SO - SUPERMICRO
+        const soSupermicro = document.getElementById('so_supermicro');
+        const soDetailSupermicroSection = document.getElementById('so_detail_supermicro_section');
+        const soDetailSupermicroInput = document.getElementById('so_detail_supermicro');
+        const soDetailSupermicroLabel = document.getElementById('so_detail_supermicro_label');
+        const soDetailSupermicroHint = document.getElementById('so_detail_supermicro_hint');
+
+        if (soSupermicro) {
+            soSupermicro.addEventListener('change', function () {
+                const soValue = this.value;
+
+                // Resetear
+                soDetailSupermicroSection.classList.add('hidden');
+                soDetailSupermicroInput.required = false;
+                soDetailSupermicroInput.value = '';
+
+                // Mostrar campo adicional según el SO seleccionado
+                if (soValue === 'linux') {
+                    soDetailSupermicroLabel.innerHTML = 'Kernel <span class="required">*</span>';
+                    soDetailSupermicroInput.placeholder = 'Ejemplo: 5.4.0-42-generic';
+                    soDetailSupermicroHint.textContent = 'Especifique el kernel exacto';
+                    soDetailSupermicroSection.classList.remove('hidden');
+                    soDetailSupermicroInput.required = true;
+                } else if (soValue.startsWith('esxi_')) {
+                    soDetailSupermicroLabel.innerHTML = 'Build y Versión <span class="required">*</span>';
+                    soDetailSupermicroInput.placeholder = 'Ejemplo: Build 12345678, Version 7.0 U3';
+                    soDetailSupermicroHint.textContent = 'Especifique el build y versión exacta de ESXi';
+                    soDetailSupermicroSection.classList.remove('hidden');
+                    soDetailSupermicroInput.required = true;
+                }
+            });
+        }
+
+        // Lógica para APLICATIVOS - INTEL (solo mostrar campo de versión)
+        const aplicativoIntel = document.getElementById('aplicativo_intel');
         if (aplicativoIntel) {
             aplicativoIntel.addEventListener('change', function () {
                 const appType = this.value;
+                const versionSection = document.getElementById('aplicativo_version_intel_section');
+                const versionInput = document.getElementById('aplicativo_version_intel');
+
                 if (appType) {
-                    populateVersions('aplicativo_version_intel', aplicativoVersions[appType], 'aplicativo_version_intel_section');
+                    versionSection.classList.remove('hidden');
+                    versionInput.required = true;
                 } else {
-                    document.getElementById('aplicativo_version_intel_section').classList.add('hidden');
-                    document.getElementById('aplicativo_version_intel').required = false;
+                    versionSection.classList.add('hidden');
+                    versionInput.required = false;
+                    versionInput.value = '';
+                }
+            });
+        }
+
+        // Lógica para APLICATIVOS - SUPERMICRO (solo mostrar campo de versión)
+        const aplicativoSupermicro = document.getElementById('aplicativo_supermicro');
+        if (aplicativoSupermicro) {
+            aplicativoSupermicro.addEventListener('change', function () {
+                const appType = this.value;
+                const versionSection = document.getElementById('aplicativo_version_supermicro_section');
+                const versionInput = document.getElementById('aplicativo_version_supermicro');
+
+                if (appType) {
+                    versionSection.classList.remove('hidden');
+                    versionInput.required = true;
+                } else {
+                    versionSection.classList.add('hidden');
+                    versionInput.required = false;
+                    versionInput.value = '';
                 }
             });
         }
