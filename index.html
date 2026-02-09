@@ -2259,8 +2259,28 @@
 
                 // NUEVO: Agregar SO y Aplicativos al ticket
                 if (so) {
-                    const soLabel = so === 'windows' ? 'Windows' : so === 'linux' ? 'Linux' : so === 'esxi' ? 'VMware ESXi' : 'Otro';
-                    techRows.push({ label: ' Sistema Operativo:', value: `${soLabel} - ${soVersion}` });
+                    const soLabels = {
+                        'windows_server_2012': 'Windows Server 2012',
+                        'windows_server_2016': 'Windows Server 2016',
+                        'windows_server_2019': 'Windows Server 2019',
+                        'windows_server_2022': 'Windows Server 2022',
+                        'windows_server_2025': 'Windows Server 2025',
+                        'oracle_linux_7x': 'Oracle Linux 7.x',
+                        'oracle_linux_8x': 'Oracle Linux 8.x',
+                        'oracle_linux_9x': 'Oracle Linux 9.x',
+                        'linux': 'Linux (Otro)',
+                        'esxi_6x': 'VMware ESXi 6.x',
+                        'esxi_7x': 'VMware ESXi 7.x',
+                        'esxi_8x': 'VMware ESXi 8.x',
+                        'esxi_9x': 'VMware ESXi 9.x',
+                        'otro': 'Otro'
+                    };
+
+                    let soDisplay = soLabels[so] || so;
+                    if (soDetail) {
+                        soDisplay += ` - ${soDetail}`;
+                    }
+                    techRows.push({ label: 'Sistema Operativo:', value: soDisplay });
                 }
                 if (aplicativo && aplicativoVersion) {
                     techRows.push({ label: 'Aplicativo:', value: `${aplicativo} - ${aplicativoVersion}` });
