@@ -1702,7 +1702,6 @@
                 <!-- AWLC VMWARE FORM -->
                 <div id="form-awlc-vmware" class="form-section hidden">
 
-
                     <div class="form-fields">
                         <div class="form-section">
                             <label class="form-label">
@@ -1751,6 +1750,69 @@
                                 <option value="España">España</option>
                                 <option value="Otro">Otro</option>
                             </select>
+                        </div>
+
+                        <!-- ══════════════════════════════════════════════════════════ -->
+                        <!-- NUEVO: VERSIÓN DE VCENTER - DROPDOWN -->
+                        <!-- ══════════════════════════════════════════════════════════ -->
+                        <div class="form-section">
+                            <label class="form-label">
+                                Versión de vCenter
+                                <span class="required">*</span>
+                                <span class="help-icon" onclick="openHelpModal('helpModalVCenter')"
+                                    title="¿Cómo obtener la versión de vCenter?">?</span>
+                            </label>
+                            <select class="form-select" name="vcenter_version_vmware" required>
+                                <option value="">-- Seleccione versión de vCenter --</option>
+                                <option value="vCenter 8.0 U3">vCenter 8.0 U3 (Build 24022515)</option>
+                                <option value="vCenter 8.0 U2">vCenter 8.0 U2 (Build 23319993)</option>
+                                <option value="vCenter 8.0 U1">vCenter 8.0 U1 (Build 22088981)</option>
+                                <option value="vCenter 8.0">vCenter 8.0 (Build 21560480)</option>
+                                <option value="vCenter 7.0 U3">vCenter 7.0 U3 (Build 21930507)</option>
+                                <option value="vCenter 7.0 U2">vCenter 7.0 U2 (Build 18455184)</option>
+                                <option value="vCenter 7.0 U1">vCenter 7.0 U1 (Build 17491101)</option>
+                                <option value="vCenter 7.0">vCenter 7.0 (Build 17004997)</option>
+                                <option value="vCenter 6.7 U3">vCenter 6.7 U3 (Build 19234570)</option>
+                                <option value="vCenter 6.7 U2">vCenter 6.7 U2 (Build 13644319)</option>
+                                <option value="vCenter 6.7 U1">vCenter 6.7 U1 (Build 10244745)</option>
+                                <option value="vCenter 6.7">vCenter 6.7 (Build 8217866)</option>
+                                <option value="vCenter 6.5 U3">vCenter 6.5 U3 (Build 13639322)</option>
+                                <option value="vCenter 6.5 U2">vCenter 6.5 U2 (Build 8815520)</option>
+                                <option value="Otro">Otro</option>
+                            </select>
+                            <div class="field-hint">Seleccione la versión de vCenter Server instalada</div>
+                        </div>
+
+                        <!-- ══════════════════════════════════════════════════════════ -->
+                        <!-- NUEVO: VERSIÓN DE ESXi - DROPDOWN -->
+                        <!-- ══════════════════════════════════════════════════════════ -->
+                        <div class="form-section">
+                            <label class="form-label">
+                                Versión de ESXi
+                                <span class="required">*</span>
+                                <span class="help-icon" onclick="openHelpModal('helpModalESXi')"
+                                    title="¿Cómo obtener la versión de ESXi?">?</span>
+                            </label>
+                            <select class="form-select" name="esxi_version_vmware" required>
+                                <option value="">-- Seleccione versión de ESXi --</option>
+                                <option value="ESXi 8.0 U3">ESXi 8.0 U3 (Build 23794027)</option>
+                                <option value="ESXi 8.0 U2">ESXi 8.0 U2 (Build 22380479)</option>
+                                <option value="ESXi 8.0 U1">ESXi 8.0 U1 (Build 21495797)</option>
+                                <option value="ESXi 8.0">ESXi 8.0 (Build 20842708)</option>
+                                <option value="ESXi 7.0 U3">ESXi 7.0 U3 (Build 21424296)</option>
+                                <option value="ESXi 7.0 U2">ESXi 7.0 U2 (Build 18538813)</option>
+                                <option value="ESXi 7.0 U1">ESXi 7.0 U1 (Build 17551050)</option>
+                                <option value="ESXi 7.0">ESXi 7.0 (Build 16324942)</option>
+                                <option value="ESXi 6.7 U3">ESXi 6.7 U3 (Build 19193900)</option>
+                                <option value="ESXi 6.7 U2">ESXi 6.7 U2 (Build 13644319)</option>
+                                <option value="ESXi 6.7 U1">ESXi 6.7 U1 (Build 10302608)</option>
+                                <option value="ESXi 6.7">ESXi 6.7 (Build 8169922)</option>
+                                <option value="ESXi 6.5 U3">ESXi 6.5 U3 (Build 13635690)</option>
+                                <option value="ESXi 6.5 U2">ESXi 6.5 U2 (Build 8294253)</option>
+                                <option value="ESXi 6.5 U1">ESXi 6.5 U1 (Build 5969303)</option>
+                                <option value="Otro">Otro</option>
+                            </select>
+                            <div class="field-hint">Seleccione la versión de ESXi instalada en el host</div>
                         </div>
 
                         <div class="form-section">
@@ -2130,7 +2192,11 @@
                 <div class="help-section">
                     <h4> En Intel / SuperMicro</h4>
                     <p>El serial number suele estar ubicado en:</p>
-                    <ul><li><strong>Puede encontrar mas información acerca de los seriales de los equipos SuperMicro puede visitar el siguiente enlace: <a>https://www.supermicro.com/es/support/rma/sn</a></strong></li>
+                    <ul>
+                        <li><strong>Puede encontrar mas información acerca de los seriales de los equipos SuperMicro
+                                puede visitar el siguiente enlace: <a
+                                    href="https://www.supermicro.com/es/support/rma/sn">https://www.supermicro.com/es/support/rma/sn</a></a></strong>
+                        </li>
                         <li><strong>Etiqueta física:</strong> En la parte frontal o posterior del servidor</li>
                         <li><strong>BIOS/UEFI:</strong> Al encender, presiona F2 o DEL para entrar al BIOS</li>
                         <li><strong>Desde el Sistema Operativo:</strong></li>
@@ -2787,6 +2853,17 @@
 
                 const techRows = [{ label: ' Plataforma:', value: subType.toUpperCase() }];
                 if (supportId) techRows.push({ label: ' Support ID:', value: supportId });
+
+                // ══════════════════════════════════════════════════════════
+                // NUEVO: Capturar versiones de vCenter y ESXi para VMware
+                // ══════════════════════════════════════════════════════════
+                if (subType === 'vmware') {
+                    const vcenterVersion = document.querySelector('[name="vcenter_version_vmware"]')?.value || '';
+                    const esxiVersion = document.querySelector('[name="esxi_version_vmware"]')?.value || '';
+
+                    if (vcenterVersion) techRows.push({ label: ' Versión vCenter:', value: vcenterVersion });
+                    if (esxiVersion) techRows.push({ label: ' Versión ESXi:', value: esxiVersion });
+                }
 
                 const sections = [
                     createSection(' INFORMACIÓN DEL SOLICITANTE', '#1E6FCC', [
