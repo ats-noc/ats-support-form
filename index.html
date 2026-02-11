@@ -1752,9 +1752,7 @@
                             </select>
                         </div>
 
-                        <!-- ══════════════════════════════════════════════════════════ -->
-                        <!-- VERSIÓN DE VCENTER - DROPDOWN -->
-                        <!-- ══════════════════════════════════════════════════════════ -->
+                        <!-- VERSIÓN DE VCENTER -->
                         <div class="form-section">
                             <label class="form-label">
                                 Versión de vCenter
@@ -1783,9 +1781,7 @@
                             <div class="field-hint">Seleccione la versión de vCenter Server instalada</div>
                         </div>
 
-                        <!-- ══════════════════════════════════════════════════════════ -->
-                        <!-- VERSIÓN DE ESXi - DROPDOWN -->
-                        <!-- ══════════════════════════════════════════════════════════ -->
+                        <!-- VERSIÓN DE ESXi -->
                         <div class="form-section">
                             <label class="form-label">
                                 Versión de ESXi
@@ -1815,9 +1811,7 @@
                             <div class="field-hint">Seleccione la versión de ESXi instalada en el host</div>
                         </div>
 
-                        <!-- ══════════════════════════════════════════════════════════ -->
-                        <!-- PRODUCTO VMWARE ADICIONAL - DROPDOWN (OPCIONAL) -->
-                        <!-- ══════════════════════════════════════════════════════════ -->
+                        <!-- PRODUCTO VMWARE ADICIONAL -->
                         <div class="form-section">
                             <label class="form-label">
                                 Producto VMware Adicional
@@ -1867,9 +1861,7 @@
                                 etc.), selecciónelo aquí</div>
                         </div>
 
-                        <!-- ══════════════════════════════════════════════════════════ -->
-                        <!-- VERSIÓN DEL PRODUCTO ADICIONAL - TEXTO LIBRE -->
-                        <!-- ══════════════════════════════════════════════════════════ -->
+                        <!-- VERSIÓN DEL PRODUCTO ADICIONAL -->
                         <div class="form-section hidden" id="producto_version_section_vmware">
                             <label class="form-label">
                                 Versión del Producto Adicional
@@ -1878,19 +1870,6 @@
                             <input type="text" class="form-input" name="producto_version_vmware"
                                 placeholder="Ejemplo: NSX 4.1.2, vSAN 8.0 U2, DRS 7.0">
                             <div class="field-hint">Ingrese la versión del producto adicional seleccionado</div>
-                        </div>
-
-                        <!-- ══════════════════════════════════════════════════════════ -->
-                        <!-- BUILD DEL PRODUCTO ADICIONAL - TEXTO LIBRE -->
-                        <!-- ══════════════════════════════════════════════════════════ -->
-                        <div class="form-section hidden" id="producto_build_section_vmware">
-                            <label class="form-label">
-                                Build del Producto Adicional
-                                <span class="optional">(Optional)</span>
-                            </label>
-                            <input type="text" class="form-input" name="producto_build_vmware"
-                                placeholder="Ejemplo: 23794027">
-                            <div class="field-hint">Ingrese el build del producto adicional si está disponible</div>
                         </div>
 
                         <div class="form-section">
@@ -2938,20 +2917,15 @@
                     const esxiVersion = document.querySelector('[name="esxi_version_vmware"]')?.value || '';
                     const productoAdicional = document.querySelector('[name="producto_vmware"]')?.value || '';
                     const productoVersion = document.querySelector('[name="producto_version_vmware"]')?.value || '';
-                    const productoBuild = document.querySelector('[name="producto_build_vmware"]')?.value || '';
 
                     if (vcenterVersion) techRows.push({ label: 'Versión vCenter:', value: vcenterVersion });
                     if (esxiVersion) techRows.push({ label: 'Versión ESXi:', value: esxiVersion });
 
-                    // Producto adicional con versión y build
+                    // Producto adicional con versión
                     if (productoAdicional) {
                         let productoInfo = productoAdicional;
-                        if (productoVersion && productoBuild) {
-                            productoInfo += ` - ${productoVersion} (Build ${productoBuild})`;
-                        } else if (productoVersion) {
+                        if (productoVersion) {
                             productoInfo += ` - ${productoVersion}`;
-                        } else if (productoBuild) {
-                            productoInfo += ` - Build ${productoBuild}`;
                         }
                         techRows.push({ label: 'Producto Adicional:', value: productoInfo });
                     }
@@ -2974,7 +2948,6 @@
                 ];
                 formattedData = createHTMLTemplate(`Adistec White Label Cloud - ${subType.toUpperCase()}`, sections);
             }
-
             // LABS
             else if (serviceType === 'labs') {
                 const data = getCommonData('labs');
@@ -3276,24 +3249,19 @@
         });
 
         // ═══════════════════════════════════════════════════════════
-        // AWLC VMWARE: Mostrar campos de versión/build solo si se selecciona producto
+        // AWLC VMWARE: Mostrar campo de versión solo si se selecciona producto
         // ═══════════════════════════════════════════════════════════
 
         const productoVmwareSelect = document.querySelector('[name="producto_vmware"]');
         if (productoVmwareSelect) {
             productoVmwareSelect.addEventListener('change', function () {
                 const versionSection = document.getElementById('producto_version_section_vmware');
-                const buildSection = document.getElementById('producto_build_section_vmware');
 
                 if (this.value && this.value !== '') {
                     versionSection.classList.remove('hidden');
-                    buildSection.classList.remove('hidden');
                 } else {
                     versionSection.classList.add('hidden');
-                    buildSection.classList.add('hidden');
-                    // Limpiar valores
                     document.querySelector('[name="producto_version_vmware"]').value = '';
-                    document.querySelector('[name="producto_build_vmware"]').value = '';
                 }
             });
         }
