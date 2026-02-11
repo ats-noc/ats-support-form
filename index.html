@@ -2932,45 +2932,30 @@
 
                 const techRows = [{ label: 'Plataforma:', value: subType.toUpperCase() }];
 
-                // Para VMware: Capturar Producto, Versión y Build
+                // Para VMware: Capturar vCenter, ESXi y Producto Adicional
                 if (subType === 'vmware') {
-                    const producto = document.querySelector('[name="producto_vmware"]')?.value || '';
-                    const version = document.querySelector('[name="version_vmware"]')?.value || '';
-                    const build = document.querySelector('[name="build_vmware"]')?.value || '';
+                    const vcenterVersion = document.querySelector('[name="vcenter_version_vmware"]')?.value || '';
+                    const esxiVersion = document.querySelector('[name="esxi_version_vmware"]')?.value || '';
+                    const productoAdicional = document.querySelector('[name="producto_vmware"]')?.value || '';
+                    const productoVersion = document.querySelector('[name="producto_version_vmware"]')?.value || '';
+                    const productoBuild = document.querySelector('[name="producto_build_vmware"]')?.value || '';
 
-                    if (producto) techRows.push({ label: 'Producto:', value: producto });
-                    if (version && build) {
-                        techRows.push({ label: 'Versión:', value: `${version} (Build ${build})` });
-                    } else if (version) {
-                        techRows.push({ label: 'Versión:', value: version });
-                    } else if (build) {
-                        techRows.push({ label: 'Build:', value: build });
+                    if (vcenterVersion) techRows.push({ label: 'Versión vCenter:', value: vcenterVersion });
+                    if (esxiVersion) techRows.push({ label: 'Versión ESXi:', value: esxiVersion });
+
+                    // Producto adicional con versión y build
+                    if (productoAdicional) {
+                        let productoInfo = productoAdicional;
+                        if (productoVersion && productoBuild) {
+                            productoInfo += ` - ${productoVersion} (Build ${productoBuild})`;
+                        } else if (productoVersion) {
+                            productoInfo += ` - ${productoVersion}`;
+                        } else if (productoBuild) {
+                            productoInfo += ` - Build ${productoBuild}`;
+                        }
+                        techRows.push({ label: 'Producto Adicional:', value: productoInfo });
                     }
                 }
-
-                // ═══════════════════════════════════════════════════════════
-                // AWLC VMWARE: Mostrar campos de versión/build solo si se selecciona producto
-                // ═══════════════════════════════════════════════════════════
-
-                const productoVmwareSelect = document.querySelector('[name="producto_vmware"]');
-                if (productoVmwareSelect) {
-                    productoVmwareSelect.addEventListener('change', function () {
-                        const versionSection = document.getElementById('producto_version_section_vmware');
-                        const buildSection = document.getElementById('producto_build_section_vmware');
-
-                        if (this.value && this.value !== '') {
-                            versionSection.classList.remove('hidden');
-                            buildSection.classList.remove('hidden');
-                        } else {
-                            versionSection.classList.add('hidden');
-                            buildSection.classList.add('hidden');
-                            // Limpiar valores
-                            document.querySelector('[name="producto_version_vmware"]').value = '';
-                            document.querySelector('[name="producto_build_vmware"]').value = '';
-                        }
-                    });
-                }
-
                 // Para Veeam: Mantener estructura antigua
                 else if (subType === 'veeam') {
                     const supportId = document.querySelector('[name="soporte_id_veeam"]')?.value || '';
@@ -3289,6 +3274,29 @@
                 });
             }
         });
+
+        // ═══════════════════════════════════════════════════════════
+        // AWLC VMWARE: Mostrar campos de versión/build solo si se selecciona producto
+        // ═══════════════════════════════════════════════════════════
+
+        const productoVmwareSelect = document.querySelector('[name="producto_vmware"]');
+        if (productoVmwareSelect) {
+            productoVmwareSelect.addEventListener('change', function () {
+                const versionSection = document.getElementById('producto_version_section_vmware');
+                const buildSection = document.getElementById('producto_build_section_vmware');
+
+                if (this.value && this.value !== '') {
+                    versionSection.classList.remove('hidden');
+                    buildSection.classList.remove('hidden');
+                } else {
+                    versionSection.classList.add('hidden');
+                    buildSection.classList.add('hidden');
+                    // Limpiar valores
+                    document.querySelector('[name="producto_version_vmware"]').value = '';
+                    document.querySelector('[name="producto_build_vmware"]').value = '';
+                }
+            });
+        }
 
         hideAllForms();
         hideSubSelects();
