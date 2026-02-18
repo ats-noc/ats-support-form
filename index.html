@@ -1947,24 +1947,64 @@
                         Protection Appliance or AEC POD.</p>
 
                     <div class="form-fields">
+                        <!-- Email -->
                         <div class="form-section">
                             <label class="form-label">
-                                Solicitante (Email)
+                                Email
                                 <span class="required">*</span>
                             </label>
-                            <input type="text" class="form-input" name="solicitante_labs"
-                                placeholder="ejemplo@empresa.com" required>
+                            <input type="email" class="form-input" name="email_labs" placeholder="ejemplo@empresa.com"
+                                required>
                         </div>
 
+                        <!-- Nombre Completo -->
                         <div class="form-section">
                             <label class="form-label">
-                                Número Contacto
+                                Nombre Completo
                                 <span class="required">*</span>
                             </label>
-                            <input type="tel" class="form-input" name="numero_contacto_labs"
-                                placeholder="+56 9 1234 5678" required>
+                            <input type="text" class="form-input" name="nombre_completo_labs"
+                                placeholder="Juan Pérez García" required>
                         </div>
 
+                        <!-- Teléfono con prefijo manual -->
+                        <div class="form-section">
+                            <label class="form-label">
+                                Teléfono
+                                <span class="required">*</span>
+                            </label>
+                            <div style="display: flex; gap: 12px;">
+                                <select class="form-select" name="prefijo_labs" id="prefijo_labs" required
+                                    style="width: 140px;">
+                                    <option value="">Prefijo</option>
+                                    <option value="+1">+1 (USA/Canadá)</option>
+                                    <option value="+33">+33 (Francia)</option>
+                                    <option value="+34">+34 (España)</option>
+                                    <option value="+39">+39 (Italia)</option>
+                                    <option value="+44">+44 (Reino Unido)</option>
+                                    <option value="+45">+45 (Dinamarca)</option>
+                                    <option value="+49">+49 (Alemania)</option>
+                                    <option value="+55">+55 (Brasil)</option>
+                                    <option value="+60">+60 (Malaysia)</option>
+                                    <option value="+62">+62 (Indonesia)</option>
+                                    <option value="+65">+65 (Singapur)</option>
+                                    <option value="+66">+66 (Tailandia)</option>
+                                    <option value="+81">+81 (Japón)</option>
+                                    <option value="+91">+91 (India)</option>
+                                    <option value="+213">+213 (Argelia)</option>
+                                    <option value="+358">+358 (Finlandia)</option>
+                                    <option value="+420">+420 (Rep. Checa)</option>
+                                    <option value="+962">+962 (Jordania)</option>
+                                    <option value="+966">+966 (Arabia Saudita)</option>
+                                    <option value="+971">+971 (Dubai/UAE)</option>
+                                </select>
+                                <input type="tel" class="form-input" name="telefono_labs" id="telefono_labs"
+                                    placeholder="612 345 678" required style="flex: 1;">
+                            </div>
+                            <div class="field-hint">Seleccione el prefijo de su número de teléfono</div>
+                        </div>
+
+                        <!-- País -->
                         <div class="form-section">
                             <label class="form-label">
                                 País
@@ -1972,34 +2012,51 @@
                             </label>
                             <select class="form-select" name="pais_labs" required>
                                 <option value="">-- Seleccione un país --</option>
-                                <option value="Argentina">Argentina</option>
-                                <option value="Bolivia">Bolivia</option>
+                                <option value="Alemania">Alemania</option>
+                                <option value="Arabia Saudita">Arabia Saudita</option>
+                                <option value="Argelia">Argelia</option>
                                 <option value="Brasil">Brasil</option>
-                                <option value="Chile">Chile</option>
-                                <option value="Colombia">Colombia</option>
-                                <option value="Costa Rica">Costa Rica</option>
-                                <option value="Ecuador">Ecuador</option>
-                                <option value="El Salvador">El Salvador</option>
-                                <option value="Guatemala">Guatemala</option>
-                                <option value="Honduras">Honduras</option>
-                                <option value="México">México</option>
-                                <option value="Nicaragua">Nicaragua</option>
-                                <option value="Panamá">Panamá</option>
-                                <option value="Paraguay">Paraguay</option>
-                                <option value="Perú">Perú</option>
-                                <option value="República Dominicana">República Dominicana</option>
-                                <option value="Uruguay">Uruguay</option>
-                                <option value="Venezuela">Venezuela</option>
-                                <option value="Estados Unidos">Estados Unidos</option>
+                                <option value="Dinamarca">Dinamarca</option>
+                                <option value="Dubai">Dubai</option>
                                 <option value="España">España</option>
-                                <option value="Otro">Otro</option>
+                                <option value="Estados Unidos">Estados Unidos</option>
+                                <option value="Finlandia">Finlandia</option>
+                                <option value="Francia">Francia</option>
+                                <option value="India">India</option>
+                                <option value="Indonesia">Indonesia</option>
+                                <option value="Italia">Italia</option>
+                                <option value="Japón">Japón</option>
+                                <option value="Jordania">Jordania</option>
+                                <option value="Malaysia">Malaysia</option>
+                                <option value="Reino Unido">Reino Unido</option>
+                                <option value="República Checa">República Checa</option>
+                                <option value="Singapur">Singapur</option>
+                                <option value="Tailandia">Tailandia</option>
                             </select>
                         </div>
 
-                        <!-- Prioridad OCULTA - Siempre Baja por defecto -->
-                        <input type="hidden" name="prioridad_labs" value="Baja">
+                        <!-- Título -->
+                        <div class="form-section">
+                            <label class="form-label">
+                                Título
+                                <span class="required">*</span>
+                            </label>
+                            <input type="text" class="form-input" name="titulo_labs"
+                                placeholder="Resumen breve del problema" required>
+                        </div>
 
-                        <!-- TIPO DE SOLICITANTE -->
+                        <!-- Descripción -->
+                        <div class="form-section">
+                            <label class="form-label">
+                                Descripción
+                                <span class="required">*</span>
+                            </label>
+                            <textarea class="form-textarea" name="descripcion_labs" rows="8"
+                                placeholder="Describa el problema en detalle: qué sucedió, cuándo comenzó, pasos para reproducirlo, etc."
+                                required></textarea>
+                        </div>
+
+                        <!-- Tipo de Solicitante -->
                         <div class="form-section">
                             <label class="form-label">
                                 Tipo de Solicitante
@@ -2012,93 +2069,65 @@
                             </select>
                         </div>
 
-                        <!-- VENDOR - MISMO QUE EDUCATION -->
-                        <div class="form-section">
-                            <label class="form-label">
-                                Vendor
-                                <span class="required">*</span>
-                            </label>
-                            <select class="form-select" name="vendor_labs" required>
-                                <option value="">-- Seleccione un vendor --</option>
-                                <option value="Nutanix">Nutanix</option>
-                                <option value="Veeam">Veeam</option>
-                                <option value="VMware">VMware</option>
-                                <option value="Fortinet">Fortinet</option>
-                                <option value="AWS">AWS</option>
-                                <option value="Veritas">Veritas</option>
-                            </select>
-                        </div>
-
-                        <!-- NOMBRE DEL CURSO -->
+                        <!-- Nombre del Curso -->
                         <div class="form-section">
                             <label class="form-label">
                                 Nombre del Curso
                                 <span class="required">*</span>
                             </label>
                             <input type="text" class="form-input" name="nombre_curso_labs"
-                                placeholder="e.g., VMware vSphere: Install, Configure, Manage [V8]" required>
-                            <div class="field-hint">Ingrese el nombre completo del curso</div>
+                                placeholder="Ej: VMware vSphere: Install, Configure, Manage [V8]" required>
                         </div>
 
-                        <!-- vPOD AFFECTED - REEMPLAZA A "PROBLEM TYPE" -->
+                        <!-- Credenciales -->
                         <div class="form-section">
                             <label class="form-label">
-                                vPod Affected
+                                Credenciales
                                 <span class="required">*</span>
                             </label>
-                            <select class="form-select" id="vpodScope" name="vpod_scope_labs" required>
+                            <textarea class="form-textarea" name="credenciales_labs" rows="4"
+                                placeholder="Proporcione las credenciales de acceso necesarias para replicar el problema (usuario, contraseña, URL, etc.)"
+                                required></textarea>
+                            <div class="field-hint">Las credenciales son necesarias para que el equipo de soporte pueda
+                                acceder y diagnosticar el problema</div>
+                        </div>
+
+                        <!-- PREGUNTA 1: ¿Impide realizar el próximo laboratorio? -->
+                        <div class="form-section">
+                            <label class="form-label">
+                                ¿El problema impide que el alumno pueda realizar el próximo laboratorio?
+                                <span class="required">*</span>
+                            </label>
+                            <select class="form-select" name="impide_laboratorio_labs" required>
                                 <option value="">-- Seleccione una opción --</option>
-                                <option value="one">Un vPod</option>
-                                <option value="multiple">Varios vPods</option>
-                                <option value="all">Todos los vPods</option>
+                                <option value="Si">Sí</option>
+                                <option value="No">No</option>
                             </select>
                         </div>
 
-                        <!-- Campo de texto condicional para vPOD -->
-                        <div class="form-section hidden" id="vpodDetailSection">
-                            <label class="form-label">
-                                <span id="vpodDetailLabel">Nombre del vPod</span>
-                                <span class="required">*</span>
-                            </label>
-                            <input type="text" class="form-input" id="vpodDetailInput" name="vpod_detail_labs"
-                                placeholder="Ingrese el/los vPod(s) afectado(s)">
-                            <div class="field-hint" id="vpodHint">Ejemplo: vsoss8-uxz-01</div>
-                        </div>
-
-                        <!-- CREDENCIALES - SOLO SE MUESTRA SI HAY UN VPOD O VARIOS VPODS -->
-                        <div class="form-section hidden" id="credentialsSection">
-                            <label class="form-label">
-                                Credentials
-                                <span class="optional">(Optional)</span>
-                            </label>
-                            <textarea class="form-textarea" name="credenciales_labs"
-                                placeholder="Username and access credentials needed to replicate the problem..."></textarea>
-                        </div>
-
+                        <!-- PREGUNTA 2: ¿Afecta a uno o todos los alumnos? -->
                         <div class="form-section">
                             <label class="form-label">
-                                Case Subject
+                                ¿El problema afecta a uno o a todos los alumnos?
                                 <span class="required">*</span>
                             </label>
-                            <input type="text" class="form-input" name="case_subject_labs" placeholder="Case subject">
+                            <select class="form-select" name="afecta_alumnos_labs" required>
+                                <option value="">-- Seleccione una opción --</option>
+                                <option value="Solo uno">Solo uno</option>
+                                <option value="Todos los alumnos">Todos los alumnos</option>
+                            </select>
                         </div>
 
+                        <!-- Adjunto (OBLIGATORIO) -->
                         <div class="form-section">
                             <label class="form-label">
-                                Case Description
+                                Adjunto (Screenshots de códigos de error)
                                 <span class="required">*</span>
                             </label>
-                            <textarea class="form-textarea" name="case_description_labs"
-                                placeholder="Detailed description of the problem..."></textarea>
-                        </div>
-
-                        <div class="file-upload-section">
-                            <label class="form-label">
-                                📎 Attach Files
-                                <span class="optional">(Optional)</span>
-                            </label>
-                            <input type="file" class="form-file" name="attachments_labs" multiple>
-                            <div class="field-hint">Screenshots, logs, configurations, or other relevant documents</div>
+                            <input type="file" class="form-file" name="attachments_labs" id="labs-file-input"
+                                accept=".pdf,.png,.jpg,.jpeg,.zip,.log" multiple required>
+                            <div class="field-hint">OBLIGATORIO: Adjunte screenshots que reflejen códigos de error
+                                relacionados al problema con labs</div>
                         </div>
                     </div>
                 </div>
@@ -2950,39 +2979,51 @@
             }
             // LABS
             else if (serviceType === 'labs') {
-                const data = getCommonData('labs');
-                const vpodScope = document.getElementById('vpodScope')?.value || '';
-                const vpodDetail = document.getElementById('vpodDetailInput')?.value || '';
+                const email = document.querySelector('[name="email_labs"]')?.value || '';
+                const nombreCompleto = document.querySelector('[name="nombre_completo_labs"]')?.value || '';
+                const telefono = document.querySelector('[name="telefono_labs"]')?.value || '';
+                const pais = document.querySelector('[name="pais_labs"]')?.value || '';
+                const titulo = document.querySelector('[name="titulo_labs"]')?.value || '';
+                const descripcion = document.querySelector('[name="descripcion_labs"]')?.value || '';
                 const tipoSolicitante = document.querySelector('[name="tipo_solicitante_labs"]')?.value || '';
-                const vendor = document.querySelector('[name="vendor_labs"]')?.value || '';
                 const nombreCurso = document.querySelector('[name="nombre_curso_labs"]')?.value || '';
+                const credenciales = document.querySelector('[name="credenciales_labs"]')?.value || '';
+                const impedeLaboratorio = document.querySelector('[name="impide_laboratorio_labs"]')?.value || '';
+                const afectaAlumnos = document.querySelector('[name="afecta_alumnos_labs"]')?.value || '';
 
-                let vpodInfo = 'No especificado';
-                if (vpodScope === 'all') vpodInfo = ' Todos los vPods';
-                else if (vpodScope === 'one' && vpodDetail) vpodInfo = ` ${vpodDetail}`;
-                else if (vpodScope === 'multiple' && vpodDetail) vpodInfo = ` Múltiples: ${vpodDetail}`;
-
-                subject = '[ LABS ] - ' + data.caseSubject;
+                subject = '[ LABS ] - ' + titulo;
 
                 const sections = [
-                    createSection(' INFORMACIÓN DEL SOLICITANTE', '#1E6FCC', [
-                        { label: ' Email:', value: data.solicitante },
-                        { label: ' Teléfono:', value: data.telefono },
-                        { label: ' País:', value: data.pais },
-                        { label: ' Tipo:', value: tipoSolicitante }
+                    createSection('INFORMACIÓN DEL SOLICITANTE', '#1E6FCC', [
+                        { label: 'Email:', value: email },
+                        { label: 'Nombre Completo:', value: nombreCompleto },
+                        { label: 'Teléfono:', value: telefono },
+                        { label: 'País:', value: pais },
+                        { label: 'Tipo:', value: tipoSolicitante }
                     ]),
-                    createSection(' INFORMACIÓN DEL CURSO', '#9B59B6', [
-                        { label: ' Vendor:', value: vendor },
-                        { label: ' Nombre del Curso:', value: nombreCurso }
+                    createSection('INFORMACIÓN DEL CURSO', '#9B59B6', [
+                        { label: 'Nombre del Curso:', value: nombreCurso }
                     ]),
-                    createSection(' INFORMACIÓN DEL LABORATORIO', '#4A90E2', [
-                        { label: ' vPod Afectado:', value: vpodInfo }
+                    createSection('EVALUACIÓN DEL PROBLEMA', '#E67E22', [
+                        { label: '¿Impide realizar próximo laboratorio?:', value: impedeLaboratorio },
+                        { label: '¿Afecta a cuántos alumnos?:', value: afectaAlumnos }
                     ]),
-                    createDescriptionSection(data.description)
+                    createSection('CREDENCIALES DE ACCESO', '#27AE60', [
+                        { label: 'Credenciales:', value: credenciales }
+                    ]),
+                    createDescriptionSection(descripcion)
                 ];
                 formattedData = createHTMLTemplate('Adistec Labs', sections);
-            }
 
+                return {
+                    subject: subject,
+                    description: formattedData,
+                    email: email,
+                    priority: 2, // Prioridad Media por defecto
+                    group_id: null,
+                    custom_fields: {}
+                };
+            }
             // EDUCATION
             else if (serviceType === 'education') {
                 const data = getCommonData('education');
